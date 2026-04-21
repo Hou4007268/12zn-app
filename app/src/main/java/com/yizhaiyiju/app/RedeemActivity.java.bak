@@ -179,7 +179,7 @@ public class RedeemActivity extends d.s {
     }
 
     private void refreshRights() {
-        ApiHelper.apiGet("app/rights?user_id=" + ApiHelper.getUserId(), new ApiHelper.Callback<Object>() {
+        ApiHelper.apiGet("app/rights", new ApiHelper.Callback<Object>() {
             @Override public void onSuccess(Object obj) {
                 try {
                     org.json.JSONObject json = (org.json.JSONObject) obj;

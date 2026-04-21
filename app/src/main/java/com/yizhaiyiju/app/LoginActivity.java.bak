@@ -51,7 +51,7 @@ public class LoginActivity extends d.s {
 
                 @Override // com.yizhaiyiju.app.ApiHelper.Callback
                 public void onSuccess(ApiHelper.LoginResult loginResult) {
-                    ApiHelper.saveAuth(LoginActivity.this, loginResult.token, loginResult.userId, loginResult.phone, loginResult.memberType, loginResult.memberExpires);
+                    ApiHelper.saveAuth(LoginActivity.this, loginResult.token, loginResult.userId, loginResult.phone, loginResult.memberType);
                     Toast.makeText(LoginActivity.this, "登录成功！", 0).show();
                     LoginActivity.this.finish();
                 }
@@ -73,7 +73,7 @@ public class LoginActivity extends d.s {
 
                 @Override // com.yizhaiyiju.app.ApiHelper.Callback
                 public void onSuccess(ApiHelper.LoginResult loginResult) {
-                    ApiHelper.saveAuth(LoginActivity.this, loginResult.token, loginResult.userId, loginResult.phone, loginResult.memberType, loginResult.memberExpires);
+                    ApiHelper.saveAuth(LoginActivity.this, loginResult.token, loginResult.userId, loginResult.phone, loginResult.memberType);
                     String trim4 = LoginActivity.this.etEmail.getText().toString().trim();
                     if (!trim4.isEmpty()) {
                         LoginActivity.this.getSharedPreferences("user", 0).edit().putString("email", trim4).apply();
@@ -113,7 +113,7 @@ public class LoginActivity extends d.s {
 
                 @Override // com.yizhaiyiju.app.ApiHelper.Callback
                 public void onSuccess(ApiHelper.LoginResult loginResult) {
-                    ApiHelper.saveAuth(LoginActivity.this, loginResult.token, loginResult.userId, loginResult.phone, loginResult.memberType, loginResult.memberExpires);
+                    ApiHelper.saveAuth(LoginActivity.this, loginResult.token, loginResult.userId, loginResult.phone, loginResult.memberType);
                     String trim4 = LoginActivity.this.etEmail.getText().toString().trim();
                     if (!trim4.isEmpty()) {
                         LoginActivity.this.getSharedPreferences("user", 0).edit().putString("email", trim4).apply();
