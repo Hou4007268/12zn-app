@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.yizhaiyiju.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.yizhaiyiju.app"
+        minSdk 24
+        targetSdk 34
+        versionCode 80
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        full {
+            dimension "version"
+            applicationId "com.yizhaiyiju.app"
+            buildConfigField "boolean", "FULL_VERSION", "true"
+            versionNameSuffix ""
+        }
+        lite {
+            dimension "version"
+            applicationId "com.yizhaiyiju.app.lite"
+            buildConfigField "boolean", "FULL_VERSION", "false"
+            versionNameSuffix "-lite"
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("/home/ubuntu/yizhaiyiju.keystore")
+            storePassword "yizhaiyiju2026"
+            keyAlias "yizhaiyiju"
+            keyPassword "yizhaiyiju2026"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.fragment:fragment:1.6.2'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'androidx.security:security-crypto:1.1.0-alpha06'
+    implementation 'androidx.webkit:webkit:1.9.0'
+}
