@@ -697,7 +697,7 @@ public class DirectChatActivity extends d.s {
         ((ImageButton) findViewById(R.id.btn_back)).setOnClickListener(new v(this, 0));
         this.adapter = new ChatAdapter();
         int i4 = 1;
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(1);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.b1(true);
         this.rvMessages.setLayoutManager(linearLayoutManager);
         this.rvMessages.setAdapter(this.adapter);

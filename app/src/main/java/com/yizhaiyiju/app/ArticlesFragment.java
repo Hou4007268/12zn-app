@@ -121,7 +121,7 @@ public class ArticlesFragment extends Fragment {
         view.findViewById(R.id.btn_back).setOnClickListener(new i(1, this));
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_articles);
         getContext();
-        recyclerView.setLayoutManager(new LinearLayoutManager(1));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ArticleAdapter articleAdapter = new ArticleAdapter(this.articles);
         this.adapter = articleAdapter;
         recyclerView.setAdapter(articleAdapter);

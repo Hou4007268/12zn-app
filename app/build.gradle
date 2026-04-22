@@ -50,7 +50,7 @@ android {
 
     buildFeatures {
         buildConfig true
-        viewBinding true
+        viewBinding false
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17

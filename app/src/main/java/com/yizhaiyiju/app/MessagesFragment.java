@@ -59,29 +59,7 @@ public class MessagesFragment extends Fragment {
                 }
                 if (MessagesFragment.this.sessions.isEmpty()) {
                     MessagesFragment.this.showEmpty();
-                    MessagesFragment.this.layoutEmpty.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.m0
-
-                        /* renamed from: f, reason: collision with root package name */
-                        public final /* synthetic */ MessagesFragment.AnonymousClass1 f2357f;
-
-                        {
-                            this.f2357f = MessagesFragment.this;
-                        }
-
-                        @Override // android.view.View.OnClickListener
-                        public final void onClick(View view) {
-                            int i6 = i4;
-                            MessagesFragment.AnonymousClass1 anonymousClass1 = this.f2357f;
-                            switch (i6) {
-                                case 0:
-                                    anonymousClass1.lambda$onSuccess$0(view);
-                                    break;
-                                default:
-                                    anonymousClass1.lambda$onSuccess$1(view);
-                                    break;
-                            }
-                        }
-                    });
+            MessagesFragment.this.layoutEmpty.setOnClickListener(view -> lambda$onSuccess$0(view));
                 } else {
                     MessagesFragment.this.rvSessions.setVisibility(0);
                     MessagesFragment.this.layoutEmpty.setVisibility(8);
@@ -90,29 +68,7 @@ public class MessagesFragment extends Fragment {
             } catch (Exception unused) {
                 MessagesFragment.this.showEmpty();
                 final int i6 = 1;
-                MessagesFragment.this.layoutEmpty.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.m0
-
-                    /* renamed from: f, reason: collision with root package name */
-                    public final /* synthetic */ MessagesFragment.AnonymousClass1 f2357f;
-
-                    {
-                        this.f2357f = MessagesFragment.this;
-                    }
-
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view) {
-                        int i62 = i6;
-                        MessagesFragment.AnonymousClass1 anonymousClass1 = this.f2357f;
-                        switch (i62) {
-                            case 0:
-                                anonymousClass1.lambda$onSuccess$0(view);
-                                break;
-                            default:
-                                anonymousClass1.lambda$onSuccess$1(view);
-                                break;
-                        }
-                    }
-                });
+                MessagesFragment.this.layoutEmpty.setOnClickListener(view -> lambda$onSuccess$1(view));
             }
         }
 
@@ -247,7 +203,7 @@ public class MessagesFragment extends Fragment {
         this.adapter = new SessionAdapter();
         RecyclerView recyclerView = this.rvSessions;
         getContext();
-        recyclerView.setLayoutManager(new LinearLayoutManager(1));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         this.rvSessions.setAdapter(this.adapter);
         loadSessions();
         return inflate;

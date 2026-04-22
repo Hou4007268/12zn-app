@@ -105,7 +105,7 @@ public class TestListFragment extends Fragment {
         view.findViewById(R.id.btn_back).setOnClickListener(new i(6, this));
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_tests);
         getContext();
-        recyclerView.setLayoutManager(new LinearLayoutManager(1));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new TestAdapter(TestData.getAllTests()));
     }
 }

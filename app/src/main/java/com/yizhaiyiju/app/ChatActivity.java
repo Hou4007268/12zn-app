@@ -303,7 +303,7 @@ public class ChatActivity extends d.s {
             });
         }
         this.adapter = new MessageAdapter(this.messages);
-        this.rvMessages.setLayoutManager(new LinearLayoutManager(1));
+        this.rvMessages.setLayoutManager(new LinearLayoutManager(this));
         this.rvMessages.setAdapter(this.adapter);
         checkAutoClear();
         loadMessages();

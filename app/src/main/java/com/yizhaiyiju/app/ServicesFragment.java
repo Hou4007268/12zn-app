@@ -108,7 +108,7 @@ public class ServicesFragment extends Fragment {
         super.onViewCreated(view, bundle);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_services);
         getContext();
-        recyclerView.setLayoutManager(new LinearLayoutManager(1));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new ServiceAdapter(getServices()));
     }
 }

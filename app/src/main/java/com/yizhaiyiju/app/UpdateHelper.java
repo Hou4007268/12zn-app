@@ -50,6 +50,14 @@ public class UpdateHelper {
         new Thread(() -> doCheckImpl(context, isManual)).start();
     }
 
+    static void lambda$doCheck$1(Context context) {
+        doCheckImpl(context, false);
+    }
+
+    static void lambda$doCheck$2(Context context) {
+        doCheckImpl(context, true);
+    }
+
     private static void doCheckImpl(Context context, boolean isManual) {
         try {
             Request request = new Request.Builder()
