@@ -33,6 +33,8 @@ public class ChatActivity extends d.s {
     private List<ChatMessage> messages = new ArrayList();
     private SharedPreferences prefs;
     private RecyclerView rvMessages;
+    private boolean isSending = false;
+    private ImageButton btnSend;
 
     public static class ChatMessage {
         boolean isUser;
@@ -185,19 +187,33 @@ public class ChatActivity extends d.s {
 
     private void sendMessage() {
         String trim = this.etMessage.getText().toString().trim();
-        if (TextUtils.isEmpty(trim)) {
+        if (TextUtils.isEmpty(trim) || this.isSending) {
             return;
         }
+        this.isSending = true;
+        this.btnSend.setEnabled(false);
         addMessage(trim, true);
         this.etMessage.setText("");
-        ApiHelper.chat(trim, null, new ApiHelper.Callback<String>() { // from class: com.yizhaiyiju.app.ChatActivity.1
+        doChatRequest(trim, 0);
+    }
+
+    private void doChatRequest(String question, final int retryCount) {
+        ApiHelper.chat(question, null, new ApiHelper.Callback<String>() {
             @Override // com.yizhaiyiju.app.ApiHelper.Callback
             public void onError(String str) {
+                if (retryCount < 1) {
+                    doChatRequest(question, retryCount + 1);
+                    return;
+                }
+                ChatActivity.this.isSending = false;
+                ChatActivity.this.btnSend.setEnabled(true);
                 ChatActivity.this.addMessage("抱歉，暂时无法回答，请稍后再试。", false);
             }
 
             @Override // com.yizhaiyiju.app.ApiHelper.Callback
             public void onSuccess(String str) {
+                ChatActivity.this.isSending = false;
+                ChatActivity.this.btnSend.setEnabled(true);
                 ChatActivity.this.addMessage(str, false);
             }
         });
@@ -228,7 +244,7 @@ public class ChatActivity extends d.s {
         this.prefs = getSharedPreferences(PREFS_NAME, 0);
         this.rvMessages = (RecyclerView) findViewById(R.id.rv_messages);
         this.etMessage = (EditText) findViewById(R.id.et_message);
-        ImageButton imageButton = (ImageButton) findViewById(R.id.btn_send);
+        this.btnSend = (ImageButton) findViewById(R.id.btn_send);
         ((ImageButton) findViewById(R.id.btn_back)).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.o
 
             /* renamed from: f, reason: collision with root package name */

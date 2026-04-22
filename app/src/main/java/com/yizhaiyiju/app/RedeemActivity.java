@@ -102,6 +102,7 @@ public class RedeemActivity extends d.s {
         eVar.i("code", upperCase);
         eVar.i("client_key", string);
         eVar.i("source_page", "app_redeem");
+        eVar.i("user_id", ApiHelper.getUserId());
         String bVar = eVar.toString();
         Pattern pattern = q3.v.f4179d;
         q3.f0 f4 = q3.o.f(bVar, q3.o.r("application/json"));
