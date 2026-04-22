@@ -50,13 +50,13 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
         final int i4 = 0;
-        view.findViewById(R.id.btn_ai_chat).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.i0
+        view.findViewById(R.id.btn_ai_chat).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.i0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ HomeFragment f2340f;
 
             {
-                this.f2340f = this;
+                this.f2340f = HomeFragment.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -83,13 +83,13 @@ public class HomeFragment extends Fragment {
             }
         });
         final int i5 = 1;
-        view.findViewById(R.id.btn_wuxing_test).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.i0
+        view.findViewById(R.id.btn_wuxing_test).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.i0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ HomeFragment f2340f;
 
             {
-                this.f2340f = this;
+                this.f2340f = HomeFragment.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -116,13 +116,13 @@ public class HomeFragment extends Fragment {
             }
         });
         final int i6 = 2;
-        view.findViewById(R.id.btn_fortune).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.i0
+        view.findViewById(R.id.btn_fortune).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.i0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ HomeFragment f2340f;
 
             {
-                this.f2340f = this;
+                this.f2340f = HomeFragment.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -149,13 +149,13 @@ public class HomeFragment extends Fragment {
             }
         });
         final int i7 = 3;
-        view.findViewById(R.id.btn_consult).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.i0
+        view.findViewById(R.id.btn_consult).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.i0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ HomeFragment f2340f;
 
             {
-                this.f2340f = this;
+                this.f2340f = HomeFragment.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -182,13 +182,13 @@ public class HomeFragment extends Fragment {
             }
         });
         final int i8 = 4;
-        view.findViewById(R.id.btn_more_tests).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.i0
+        view.findViewById(R.id.btn_more_tests).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.i0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ HomeFragment f2340f;
 
             {
-                this.f2340f = this;
+                this.f2340f = HomeFragment.this;
             }
 
             @Override // android.view.View.OnClickListener

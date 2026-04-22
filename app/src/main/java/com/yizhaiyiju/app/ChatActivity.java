@@ -245,13 +245,13 @@ public class ChatActivity extends d.s {
         this.rvMessages = (RecyclerView) findViewById(R.id.rv_messages);
         this.etMessage = (EditText) findViewById(R.id.et_message);
         this.btnSend = (ImageButton) findViewById(R.id.btn_send);
-        ((ImageButton) findViewById(R.id.btn_back)).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.o
+        ((ImageButton) findViewById(R.id.btn_back)).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.o
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ChatActivity f2362f;
 
             {
-                this.f2362f = this;
+                this.f2362f = ChatActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -275,13 +275,13 @@ public class ChatActivity extends d.s {
         final int i5 = 1;
         if (imageButton2 != null) {
             imageButton2.setVisibility(0);
-            imageButton2.setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.o
+            imageButton2.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.o
 
                 /* renamed from: f, reason: collision with root package name */
                 public final /* synthetic */ ChatActivity f2362f;
 
                 {
-                    this.f2362f = this;
+                    this.f2362f = ChatActivity.this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -311,13 +311,13 @@ public class ChatActivity extends d.s {
             addMessage("你好！我是AI风水助手，有什么风水问题可以问我。比如：\n\n• 我家大门朝南，风水好吗？\n• 卧室床应该怎么摆放？\n• 办公桌放哪里最好？", false);
         }
         final int i6 = 2;
-        imageButton.setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.o
+        imageButton.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.o
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ChatActivity f2362f;
 
             {
-                this.f2362f = this;
+                this.f2362f = ChatActivity.this;
             }
 
             @Override // android.view.View.OnClickListener

@@ -200,13 +200,13 @@ public class GenericTestActivity extends d.s {
         this.testId = getIntent().getStringExtra("test_id");
         String stringExtra = getIntent().getStringExtra("test_name");
         final int i4 = 0;
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.h0
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.h0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ GenericTestActivity f2336f;
 
             {
-                this.f2336f = this;
+                this.f2336f = GenericTestActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -225,13 +225,13 @@ public class GenericTestActivity extends d.s {
         });
         this.scrollQuestions = findViewById(R.id.scroll_questions);
         final int i5 = 1;
-        findViewById(R.id.btn_restart).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.h0
+        findViewById(R.id.btn_restart).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.h0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ GenericTestActivity f2336f;
 
             {
-                this.f2336f = this;
+                this.f2336f = GenericTestActivity.this;
             }
 
             @Override // android.view.View.OnClickListener

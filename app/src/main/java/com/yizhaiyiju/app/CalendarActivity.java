@@ -127,13 +127,13 @@ public class CalendarActivity extends d.s {
         super.onCreate(bundle);
         setContentView(R.layout.activity_calendar);
         final int i4 = 0;
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.m
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.m
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ CalendarActivity f2355f;
 
             {
-                this.f2355f = this;
+                this.f2355f = CalendarActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -151,13 +151,13 @@ public class CalendarActivity extends d.s {
             }
         });
         final int i5 = 1;
-        findViewById(R.id.btn_pick_date).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.m
+        findViewById(R.id.btn_pick_date).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.m
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ CalendarActivity f2355f;
 
             {
-                this.f2355f = this;
+                this.f2355f = CalendarActivity.this;
             }
 
             @Override // android.view.View.OnClickListener

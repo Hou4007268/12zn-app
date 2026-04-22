@@ -22,13 +22,13 @@ public class MyConsultActivity extends d.s {
         super.onCreate(bundle);
         setContentView(R.layout.activity_list_empty);
         final int i4 = 0;
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.n0
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.n0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ MyConsultActivity f2360f;
 
             {
-                this.f2360f = this;
+                this.f2360f = MyConsultActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -51,13 +51,13 @@ public class MyConsultActivity extends d.s {
         ((TextView) findViewById(R.id.tv_empty_sub)).setText("预约咨询服务后，记录将显示在这里");
         ((TextView) findViewById(R.id.tv_empty_btn)).setText("去预约咨询");
         final int i5 = 1;
-        findViewById(R.id.btn_empty_action).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.n0
+        findViewById(R.id.btn_empty_action).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.n0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ MyConsultActivity f2360f;
 
             {
-                this.f2360f = this;
+                this.f2360f = MyConsultActivity.this;
             }
 
             @Override // android.view.View.OnClickListener

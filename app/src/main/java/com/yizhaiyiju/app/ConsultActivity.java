@@ -57,13 +57,13 @@ public class ConsultActivity extends d.s {
         super.onCreate(bundle);
         setContentView(R.layout.activity_consult);
         final int i4 = 0;
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.s
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.s
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ConsultActivity f2375f;
 
             {
-                this.f2375f = this;
+                this.f2375f = ConsultActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -88,13 +88,13 @@ public class ConsultActivity extends d.s {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.spinnerType.setAdapter((SpinnerAdapter) arrayAdapter);
         final int i5 = 1;
-        findViewById(R.id.btn_submit).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.s
+        findViewById(R.id.btn_submit).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.s
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ConsultActivity f2375f;
 
             {
-                this.f2375f = this;
+                this.f2375f = ConsultActivity.this;
             }
 
             @Override // android.view.View.OnClickListener

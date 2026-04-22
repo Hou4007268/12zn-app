@@ -62,13 +62,13 @@ public class FeedbackActivity extends d.s {
             c0Var.c("POST", f4);
             ApiHelper.getClient().a(c0Var.a()).g();
             final int i4 = 0;
-            runOnUiThread(new Runnable(this) { // from class: com.yizhaiyiju.app.d0
+            runOnUiThread(new Runnable() { // from class: com.yizhaiyiju.app.d0
 
                 /* renamed from: b, reason: collision with root package name */
                 public final /* synthetic */ FeedbackActivity f2313b;
 
                 {
-                    this.f2313b = this;
+                    this.f2313b = FeedbackActivity.this;
                 }
 
                 @Override // java.lang.Runnable
@@ -87,13 +87,13 @@ public class FeedbackActivity extends d.s {
             });
         } catch (Exception unused) {
             final int i5 = 1;
-            runOnUiThread(new Runnable(this) { // from class: com.yizhaiyiju.app.d0
+            runOnUiThread(new Runnable() { // from class: com.yizhaiyiju.app.d0
 
                 /* renamed from: b, reason: collision with root package name */
                 public final /* synthetic */ FeedbackActivity f2313b;
 
                 {
-                    this.f2313b = this;
+                    this.f2313b = FeedbackActivity.this;
                 }
 
                 @Override // java.lang.Runnable

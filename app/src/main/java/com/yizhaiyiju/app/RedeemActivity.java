@@ -130,13 +130,13 @@ public class RedeemActivity extends d.s {
         this.btnRedeem = (Button) findViewById(R.id.btn_redeem);
         this.tvResult = (TextView) findViewById(R.id.tv_result);
         final int i4 = 0;
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.s0
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.s0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ RedeemActivity f2377f;
 
             {
-                this.f2377f = this;
+                this.f2377f = RedeemActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -154,13 +154,13 @@ public class RedeemActivity extends d.s {
             }
         });
         final int i5 = 1;
-        this.btnRedeem.setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.s0
+        this.btnRedeem.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.s0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ RedeemActivity f2377f;
 
             {
-                this.f2377f = this;
+                this.f2377f = RedeemActivity.this;
             }
 
             @Override // android.view.View.OnClickListener

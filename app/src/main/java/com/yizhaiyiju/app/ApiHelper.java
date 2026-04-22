@@ -260,7 +260,7 @@ public class ApiHelper {
         */
         public void onResponse(q3.d r9, q3.h0 r10) {
             /*
-                r8 = this;
+                r8 = ApiHelper.this;
                 java.lang.String r9 = "subject"
                 java.lang.String r0 = "amount"
                 java.lang.String r1 = "qr_code"

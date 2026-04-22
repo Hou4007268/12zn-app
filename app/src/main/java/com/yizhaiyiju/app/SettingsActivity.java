@@ -58,13 +58,13 @@ public class SettingsActivity extends d.s {
         setContentView(R.layout.activity_settings);
         final int i4 = 0;
         this.chatPrefs = getSharedPreferences("chat_history", 0);
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.u0
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.u0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ SettingsActivity f2385f;
 
             {
-                this.f2385f = this;
+                this.f2385f = SettingsActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -91,13 +91,13 @@ public class SettingsActivity extends d.s {
             }
         });
         final int i5 = 1;
-        findViewById(R.id.item_redeem).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.u0
+        findViewById(R.id.item_redeem).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.u0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ SettingsActivity f2385f;
 
             {
-                this.f2385f = this;
+                this.f2385f = SettingsActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -127,13 +127,13 @@ public class SettingsActivity extends d.s {
         textView.setText(this.chatPrefs.getLong("auto_clear_days", 7L) + "天");
         findViewById(R.id.item_auto_clear).setOnClickListener(new j(this, 8, textView));
         final int i6 = 2;
-        findViewById(R.id.item_clear_chat).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.u0
+        findViewById(R.id.item_clear_chat).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.u0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ SettingsActivity f2385f;
 
             {
-                this.f2385f = this;
+                this.f2385f = SettingsActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -160,13 +160,13 @@ public class SettingsActivity extends d.s {
             }
         });
         final int i7 = 3;
-        findViewById(R.id.item_change_password).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.u0
+        findViewById(R.id.item_change_password).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.u0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ SettingsActivity f2385f;
 
             {
-                this.f2385f = this;
+                this.f2385f = SettingsActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -199,13 +199,13 @@ public class SettingsActivity extends d.s {
             textView2.setText("v?.?.?");
         }
         final int i8 = 4;
-        findViewById(R.id.item_check_update).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.u0
+        findViewById(R.id.item_check_update).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.u0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ SettingsActivity f2385f;
 
             {
-                this.f2385f = this;
+                this.f2385f = SettingsActivity.this;
             }
 
             @Override // android.view.View.OnClickListener

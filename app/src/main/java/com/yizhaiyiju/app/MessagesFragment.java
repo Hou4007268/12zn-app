@@ -59,13 +59,13 @@ public class MessagesFragment extends Fragment {
                 }
                 if (MessagesFragment.this.sessions.isEmpty()) {
                     MessagesFragment.this.showEmpty();
-                    MessagesFragment.this.layoutEmpty.setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.m0
+                    MessagesFragment.this.layoutEmpty.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.m0
 
                         /* renamed from: f, reason: collision with root package name */
                         public final /* synthetic */ MessagesFragment.AnonymousClass1 f2357f;
 
                         {
-                            this.f2357f = this;
+                            this.f2357f = MessagesFragment.this;
                         }
 
                         @Override // android.view.View.OnClickListener
@@ -90,13 +90,13 @@ public class MessagesFragment extends Fragment {
             } catch (Exception unused) {
                 MessagesFragment.this.showEmpty();
                 final int i6 = 1;
-                MessagesFragment.this.layoutEmpty.setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.m0
+                MessagesFragment.this.layoutEmpty.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.m0
 
                     /* renamed from: f, reason: collision with root package name */
                     public final /* synthetic */ MessagesFragment.AnonymousClass1 f2357f;
 
                     {
-                        this.f2357f = this;
+                        this.f2357f = MessagesFragment.this;
                     }
 
                     @Override // android.view.View.OnClickListener

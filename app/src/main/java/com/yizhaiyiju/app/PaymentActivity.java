@@ -108,13 +108,13 @@ public class PaymentActivity extends d.s {
         super.onCreate(bundle);
         setContentView(R.layout.activity_payment);
         final int i4 = 0;
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.q0
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.q0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ PaymentActivity f2371f;
 
             {
-                this.f2371f = this;
+                this.f2371f = PaymentActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -138,13 +138,13 @@ public class PaymentActivity extends d.s {
         this.progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         this.layoutSuccess = (LinearLayout) findViewById(R.id.layout_success);
         final int i5 = 1;
-        findViewById(R.id.btn_done).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.q0
+        findViewById(R.id.btn_done).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.q0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ PaymentActivity f2371f;
 
             {
-                this.f2371f = this;
+                this.f2371f = PaymentActivity.this;
             }
 
             @Override // android.view.View.OnClickListener

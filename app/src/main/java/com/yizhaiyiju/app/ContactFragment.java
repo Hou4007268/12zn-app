@@ -53,13 +53,13 @@ public class ContactFragment extends Fragment {
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
         final int i4 = 0;
-        view.findViewById(R.id.btn_wechat).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.t
+        view.findViewById(R.id.btn_wechat).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.t
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ContactFragment f2379f;
 
             {
-                this.f2379f = this;
+                this.f2379f = ContactFragment.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -83,13 +83,13 @@ public class ContactFragment extends Fragment {
             }
         });
         final int i5 = 1;
-        view.findViewById(R.id.btn_email).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.t
+        view.findViewById(R.id.btn_email).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.t
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ContactFragment f2379f;
 
             {
-                this.f2379f = this;
+                this.f2379f = ContactFragment.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -113,13 +113,13 @@ public class ContactFragment extends Fragment {
             }
         });
         final int i6 = 2;
-        view.findViewById(R.id.btn_website).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.t
+        view.findViewById(R.id.btn_website).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.t
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ContactFragment f2379f;
 
             {
-                this.f2379f = this;
+                this.f2379f = ContactFragment.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -143,13 +143,13 @@ public class ContactFragment extends Fragment {
             }
         });
         final int i7 = 3;
-        view.findViewById(R.id.btn_book_consult).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.t
+        view.findViewById(R.id.btn_book_consult).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.t
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ContactFragment f2379f;
 
             {
-                this.f2379f = this;
+                this.f2379f = ContactFragment.this;
             }
 
             @Override // android.view.View.OnClickListener

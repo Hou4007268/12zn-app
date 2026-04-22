@@ -295,13 +295,13 @@ public class DirectChatActivity extends d.s {
                 if ("image".equals(optString2)) {
                     imageView.setVisibility(0);
                     imageView.setImageResource(android.R.drawable.ic_menu_gallery);
-                    imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.c0
+                    imageView.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.c0
 
                         /* renamed from: f, reason: collision with root package name */
                         public final /* synthetic */ DirectChatActivity.ChatAdapter f2305f;
 
                         {
-                            this.f2305f = this;
+                            this.f2305f = DirectChatActivity.this;
                         }
 
                         @Override // android.view.View.OnClickListener
@@ -323,13 +323,13 @@ public class DirectChatActivity extends d.s {
                     linearLayout.setVisibility(0);
                     textView2.setText(jSONObject.optInt("duration", 0) + "\"");
                     final int i6 = 1;
-                    linearLayout.setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.c0
+                    linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.c0
 
                         /* renamed from: f, reason: collision with root package name */
                         public final /* synthetic */ DirectChatActivity.ChatAdapter f2305f;
 
                         {
-                            this.f2305f = this;
+                            this.f2305f = DirectChatActivity.this;
                         }
 
                         @Override // android.view.View.OnClickListener

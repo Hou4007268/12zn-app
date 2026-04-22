@@ -21,13 +21,13 @@ public class MyTestsActivity extends d.s {
         super.onCreate(bundle);
         setContentView(R.layout.activity_list_empty);
         final int i4 = 0;
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.o0
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.o0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ MyTestsActivity f2364f;
 
             {
-                this.f2364f = this;
+                this.f2364f = MyTestsActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -50,13 +50,13 @@ public class MyTestsActivity extends d.s {
         ((TextView) findViewById(R.id.tv_empty_sub)).setText("完成趣味测试后，结果将保存在这里");
         ((TextView) findViewById(R.id.tv_empty_btn)).setText("去测试");
         final int i5 = 1;
-        findViewById(R.id.btn_empty_action).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.o0
+        findViewById(R.id.btn_empty_action).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.o0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ MyTestsActivity f2364f;
 
             {
-                this.f2364f = this;
+                this.f2364f = MyTestsActivity.this;
             }
 
             @Override // android.view.View.OnClickListener

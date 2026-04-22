@@ -104,13 +104,13 @@ public class ServiceDetailActivity extends d.s {
         ((TextView) findViewById(R.id.tv_process)).setText(serviceInfo.process);
         ((TextView) findViewById(R.id.tv_notice)).setText(serviceInfo.notice);
         final int i4 = 0;
-        findViewById(R.id.btn_book).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.t0
+        findViewById(R.id.btn_book).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.t0
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ServiceDetailActivity f2381f;
 
             {
-                this.f2381f = this;
+                this.f2381f = ServiceDetailActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -133,13 +133,13 @@ public class ServiceDetailActivity extends d.s {
             findViewById.setVisibility(0);
             ((TextView) findViewById).setText("立即支付 " + serviceInfo.price);
             final int i5 = 1;
-            findViewById.setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.t0
+            findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.t0
 
                 /* renamed from: f, reason: collision with root package name */
                 public final /* synthetic */ ServiceDetailActivity f2381f;
 
                 {
-                    this.f2381f = this;
+                    this.f2381f = ServiceDetailActivity.this;
                 }
 
                 @Override // android.view.View.OnClickListener

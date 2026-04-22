@@ -96,13 +96,13 @@ public class WuxingTestActivity extends d.s {
         super.onCreate(bundle);
         setContentView(R.layout.activity_wuxing_test);
         final int i4 = 0;
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.c1
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.c1
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ WuxingTestActivity f2308f;
 
             {
-                this.f2308f = this;
+                this.f2308f = WuxingTestActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -124,13 +124,13 @@ public class WuxingTestActivity extends d.s {
         });
         this.scrollQuestions = findViewById(R.id.scroll_questions);
         final int i5 = 1;
-        findViewById(R.id.btn_restart).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.c1
+        findViewById(R.id.btn_restart).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.c1
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ WuxingTestActivity f2308f;
 
             {
-                this.f2308f = this;
+                this.f2308f = WuxingTestActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -151,13 +151,13 @@ public class WuxingTestActivity extends d.s {
             }
         });
         final int i6 = 2;
-        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener(this) { // from class: com.yizhaiyiju.app.c1
+        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.c1
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ WuxingTestActivity f2308f;
 
             {
-                this.f2308f = this;
+                this.f2308f = WuxingTestActivity.this;
             }
 
             @Override // android.view.View.OnClickListener
