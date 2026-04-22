@@ -34,7 +34,7 @@
                 android:letterSpacing="0.15"/>
         </LinearLayout>
 
-        <!-- HERO: 13项专业服务卡片 (朱红) -->
+        <!-- HERO: 13项专业服务卡片 (朱红-醒目) -->
         <LinearLayout
             android:orientation="vertical"
             android:background="@drawable/bg_red_button"
