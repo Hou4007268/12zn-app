@@ -1,5 +1,8 @@
 package com.yizhaiyiju.app;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.view.View;
 import com.yizhaiyiju.app.ApiHelper;
 import r2.e1;
 
@@ -51,6 +54,41 @@ public final /* synthetic */ class d implements Runnable {
             default:
                 ApiHelper.AnonymousClass8.lambda$onResponse$2(callback, exc);
                 break;
+        }
+    }
+
+    public static class s extends androidx.appcompat.app.AppCompatActivity {
+    }
+
+    public static class k {
+        public View f2485n;
+    }
+
+    public static class p {
+        private final AlertDialog dialog;
+
+        public p(AlertDialog dialog) {
+            this.dialog = dialog;
+        }
+
+        public void show() {
+            dialog.show();
+        }
+    }
+
+    public static class o {
+        public final k f2561f = new k();
+        private final AlertDialog.Builder builder;
+
+        public o(Context context) {
+            this.builder = new AlertDialog.Builder(context);
+        }
+
+        public p a() {
+            if (f2561f.f2485n != null) {
+                builder.setView(f2561f.f2485n);
+            }
+            return new p(builder.create());
         }
     }
 }

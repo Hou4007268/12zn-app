@@ -46,7 +46,7 @@ public class ChatActivity extends d.s {
         }
     }
 
-    public class MessageAdapter extends androidx.recyclerview.widget.g0 {
+    public class MessageAdapter extends androidx.recyclerview.widget.g0<MessageAdapter.VH> {
         List<ChatMessage> data;
 
         public class VH extends i1 {

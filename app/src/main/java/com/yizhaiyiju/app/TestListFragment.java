@@ -16,7 +16,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class TestListFragment extends Fragment {
 
-    public class TestAdapter extends androidx.recyclerview.widget.g0 {
+    public class TestAdapter extends androidx.recyclerview.widget.g0<TestAdapter.VH> {
         List<TestData.TestInfo> data;
 
         public class VH extends i1 {

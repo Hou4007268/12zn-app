@@ -133,7 +133,7 @@ public class MessagesFragment extends Fragment {
         }
     }
 
-    public class SessionAdapter extends androidx.recyclerview.widget.g0 {
+    public class SessionAdapter extends androidx.recyclerview.widget.g0<SessionAdapter.VH> {
 
         public class VH extends i1 {
             TextView tvLastMsg;

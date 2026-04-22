@@ -219,7 +219,7 @@ public class DirectChatActivity extends d.s {
         }
     }
 
-    public class ChatAdapter extends androidx.recyclerview.widget.g0 {
+    public class ChatAdapter extends androidx.recyclerview.widget.g0<ChatAdapter.VH> {
 
         public class VH extends i1 {
             ImageView ivMsgImage;

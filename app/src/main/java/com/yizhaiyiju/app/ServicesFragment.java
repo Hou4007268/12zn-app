@@ -16,7 +16,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ServicesFragment extends Fragment {
 
-    public class ServiceAdapter extends androidx.recyclerview.widget.g0 {
+    public class ServiceAdapter extends androidx.recyclerview.widget.g0<ServiceAdapter.VH> {
         List<ServiceItem> data;
 
         public class VH extends i1 {

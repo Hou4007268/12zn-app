@@ -19,7 +19,7 @@ public class ArticlesFragment extends Fragment {
     private ArticleAdapter adapter;
     private List<ArticleItem> articles = new ArrayList();
 
-    public class ArticleAdapter extends androidx.recyclerview.widget.g0 {
+    public class ArticleAdapter extends androidx.recyclerview.widget.g0<ArticleAdapter.VH> {
         List<ArticleItem> data;
 
         public class VH extends i1 {
