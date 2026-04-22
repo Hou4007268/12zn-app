@@ -3,25 +3,25 @@
     <item
         android:icon="@drawable/nav_home"
         android:id="@+id/nav_home"
-        android:title="\u9996\u9875"/>
-    <item
-        android:icon="@drawable/nav_test"
-        android:id="@+id/nav_test"
-        android:title="\u6d4b\u8bd5"/>
+        android:title="首页"/>
     <item
         android:icon="@drawable/nav_services"
         android:id="@+id/nav_services"
-        android:title="\u670d\u52a1"/>
+        android:title="服务"/>
+    <item
+        android:icon="@drawable/nav_test"
+        android:id="@+id/nav_test"
+        android:title="AI"/>
     <item
         android:icon="@drawable/nav_messages"
         android:id="@+id/nav_messages"
-        android:title="\u6d88\u606f"/>
+        android:title="消息"/>
     <item
         android:icon="@drawable/nav_articles"
         android:id="@+id/nav_articles"
-        android:title="\u6587\u7ae0"/>
+        android:title="文章"/>
     <item
         android:icon="@drawable/nav_profile"
         android:id="@+id/nav_profile"
-        android:title="\u6211\u7684"/>
+        android:title="我的"/>
 </menu>

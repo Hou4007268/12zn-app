@@ -34,10 +34,10 @@
                 android:letterSpacing="0.15"/>
         </LinearLayout>
 
-        <!-- HERO: 13项专业服务卡片 (最大视觉权重) -->
+        <!-- HERO: 13项专业服务卡片 (朱红) -->
         <LinearLayout
             android:orientation="vertical"
-            android:background="@drawable/bg_gold_button"
+            android:background="@drawable/bg_red_button"
             android:padding="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
