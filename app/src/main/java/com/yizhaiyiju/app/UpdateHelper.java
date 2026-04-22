@@ -37,7 +37,7 @@ public class UpdateHelper {
             .readTimeout(30, TimeUnit.SECONDS)
             .build();
 
-    private static final boolean IN_APP_UPDATE_ENABLED = false;
+    private static final boolean IN_APP_UPDATE_ENABLED = true;
 
     public static void checkUpdate(Context context) {
         if (!IN_APP_UPDATE_ENABLED) {
@@ -47,7 +47,7 @@ public class UpdateHelper {
     }
 
     public static void checkUpdateManual(Context context) {
-        Toast.makeText(context, "应用内更新已关闭，请前往官网下载安装最新版。", Toast.LENGTH_SHORT).show();
+        doCheck(context, true);
     }
 
     private static void doCheck(Context context, boolean isManual) {
@@ -109,7 +109,11 @@ public class UpdateHelper {
 
                 if (context instanceof Activity) {
                     final Activity activity = (Activity) context;
-                    mainHandler.post(() -> showUpdateDialog(activity, versionName, apkUrl, updateNote, forceUpdate));
+                    if (IN_APP_UPDATE_ENABLED) {
+                        mainHandler.post(() -> showUpdateDialog(activity, versionName, apkUrl, updateNote, forceUpdate));
+                    } else if (isManual) {
+                        mainHandler.post(() -> showExternalUpdateDialog(activity, versionName, apkUrl));
+                    }
                 }
             } else {
                 if (isManual && context instanceof Activity) {
@@ -147,6 +151,19 @@ public class UpdateHelper {
         AlertDialog dialog = builder.create();
         dialog.setCancelable(!forceUpdate);
         dialog.show();
+    }
+
+    private static void showExternalUpdateDialog(Context context, String versionName, String apkUrl) {
+        String targetUrl = (apkUrl == null || apkUrl.isEmpty()) ? "https://12zn.com/" : apkUrl;
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("发现新版本 v" + versionName);
+        builder.setMessage("应用内更新已关闭。点击下方按钮前往官网下载安装最新版。");
+        builder.setPositiveButton("前往下载", (dialog, which) -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(targetUrl));
+            context.startActivity(intent);
+        });
+        builder.setNegativeButton("取消", null);
+        builder.show();
     }
 
     private static void downloadAndInstall(final Context context, String url) {

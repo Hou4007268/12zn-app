@@ -16,7 +16,7 @@
             android:paddingBottom="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="�� 玄空飞星排盘"/>
+            android:text="玄空飞星排盘"/>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -237,7 +237,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="24dp"
-                android:text="�� 分享飞星盘"/>
+                android:text="分享飞星盘"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

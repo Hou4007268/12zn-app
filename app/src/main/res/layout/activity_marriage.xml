@@ -16,7 +16,7 @@
             android:paddingBottom="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="�� 八字合婚"/>
+            android:text="八字合婚"/>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                     android:paddingBottom="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="�� 男方信息"/>
+                    android:text="男方信息"/>
                 <LinearLayout
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
@@ -140,7 +140,7 @@
                     android:paddingBottom="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="�� 女方信息"/>
+                    android:text="女方信息"/>
                 <LinearLayout
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
@@ -290,7 +290,7 @@
                         android:paddingBottom="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="�� 详细分析"/>
+                        android:text="详细分析"/>
                     <TextView
                         android:textSize="14sp"
                         android:textColor="@color/text_primary"
@@ -319,7 +319,7 @@
                         android:paddingBottom="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="�� 建议"/>
+                        android:text="建议"/>
                     <TextView
                         android:textSize="14sp"
                         android:textColor="@color/text_primary"
@@ -338,7 +338,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="24dp"
-                android:text="�� 分享合婚结果"/>
+                android:text="分享合婚结果"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -21,17 +21,16 @@ public class SettingsActivity extends d.s {
         startActivity(new Intent(this, (Class<?>) RedeemActivity.class));
     }
 
+    private String formatAutoClearText(long days) {
+        return days <= 0 ? "永久" : days + "天";
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$onCreate$2(TextView textView, View view) {
-        long j4 = 7;
-        long j5 = this.chatPrefs.getLong("auto_clear_days", 7L);
-        if (j5 == 7) {
-            j4 = 3;
-        } else if (j5 == 3) {
-            j4 = 1;
-        }
-        this.chatPrefs.edit().putLong("auto_clear_days", j4).apply();
-        textView.setText(j4 + "天");
+        long currentDays = this.chatPrefs.getLong("auto_clear_days", 0L);
+        long nextDays = currentDays == 7 ? 30L : currentDays == 30 ? 0L : 7L;
+        this.chatPrefs.edit().putLong("auto_clear_days", nextDays).apply();
+        textView.setText(formatAutoClearText(nextDays));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -124,7 +123,7 @@ public class SettingsActivity extends d.s {
             }
         });
         TextView textView = (TextView) findViewById(R.id.tv_auto_clear_value);
-        textView.setText(this.chatPrefs.getLong("auto_clear_days", 7L) + "天");
+        textView.setText(formatAutoClearText(this.chatPrefs.getLong("auto_clear_days", 0L)));
         findViewById(R.id.item_auto_clear).setOnClickListener(new j(this, 8, textView));
         final int i6 = 2;
         findViewById(R.id.item_clear_chat).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.u0

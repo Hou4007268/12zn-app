@@ -16,7 +16,7 @@
             android:paddingBottom="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="�� 八宅命卦"/>
+            android:text="八宅命卦"/>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
                         android:paddingBottom="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="�� 实用建议"/>
+                        android:text="实用建议"/>
                     <TextView
                         android:textSize="14sp"
                         android:textColor="@color/text_primary"
@@ -234,7 +234,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="24dp"
-                android:text="�� 分享命卦结果"/>
+                android:text="分享命卦结果"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

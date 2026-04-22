@@ -102,8 +102,12 @@ public class ChatActivity extends d.s {
     }
 
     private void checkAutoClear() {
-        long j4 = this.prefs.getLong(KEY_LAST_CLEAR, 0L);
-        if (System.currentTimeMillis() - j4 <= this.prefs.getLong("auto_clear_days", 7L) * 24 * 60 * 60 * 1000 || j4 <= 0) {
+        long lastClear = this.prefs.getLong(KEY_LAST_CLEAR, 0L);
+        long autoClearDays = this.prefs.getLong("auto_clear_days", 0L);
+        if (autoClearDays <= 0 || lastClear <= 0) {
+            return;
+        }
+        if (System.currentTimeMillis() - lastClear <= autoClearDays * 24 * 60 * 60 * 1000) {
             return;
         }
         this.prefs.edit().remove(KEY_MESSAGES).putLong(KEY_LAST_CLEAR, System.currentTimeMillis()).apply();
@@ -135,6 +139,13 @@ public class ChatActivity extends d.s {
         return true;
     }
 
+    private String getAutoClearLabel(long days) {
+        if (days <= 0) {
+            return "永久";
+        }
+        return days + "天";
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ boolean lambda$showChatMenu$4(MenuItem menuItem) {
         if (menuItem.getItemId() == 1) {
@@ -144,15 +155,10 @@ public class ChatActivity extends d.s {
         if (menuItem.getItemId() != 2) {
             return false;
         }
-        long j4 = 7;
-        long j5 = this.prefs.getLong("auto_clear_days", 7L);
-        if (j5 == 7) {
-            j4 = 3;
-        } else if (j5 == 3) {
-            j4 = 1;
-        }
-        this.prefs.edit().putLong("auto_clear_days", j4).apply();
-        menuItem.setTitle("自动清理: " + j4 + "天");
+        long currentDays = this.prefs.getLong("auto_clear_days", 0L);
+        long nextDays = currentDays == 7 ? 30L : currentDays == 30 ? 0L : 7L;
+        this.prefs.edit().putLong("auto_clear_days", nextDays).apply();
+        menuItem.setTitle("自动清理: " + getAutoClearLabel(nextDays));
         return true;
     }
 
@@ -224,7 +230,8 @@ public class ChatActivity extends d.s {
     public void lambda$onCreate$1(View view) {
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.getMenu().add(0, 1, 0, "清空聊天记录");
-        popupMenu.getMenu().add(0, 2, 1, "自动清理: 7天");
+        long autoClearDays = this.prefs.getLong("auto_clear_days", 0L);
+        popupMenu.getMenu().add(0, 2, 1, "自动清理: " + getAutoClearLabel(autoClearDays));
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() { // from class: com.yizhaiyiju.app.q
             @Override // android.widget.PopupMenu.OnMenuItemClickListener
             public final boolean onMenuItemClick(MenuItem menuItem) {

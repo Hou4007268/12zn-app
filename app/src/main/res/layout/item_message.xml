@@ -13,14 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxWidth="280dp">
-        <TextView
-            android:textSize="16sp"
-            android:gravity="center"
+        <ImageView
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginTop="4dp"
-            android:text="��"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_avatar_mystic"
+            android:contentDescription="师傅头像"/>
         <TextView
             android:textSize="15sp"
             android:textColor="@color/text_primary"

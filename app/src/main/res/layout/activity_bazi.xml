@@ -16,7 +16,7 @@
             android:paddingBottom="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="�� 八字排盘"/>
+            android:text="八字排盘"/>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -190,7 +190,7 @@
                         android:paddingBottom="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="�� 四柱八字"/>
+                        android:text="四柱八字"/>
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
@@ -416,7 +416,7 @@
                         android:paddingBottom="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="�� 大运走势"/>
+                        android:text="大运走势"/>
                     <TextView
                         android:textSize="14sp"
                         android:textColor="@color/text_primary"
@@ -435,7 +435,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="24dp"
-                android:text="�� 分享排盘结果"/>
+                android:text="分享排盘结果"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

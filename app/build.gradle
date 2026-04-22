@@ -16,8 +16,8 @@ android {
         applicationId "com.yizhaiyiju.app"
         minSdk 24
         targetSdk 34
-        versionCode 80
-        versionName "1.0.0"
+        versionCode 88
+        versionName "1.0.8"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -76,6 +76,24 @@ android {
         checkReleaseBuilds true
         abortOnError true
     }
+}
+
+tasks.register("verifyBottomNavItemCount") {
+    doLast {
+        def navMenu = file("src/main/res/menu/bottom_nav.xml")
+        if (!navMenu.exists()) {
+            throw new GradleException("bottom_nav.xml not found: ${navMenu}")
+        }
+
+        def itemCount = (navMenu.getText("UTF-8") =~ /<item\b/).count
+        if (itemCount > 5) {
+            throw new GradleException("BottomNavigationView supports max 5 items, found ${itemCount} in ${navMenu}")
+        }
+    }
+}
+
+tasks.named("preBuild") {
+    dependsOn("verifyBottomNavItemCount")
 }
 
 dependencies {

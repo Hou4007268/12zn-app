@@ -128,7 +128,7 @@
                         android:paddingBottom="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="�� 笔画数理"/>
+                        android:text="笔画数理"/>
                     <TextView
                         android:textSize="14sp"
                         android:textColor="@color/text_primary"
@@ -186,7 +186,7 @@
                         android:paddingBottom="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="�� 解读"/>
+                        android:text="解读"/>
                     <TextView
                         android:textSize="14sp"
                         android:textColor="@color/text_primary"
@@ -205,7 +205,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="24dp"
-                android:text="�� 分享分析结果"/>
+                android:text="分享分析结果"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

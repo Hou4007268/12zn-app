@@ -9,12 +9,12 @@
         android:padding="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:textSize="64sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:layout_marginTop="32dp"
-            android:text="��"/>
+            android:src="@drawable/ic_app_icon"
+            android:contentDescription="应用图标"/>
         <TextView
             android:textSize="28sp"
             android:textStyle="bold"
@@ -73,7 +73,7 @@
                 android:textColor="@color/text_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="�� hou4007268@gmail.com �� 邮箱：houzhaiyiju �� 12zn.com"
+                android:text="邮箱：hou4007268@gmail.com\n微信：houzhaiyiju\n官网：12zn.com"
                 android:lineSpacingMultiplier="1.8"/>
         </LinearLayout>
     </LinearLayout>

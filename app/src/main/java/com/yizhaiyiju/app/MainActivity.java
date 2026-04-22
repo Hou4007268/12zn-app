@@ -20,18 +20,9 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
         UpdateHelper.checkUpdate(this);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
-        int navServicesId = getResources().getIdentifier("nav_services", "id", getPackageName());
-        int navMessagesId = getResources().getIdentifier("nav_messages", "id", getPackageName());
 
-        // Hide Messages and Services tabs for lite version
-        if (!BuildConfig.FULL_VERSION) {
-            if (navMessagesId != 0) {
-                bottomNav.getMenu().removeItem(navMessagesId);
-            }
-            if (navServicesId != 0) {
-                bottomNav.getMenu().removeItem(navServicesId);
-            }
-        }
+        // Keep 5 bottom tabs on all flavors: 首页/测试/聊天/文章/我的
+        // 服务入口放在首页大卡片，避免超出 BottomNavigationView 5 项限制
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -46,8 +37,6 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
                 fragment = new HomeFragment();
             } else if (id == R.id.nav_test) {
                 fragment = new TestListFragment();
-            } else if (id == R.id.nav_services) {
-                fragment = new ServicesFragment();
             } else if (id == R.id.nav_messages) {
                 fragment = new MessagesFragment();
             } else if (id == R.id.nav_articles) {
@@ -63,6 +52,12 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
             }
             return false;
         });
+    }
+
+    public void openServicesPage() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new ServicesFragment())
+                .commit();
     }
 
     public void switchToTab(int tabId) {

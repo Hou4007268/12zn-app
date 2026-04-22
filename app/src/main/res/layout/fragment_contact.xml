@@ -35,11 +35,12 @@
             android:layout_height="72dp"
             android:layout_marginBottom="12dp"
             android:paddingHorizontal="20dp">
-            <TextView
-                android:textSize="28sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="��"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/nav_messages"
+                android:tint="@color/gold"
+                android:contentDescription="联系方式图标"/>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
@@ -86,11 +87,12 @@
             android:layout_height="72dp"
             android:layout_marginBottom="12dp"
             android:paddingHorizontal="20dp">
-            <TextView
-                android:textSize="28sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="��"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_send"
+                android:tint="@color/gold"
+                android:contentDescription="邮箱图标"/>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
@@ -137,11 +139,12 @@
             android:layout_height="72dp"
             android:layout_marginBottom="12dp"
             android:paddingHorizontal="20dp">
-            <TextView
-                android:textSize="28sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="��"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_search_black_24"
+                android:tint="@color/gold"
+                android:contentDescription="网站图标"/>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
