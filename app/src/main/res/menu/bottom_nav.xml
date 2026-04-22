@@ -13,10 +13,6 @@
         android:id="@+id/nav_services"
         android:title="\u670d\u52a1"/>
     <item
-        android:icon="@drawable/nav_messages"
-        android:id="@+id/nav_messages"
-        android:title="\u6d88\u606f"/>
-    <item
         android:icon="@drawable/nav_articles"
         android:id="@+id/nav_articles"
         android:title="\u6587\u7ae0"/>

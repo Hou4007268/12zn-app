@@ -20,11 +20,13 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
         UpdateHelper.checkUpdate(this);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        int navServicesId = getResources().getIdentifier("nav_services", "id", getPackageName());
 
-        // Hide Messages and Services tabs for lite version
+        // Hide Services tab for lite version
         if (!BuildConfig.FULL_VERSION) {
-            bottomNav.getMenu().removeItem(R.id.nav_messages);
-            bottomNav.getMenu().removeItem(R.id.nav_services);
+            if (navServicesId != 0) {
+                bottomNav.getMenu().removeItem(navServicesId);
+            }
         }
 
         if (savedInstanceState == null) {
@@ -42,8 +44,6 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
                 fragment = new TestListFragment();
             } else if (id == R.id.nav_services) {
                 fragment = new ServicesFragment();
-            } else if (id == R.id.nav_messages) {
-                fragment = new MessagesFragment();
             } else if (id == R.id.nav_articles) {
                 fragment = new ArticlesFragment();
             } else if (id == R.id.nav_profile) {
