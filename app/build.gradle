@@ -78,6 +78,24 @@ android {
     }
 }
 
+tasks.register("verifyBottomNavItemCount") {
+    doLast {
+        def navMenu = file("src/main/res/menu/bottom_nav.xml")
+        if (!navMenu.exists()) {
+            throw new GradleException("bottom_nav.xml not found: ${navMenu}")
+        }
+
+        def itemCount = (navMenu.getText("UTF-8") =~ /<item\b/).count
+        if (itemCount > 5) {
+            throw new GradleException("BottomNavigationView supports max 5 items, found ${itemCount} in ${navMenu}")
+        }
+    }
+}
+
+tasks.named("preBuild") {
+    dependsOn("verifyBottomNavItemCount")
+}
+
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
