@@ -23,8 +23,6 @@ public class FlyingStarActivity extends d.s {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: calculate, reason: merged with bridge method [inline-methods] */
     public void lambda$onCreate$0() {
-        TextView textView;
-        int i4;
         int selectedItemPosition = this.spYear.getSelectedItemPosition() + 1864;
         int selectedItemPosition2 = this.spDir.getSelectedItemPosition();
         int calcPeriod = calcPeriod(selectedItemPosition);
@@ -39,12 +37,12 @@ public class FlyingStarActivity extends d.s {
             int i6 = iArr[i5];
             int i7 = iArr2[i5];
             String quality = getQuality(iArr3[i5], i6, i7);
-            this.tvCells[i5].setText(strArr[i5] + "\n" + iArr3[i5] + i6 + i7 + "\n" + quality);
+            TextView textView = this.tvCells[i5];
+            int i4 = -16777216;
+            textView.setText(strArr[i5] + "\n" + iArr3[i5] + i6 + i7 + "\n" + quality);
             if (quality.contains("吉")) {
-                textView = this.tvCells[i5];
                 i4 = -1509911;
             } else if (quality.contains("凶")) {
-                textView = this.tvCells[i5];
                 i4 = -5138;
             } else {
                 sb.append(strArr[i5]);
@@ -143,8 +141,8 @@ public class FlyingStarActivity extends d.s {
         super.onCreate(bundle);
         setContentView(R.layout.activity_flying_star);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().m(true);
-            getSupportActionBar().o("玄空飞星");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("玄空飞星");
         }
         this.spYear = (Spinner) findViewById(R.id.sp_build_year);
         this.spDir = (Spinner) findViewById(R.id.sp_direction);

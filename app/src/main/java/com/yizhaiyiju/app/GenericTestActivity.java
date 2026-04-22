@@ -46,7 +46,9 @@ public class GenericTestActivity extends d.s {
                 String[] strArr = new String[3];
                 strArr[0] = "心理年龄：" + i4 + "岁";
                 strArr[1] = "🧠";
-                StringBuilder j4 = androidx.appcompat.widget.b0.j("你的心智成熟度相当于", i4, "岁。");
+                StringBuilder j4 = new StringBuilder("你的心智成熟度相当于");
+                j4.append(i4);
+                j4.append("岁。");
                 j4.append(i4 > 35 ? "你比同龄人更加成熟稳重。" : "你保持着年轻的心态和活力。");
                 strArr[2] = j4.toString();
                 return strArr;
@@ -74,7 +76,7 @@ public class GenericTestActivity extends d.s {
                         return new String[]{sb2 + " · " + strArr5[1], "🎭", strArr5[2]};
                     }
                 }
-                return new String[]{sb2, "🎭", androidx.appcompat.widget.b0.i("你的性格类型是", sb2, "，每种类型都有独特的优势。")};
+                return new String[]{sb2, "🎭", new StringBuilder().append("你的性格类型是").append(sb2).append("，每种类型都有独特的优势。").toString()};
             case "name":
                 int i12 = ((int) (d5 * 35.0d)) + 60;
                 return new String[]{"名字评分：" + i12 + "分", "✨", i12 >= 90 ? "名字非常好！五行搭配得当，音韵和谐，寓意深远，对运势有积极加持。" : i12 >= 80 ? "名字不错，五行基本平衡，音韵流畅。稍加调整可以更完美。" : i12 >= 70 ? "名字尚可，但五行搭配有些偏颇，音韵上也有优化空间。建议咨询师傅做微调。" : "名字有待改善，五行存在明显偏差，可能对运势有一定影响。建议考虑调整。"};

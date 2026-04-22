@@ -1,8 +1,10 @@
 package u2;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class e extends b {
@@ -12,7 +14,8 @@ public class e extends b {
 
     public e(JSONObject obj) {
         if (obj == null) return;
-        for (String key : obj.keySet()) {
+        for (Iterator<String> it = obj.keys(); it.hasNext(); ) {
+            String key = it.next();
             f4744a.put(key, wrap(obj.opt(key)));
         }
     }
@@ -27,6 +30,10 @@ public class e extends b {
 
     public void i(String key, String value) {
         f4744a.put(key, new c(value));
+    }
+
+    public void i(String key, b value) {
+        f4744a.put(key, value == null ? new d() : value);
     }
 
     public boolean k(String key) {
@@ -47,11 +54,14 @@ public class e extends b {
         JSONObject obj = new JSONObject();
         for (Map.Entry<String, b> entry : f4744a.entrySet()) {
             b value = entry.getValue();
-            if (value instanceof e) obj.put(entry.getKey(), ((e) value).toJson());
-            else if (value instanceof a) obj.put(entry.getKey(), ((a) value).toJson());
-            else if (value instanceof d) obj.put(entry.getKey(), JSONObject.NULL);
-            else if (value instanceof c) obj.put(entry.getKey(), ((c) value).raw());
-            else obj.put(entry.getKey(), value == null ? JSONObject.NULL : value.h());
+            try {
+                if (value instanceof e) obj.put(entry.getKey(), ((e) value).toJson());
+                else if (value instanceof a) obj.put(entry.getKey(), ((a) value).toJson());
+                else if (value instanceof d) obj.put(entry.getKey(), JSONObject.NULL);
+                else if (value instanceof c) obj.put(entry.getKey(), ((c) value).raw());
+                else obj.put(entry.getKey(), value == null ? JSONObject.NULL : value.h());
+            } catch (JSONException ignored) {
+            }
         }
         return obj;
     }

@@ -123,8 +123,6 @@ public class MessagesFragment extends Fragment {
 
         @Override // androidx.recyclerview.widget.g0
         public void onBindViewHolder(VH vh, int i4) {
-            TextView textView;
-            String str;
             try {
                 JSONObject jSONObject = (JSONObject) MessagesFragment.this.sessions.get(i4);
                 vh.tvName.setText("张师傅");
@@ -134,22 +132,22 @@ public class MessagesFragment extends Fragment {
                     try {
                         Date parse = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault()).parse(optString);
                         long currentTimeMillis = System.currentTimeMillis() - parse.getTime();
+                        String str;
                         if (currentTimeMillis < 60000) {
-                            textView = vh.tvTime;
                             str = "刚刚";
                         } else if (currentTimeMillis < 3600000) {
-                            textView = vh.tvTime;
                             str = (currentTimeMillis / 60000) + "分钟前";
                         } else if (currentTimeMillis < 86400000) {
-                            textView = vh.tvTime;
                             str = (currentTimeMillis / 3600000) + "小时前";
                         } else {
-                            vh.tvTime.setText(new SimpleDateFormat("MM/dd", Locale.getDefault()).format(parse));
+                            str = new SimpleDateFormat("MM/dd", Locale.getDefault()).format(parse);
                         }
-                        textView.setText(str);
+                        vh.tvTime.setText(str);
                     } catch (Exception unused) {
                         vh.tvTime.setText("");
                     }
+                } else {
+                    vh.tvTime.setText("");
                 }
                 int optInt = jSONObject.optInt("unread_count", 0);
                 if (optInt > 0) {

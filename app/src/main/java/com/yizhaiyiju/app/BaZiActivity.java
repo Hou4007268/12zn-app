@@ -101,11 +101,13 @@ public class BaZiActivity extends d.s {
         sb2.append("偏弱，可多接触");
         sb2.append(getElemAdvice(i12));
         sb2.append("来补益。忌");
-        ((TextView) findViewById(R.id.tv_element_advice)).setText(o.h.a(sb2, strArr3[i13], "过旺。"));
+        ((TextView) findViewById(R.id.tv_element_advice)).setText(new StringBuilder().append(sb2).append(strArr3[i13]).append("过旺。").toString());
         boolean z4 = this.isMale;
         boolean z5 = calcYearPillar[0] % 2 == 0;
         int max = Math.max(1, ((((!(z5 && z4) && (z5 || z4)) ? 13 - this.selectedMonth : this.selectedMonth - 1) * 10) / 3) + 1);
-        StringBuilder j4 = androidx.appcompat.widget.b0.j("起运年龄：约", max, "岁\n\n");
+        StringBuilder j4 = new StringBuilder("起运年龄：约");
+        j4.append(max);
+        j4.append("岁\n\n");
         int i16 = calcMonthPillar[0];
         int i17 = calcMonthPillar[1];
         for (int i18 = 0; i18 < 8; i18++) {
@@ -205,7 +207,7 @@ public class BaZiActivity extends d.s {
 
     public int[] calcDayPillar(int i4, int i5, int i6) {
         int i7 = (i4 + 4800) - ((14 - i5) / 12);
-        int i8 = ((((((r0 * 12) + i5) - 3) * 153) + 2) / 5) + i6;
+        int i8 = ((((((i7 * 12) + i5) - 3) * 153) + 2) / 5) + i6;
         int i9 = ((((((i7 / 400) + (((i7 / 4) + ((i7 * 365) + i8)) - (i7 / 100))) - 32045) - 11) % 60) + 60) % 60;
         return new int[]{i9 % 10, i9 % 12};
     }
@@ -233,8 +235,8 @@ public class BaZiActivity extends d.s {
         setContentView(R.layout.activity_bazi);
         int i4 = 1;
         if (getSupportActionBar() != null) {
-            getSupportActionBar().m(true);
-            getSupportActionBar().o("八字排盘");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("八字排盘");
         }
         this.spYear = (Spinner) findViewById(R.id.sp_year);
         this.spMonth = (Spinner) findViewById(R.id.sp_month);

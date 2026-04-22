@@ -34,68 +34,26 @@
                 android:letterSpacing="0.15"/>
         </LinearLayout>
 
-        <!-- HERO: 13项专业服务卡片 (朱红-醒目) -->
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="@drawable/bg_red_button"
-            android:padding="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginHorizontal="16dp">
-            <TextView
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_on_accent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🏠 13项专业服务"/>
-            <TextView
-                android:textSize="14sp"
-                android:textColor="#ccffffff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="户型风水 · 起名改名 · 择日选时 · 流年运势\n真人师傅1v1 · 八字命理 · 开光法物 · 商业风水"/>
-            <TextView
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_on_accent"
-                android:background="@drawable/bg_tag_transparent"
-                android:paddingLeft="16dp"
-                android:paddingTop="8dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="查看全部服务 ›"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="8dp"/>
-        </LinearLayout>
-
         <!-- AI风水问答卡片 (置顶) -->
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/btn_ai_chat"
             android:background="@drawable/bg_gold_button"
-            android:padding="10dp"
+            android:padding="8dp"
             android:focusable="true"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginHorizontal="16dp">
             <LinearLayout
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="☯"/>
@@ -104,16 +62,16 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="12dp">
+                    android:layout_marginStart="10dp">
                     <TextView
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         android:textColor="@color/text_on_accent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="AI 风水问答"/>
                     <TextView
-                        android:textSize="11sp"
+                        android:textSize="10sp"
                         android:textColor="#ccffffff"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -121,29 +79,70 @@
                         android:text="随时随地，智能解答你的风水困惑"/>
                 </LinearLayout>
                 <TextView
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@color/text_on_accent"
                     android:background="@drawable/bg_tag_transparent"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="4dp"
-                    android:paddingRight="10dp"
-                    android:paddingBottom="4dp"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="免费体验 ›"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="4dp"/>
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="3dp"/>
             </LinearLayout>
         </LinearLayout>
 
-        <!-- 服务项目卡片 (Hero位置，放大置顶) -->
+        <!-- 服务项目卡片 (和AI互换位置) -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/bg_red_button"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="14dp"
+            android:layout_marginHorizontal="16dp">
+            <TextView
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_on_accent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏠 13项专业服务"/>
+            <TextView
+                android:textSize="12sp"
+                android:textColor="#ccffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="户型风水 · 起名改名 · 择日选时 · 流年运势\n真人师傅1v1 · 八字命理 · 开光法物 · 商业风水"/>
+            <TextView
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_on_accent"
+                android:background="@drawable/bg_tag_transparent"
+                android:paddingLeft="12dp"
+                android:paddingTop="6dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="查看全部服务 ›"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"/>
+        </LinearLayout>
+
         <LinearLayout
             android:orientation="horizontal"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="10dp"
             android:paddingHorizontal="16dp">
             <LinearLayout
                 android:gravity="center"
@@ -153,24 +152,24 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="96dp"
                 android:layout_margin="4dp"
                 android:layout_weight="1">
                 <TextView
-                    android:textSize="32sp"
+                    android:textSize="28sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="🔮"/>
                 <TextView
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_primary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="3dp"
                     android:text="今日运势"/>
                 <TextView
-                    android:textSize="10sp"
+                    android:textSize="9sp"
                     android:textColor="@color/text_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -184,24 +183,24 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="96dp"
                 android:layout_margin="4dp"
                 android:layout_weight="1">
                 <TextView
-                    android:textSize="32sp"
+                    android:textSize="28sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="📅"/>
                 <TextView
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_primary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="3dp"
                     android:text="万年历"/>
                 <TextView
-                    android:textSize="10sp"
+                    android:textSize="9sp"
                     android:textColor="@color/text_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -215,25 +214,25 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="96dp"
                 android:layout_margin="4dp"
                 android:layout_weight="1">
                 <TextView
-                    android:textSize="32sp"
+                    android:textSize="28sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="🎙️"/>
                 <TextView
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_primary"
                     android:id="@+id/tv_consult_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="3dp"
                     android:text="预约师傅"/>
                 <TextView
-                    android:textSize="10sp"
+                    android:textSize="9sp"
                     android:textColor="@color/text_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -245,7 +244,7 @@
         <LinearLayout
             android:gravity="center"
             android:id="@+id/btn_more_tests"
-            android:padding="14dp"
+            android:padding="10dp"
             android:focusable="true"
             android:clickable="true"
             android:layout_width="match_parent"
@@ -255,7 +254,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginHorizontal="16dp">
             <TextView
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary"
                 android:layout_width="wrap_content"
@@ -266,11 +265,11 @@
         <!-- 咨询流程 -->
         <LinearLayout
             android:orientation="vertical"
-            android:padding="16dp"
+            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary"
                 android:layout_width="wrap_content"
@@ -280,7 +279,7 @@
             <LinearLayout
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="16dp"
+                android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
@@ -290,8 +289,8 @@
                     android:textColor="@color/text_on_accent"
                     android:gravity="center"
                     android:background="@drawable/bg_red_button"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:text="壹"/>
                 <LinearLayout
                     android:orientation="vertical"
@@ -300,14 +299,14 @@
                     android:layout_weight="1"
                     android:layout_marginStart="12dp">
                     <TextView
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:textColor="@color/text_primary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="描述问题"/>
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:textColor="@color/text_secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -317,7 +316,7 @@
             <LinearLayout
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="16dp"
+                android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
@@ -327,8 +326,8 @@
                     android:textColor="@color/text_on_accent"
                     android:gravity="center"
                     android:background="@drawable/bg_red_button"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:text="贰"/>
                 <LinearLayout
                     android:orientation="vertical"
@@ -337,14 +336,14 @@
                     android:layout_weight="1"
                     android:layout_marginStart="12dp">
                     <TextView
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:textColor="@color/text_primary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="AI初步分析"/>
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:textColor="@color/text_secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -354,7 +353,7 @@
             <LinearLayout
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="16dp"
+                android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
@@ -364,8 +363,8 @@
                     android:textColor="@color/text_on_accent"
                     android:gravity="center"
                     android:background="@drawable/bg_red_button"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:text="叁"/>
                 <LinearLayout
                     android:orientation="vertical"
@@ -374,14 +373,14 @@
                     android:layout_weight="1"
                     android:layout_marginStart="12dp">
                     <TextView
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:textColor="@color/text_primary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="深度沟通"/>
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:textColor="@color/text_secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -391,7 +390,7 @@
             <LinearLayout
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="16dp"
+                android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
@@ -400,8 +399,8 @@
                     android:textColor="@color/text_on_accent"
                     android:gravity="center"
                     android:background="@drawable/bg_red_button"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:text="肆"/>
                 <LinearLayout
                     android:orientation="vertical"
@@ -410,14 +409,14 @@
                     android:layout_weight="1"
                     android:layout_marginStart="12dp">
                     <TextView
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:textColor="@color/text_primary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="定制方案"/>
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:textColor="@color/text_secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -428,6 +427,6 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:layout_height="12dp"/>
     </LinearLayout>
 </ScrollView>

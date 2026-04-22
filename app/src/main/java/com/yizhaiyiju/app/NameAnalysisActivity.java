@@ -201,8 +201,8 @@ public class NameAnalysisActivity extends d.s {
         setContentView(R.layout.activity_name);
         int i4 = 1;
         if (getSupportActionBar() != null) {
-            getSupportActionBar().m(true);
-            getSupportActionBar().o("姓名分析");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("姓名分析");
         }
         this.etName = (EditText) findViewById(R.id.et_name);
         this.spYear = (Spinner) findViewById(R.id.sp_year);

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#a68a3e</color>
-    <color name="accent">#b5452a</color>
-    <color name="gold">#a68a3e</color>
-    <color name="red_soft">#b5452a</color>
+    <color name="primary">#9c8144</color>
+    <color name="accent">#aa412c</color>
+    <color name="gold">#9c8144</color>
+    <color name="red_soft">#aa412c</color>
     <color name="green_ok">#4CAF50</color>
-    <color name="bg_page">#f6f2eb</color>
+    <color name="bg_page">#f8f4ee</color>
     <color name="bg_card">#ffffff</color>
     <color name="bg_dark">#2c2c2c</color>
-    <color name="bg_toolbar">#f6f2eb</color>
-    <color name="border_soft">#e0dbd3</color>
-    <color name="nav_bg">#faf8f5</color>
-    <color name="nav_selected">#a68a3e</color>
-    <color name="nav_unselected">#a09890</color>
+    <color name="bg_toolbar">#f8f4ee</color>
+    <color name="border_soft">#e7dfd3</color>
+    <color name="nav_bg">#fcfaf7</color>
+    <color name="nav_selected">#9c8144</color>
+    <color name="nav_unselected">#a59a8f</color>
     <color name="text_primary">#333333</color>
-    <color name="text_secondary">#666666</color>
+    <color name="text_secondary">#6b635c</color>
     <color name="text_gray">#999999</color>
-    <color name="text_light">#bbbbbb</color>
+    <color name="text_light">#c0b7ad</color>
     <color name="text_on_accent">#ffffff</color>
-    <color name="text_gold">#a68a3e</color>
-    <color name="bubble_user">#e8dcc8</color>
+    <color name="text_gold">#9c8144</color>
+    <color name="bubble_user">#eadfcf</color>
     <color name="bubble_ai">#ffffff</color>
-    <color name="border">#e0dbd3</color>
+    <color name="border">#e7dfd3</color>
     <color name="bg_input">#ffffff</color>
 </resources>

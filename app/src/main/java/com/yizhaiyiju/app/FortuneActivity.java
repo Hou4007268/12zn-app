@@ -63,7 +63,7 @@ public class FortuneActivity extends d.s {
             TextView textView = new TextView(this);
             textView.setText(TestData.ZODIAC_EMOJIS[i5] + "\n" + TestData.ZODIAC_NAMES[i5]);
             textView.setTextSize(14.0f);
-            textView.setTextColor(getResources().getColor(R.color.text_white));
+            textView.setTextColor(getResources().getColor(android.R.color.white));
             textView.setGravity(17);
             textView.setPadding(16, 16, 16, 16);
             textView.setBackgroundResource(R.drawable.bg_card);

@@ -86,9 +86,9 @@ public class ShareHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void lambda$loadQRAndShare$2(final ImageView imageView, final View view, final Context context, final String str) {
+    public static /* synthetic */ void lambda$loadQRAndShare$2(final ImageView imageView, final View view, final Context context, final String str) {
         Bitmap bitmap;
-        q3.h0 g4;
+        q3.h0 g4 = null;
         q3.j0 j0Var;
         try {
             q3.c0 c0Var = new q3.c0();
@@ -96,7 +96,7 @@ public class ShareHelper {
             g4 = ApiHelper.getClient().a(c0Var.a()).g();
         } catch (Exception unused) {
         }
-        if (g4.C() && (j0Var = g4.f4104g) != null) {
+        if (g4 != null && g4.C() && (j0Var = g4.f4104g) != null) {
             c4.f y4 = ((q3.i0) j0Var).f4117c.y();
             bitmap = BitmapFactory.decodeStream(y4);
             try {

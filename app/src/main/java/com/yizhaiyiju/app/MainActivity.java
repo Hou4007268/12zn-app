@@ -20,11 +20,17 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
         UpdateHelper.checkUpdate(this);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        int navServicesId = getResources().getIdentifier("nav_services", "id", getPackageName());
+        int navMessagesId = getResources().getIdentifier("nav_messages", "id", getPackageName());
 
         // Hide Messages and Services tabs for lite version
         if (!BuildConfig.FULL_VERSION) {
-            bottomNav.getMenu().removeItem(R.id.nav_messages);
-            bottomNav.getMenu().removeItem(R.id.nav_services);
+            if (navMessagesId != 0) {
+                bottomNav.getMenu().removeItem(navMessagesId);
+            }
+            if (navServicesId != 0) {
+                bottomNav.getMenu().removeItem(navServicesId);
+            }
         }
 
         if (savedInstanceState == null) {

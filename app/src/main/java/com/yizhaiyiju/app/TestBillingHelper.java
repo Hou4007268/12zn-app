@@ -22,7 +22,7 @@ public class TestBillingHelper {
     private static final String PREFS = "test_billing";
 
     /* renamed from: com.yizhaiyiju.app.TestBillingHelper$1, reason: invalid class name */
-    public class AnonymousClass1 implements ApiHelper.Callback<ApiHelper.PayResult> {
+    public static class AnonymousClass1 implements ApiHelper.Callback<ApiHelper.PayResult> {
         final /* synthetic */ BillCallback val$callback;
         final /* synthetic */ Context val$ctx;
         final /* synthetic */ int val$currentCount;

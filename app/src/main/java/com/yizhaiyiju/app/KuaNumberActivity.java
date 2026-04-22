@@ -60,7 +60,7 @@ public class KuaNumberActivity extends d.s {
         sb3.append("（生气）方\n• 大门宜开");
         sb3.append(strArr[iArr[calcKua][1]]);
         sb3.append("（天医）方\n• 避免在");
-        ((TextView) findViewById(R.id.tv_advice)).setText(o.h.a(sb3, strArr[BAD_DIRS[calcKua][3]], "（绝命）方设卧室或灶台"));
+        ((TextView) findViewById(R.id.tv_advice)).setText(new StringBuilder().append(sb3).append(strArr[BAD_DIRS[calcKua][3]]).append("（绝命）方设卧室或灶台").toString());
         this.resultContainer.setVisibility(0);
         findViewById(R.id.btn_share).setOnClickListener(new j0(this, i4));
     }
@@ -118,8 +118,8 @@ public class KuaNumberActivity extends d.s {
         setContentView(R.layout.activity_kua);
         int i4 = 1;
         if (getSupportActionBar() != null) {
-            getSupportActionBar().m(true);
-            getSupportActionBar().o("八宅命卦");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("八宅命卦");
         }
         this.spYear = (Spinner) findViewById(R.id.sp_year);
         this.rgGender = (RadioGroup) findViewById(R.id.rg_gender);

@@ -111,7 +111,7 @@ public class DirectChatActivity extends d.s {
             if (!z4 || DirectChatActivity.this.messages.size() <= 0) {
                 return;
             }
-            DirectChatActivity.this.rvMessages.e0(DirectChatActivity.this.messages.size() - 1);
+            DirectChatActivity.this.rvMessages.scrollToPosition(DirectChatActivity.this.messages.size() - 1);
         }
 
         @Override // q3.e
@@ -301,7 +301,7 @@ public class DirectChatActivity extends d.s {
                         public final /* synthetic */ DirectChatActivity.ChatAdapter f2305f;
 
                         {
-                            this.f2305f = DirectChatActivity.this;
+                            this.f2305f = DirectChatActivity.ChatAdapter.this;
                         }
 
                         @Override // android.view.View.OnClickListener
@@ -329,7 +329,7 @@ public class DirectChatActivity extends d.s {
                         public final /* synthetic */ DirectChatActivity.ChatAdapter f2305f;
 
                         {
-                            this.f2305f = DirectChatActivity.this;
+                            this.f2305f = DirectChatActivity.ChatAdapter.this;
                         }
 
                         @Override // android.view.View.OnClickListener
@@ -609,8 +609,8 @@ public class DirectChatActivity extends d.s {
     }
 
     private void startRecording() {
-        if (x.g.a(this, "android.permission.RECORD_AUDIO") != 0) {
-            x.g.c(this, new String[]{"android.permission.RECORD_AUDIO"}, REQ_PERMISSION);
+        if (androidx.core.content.ContextCompat.checkSelfPermission(this, "android.permission.RECORD_AUDIO") != 0) {
+            androidx.core.app.ActivityCompat.requestPermissions(this, new String[]{"android.permission.RECORD_AUDIO"}, REQ_PERMISSION);
             return;
         }
         try {
@@ -698,7 +698,7 @@ public class DirectChatActivity extends d.s {
         this.adapter = new ChatAdapter();
         int i4 = 1;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.b1(true);
+        linearLayoutManager.setStackFromEnd(true);
         this.rvMessages.setLayoutManager(linearLayoutManager);
         this.rvMessages.setAdapter(this.adapter);
         this.btnSend.setOnClickListener(new v(this, i4));

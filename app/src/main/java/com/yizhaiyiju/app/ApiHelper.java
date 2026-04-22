@@ -24,7 +24,7 @@ public class ApiHelper {
     private static String userPhone;
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$1, reason: invalid class name */
-    public class AnonymousClass1 implements q3.e {
+    public static class AnonymousClass1 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass1(Callback callback) {
@@ -68,7 +68,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$2, reason: invalid class name */
-    public class AnonymousClass2 implements q3.e {
+    public static class AnonymousClass2 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass2(Callback callback) {
@@ -115,7 +115,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$3, reason: invalid class name */
-    public class AnonymousClass3 implements q3.e {
+    public static class AnonymousClass3 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass3(Callback callback) {
@@ -171,7 +171,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$4, reason: invalid class name */
-    public class AnonymousClass4 implements q3.e {
+    public static class AnonymousClass4 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass4(Callback callback) {
@@ -215,7 +215,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$5, reason: invalid class name */
-    public class AnonymousClass5 implements q3.e {
+    public static class AnonymousClass5 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass5(Callback callback) {
@@ -367,7 +367,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$6, reason: invalid class name */
-    public class AnonymousClass6 implements q3.e {
+    public static class AnonymousClass6 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass6(Callback callback) {
@@ -410,7 +410,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$7, reason: invalid class name */
-    public class AnonymousClass7 implements q3.e {
+    public static class AnonymousClass7 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass7(Callback callback) {
@@ -458,7 +458,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$8, reason: invalid class name */
-    public class AnonymousClass8 implements q3.e {
+    public static class AnonymousClass8 implements q3.e {
         final /* synthetic */ Callback val$cb;
 
         public AnonymousClass8(Callback callback) {

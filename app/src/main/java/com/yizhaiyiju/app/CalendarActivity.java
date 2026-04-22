@@ -90,7 +90,7 @@ public class CalendarActivity extends d.s {
     }
 
     private String getSha(int i4) {
-        return o.h.a(new StringBuilder(), new String[]{"东", "北", "西", "南", "东", "北", "西", "南", "东", "北", "西", "南"}[i4], "方");
+        return new StringBuilder().append(new String[]{"东", "北", "西", "南", "东", "北", "西", "南", "东", "北", "西", "南"}[i4]).append("方").toString();
     }
 
     private String[] getYiJi(int i4, int i5) {

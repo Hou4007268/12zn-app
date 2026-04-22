@@ -72,6 +72,10 @@ public class ProfileFragment extends Fragment {
         return null;
     }
 
+    void lambda$onViewCreated$7(View view, View view2) {
+        updateUI(view);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_profile, container, false);

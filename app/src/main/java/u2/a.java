@@ -36,6 +36,10 @@ public class a extends b {
     }
 
     JSONArray toJson() {
-        return new JSONArray(toString());
+        try {
+            return new JSONArray(toString());
+        } catch (Exception unused) {
+            return new JSONArray();
+        }
     }
 }

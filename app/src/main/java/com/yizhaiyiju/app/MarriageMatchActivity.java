@@ -74,7 +74,7 @@ public class MarriageMatchActivity extends d.s {
 
     public int[] calcDayPillar(int i4, int i5, int i6) {
         int i7 = (i4 + 4800) - ((14 - i5) / 12);
-        int i8 = ((((((r0 * 12) + i5) - 3) * 153) + 2) / 5) + i6;
+        int i8 = ((((((i7 * 12) + i5) - 3) * 153) + 2) / 5) + i6;
         int i9 = ((((((i7 / 400) + (((i7 / 4) + ((i7 * 365) + i8)) - (i7 / 100))) - 32045) - 11) % 60) + 60) % 60;
         return new int[]{i9 % 10, i9 % 12};
     }
@@ -85,8 +85,8 @@ public class MarriageMatchActivity extends d.s {
         setContentView(R.layout.activity_marriage);
         int i4 = 1;
         if (getSupportActionBar() != null) {
-            getSupportActionBar().m(true);
-            getSupportActionBar().o("八字合婚");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("八字合婚");
         }
         this.spMaleYear = (Spinner) findViewById(R.id.sp_male_year);
         this.spMaleMonth = (Spinner) findViewById(R.id.sp_male_month);
@@ -124,7 +124,7 @@ public class MarriageMatchActivity extends d.s {
         }
         String[] strArr4 = new String[12];
         for (int i11 = 0; i11 < 12; i11++) {
-            strArr4[i11] = o.h.a(new StringBuilder(), BRANCHES[i11], "时");
+            strArr4[i11] = new StringBuilder().append(BRANCHES[i11]).append("时").toString();
         }
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, strArr);
         ArrayAdapter arrayAdapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, strArr2);
