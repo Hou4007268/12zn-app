@@ -37,13 +37,17 @@ public class UpdateHelper {
             .readTimeout(30, TimeUnit.SECONDS)
             .build();
 
+    private static final boolean IN_APP_UPDATE_ENABLED = false;
+
     public static void checkUpdate(Context context) {
+        if (!IN_APP_UPDATE_ENABLED) {
+            return;
+        }
         doCheck(context, false);
     }
 
     public static void checkUpdateManual(Context context) {
-        Toast.makeText(context, "\u6b63\u5728\u68c0\u67e5\u66f4\u65b0...", Toast.LENGTH_SHORT).show();
-        doCheck(context, true);
+        Toast.makeText(context, "应用内更新已关闭，请前往官网下载安装最新版。", Toast.LENGTH_SHORT).show();
     }
 
     private static void doCheck(Context context, boolean isManual) {

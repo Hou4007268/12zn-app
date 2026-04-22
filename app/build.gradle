@@ -6,6 +6,12 @@ android {
     namespace 'com.yizhaiyiju.app'
     compileSdk 34
 
+    def releaseStoreFile = project.findProperty('RELEASE_STORE_FILE') ?: System.getenv('RELEASE_STORE_FILE')
+    def releaseStorePassword = project.findProperty('RELEASE_STORE_PASSWORD') ?: System.getenv('RELEASE_STORE_PASSWORD')
+    def releaseKeyAlias = project.findProperty('RELEASE_KEY_ALIAS') ?: System.getenv('RELEASE_KEY_ALIAS')
+    def releaseKeyPassword = project.findProperty('RELEASE_KEY_PASSWORD') ?: System.getenv('RELEASE_KEY_PASSWORD')
+    def releaseSigningReady = [releaseStoreFile, releaseStorePassword, releaseKeyAlias, releaseKeyPassword].every { it != null && it.toString().trim() }
+
     defaultConfig {
         applicationId "com.yizhaiyiju.app"
         minSdk 24
@@ -31,12 +37,18 @@ android {
         }
     }
 
+    if (gradle.startParameter.taskNames.any { it.toLowerCase().contains('release') } && !releaseSigningReady) {
+        throw new GradleException('Release signing credentials missing. Set RELEASE_STORE_FILE / RELEASE_STORE_PASSWORD / RELEASE_KEY_ALIAS / RELEASE_KEY_PASSWORD in local gradle.properties or CI secrets.')
+    }
+
     signingConfigs {
         release {
-            storeFile file("/home/ubuntu/yizhaiyiju.keystore")
-            storePassword "yizhaiyiju2026"
-            keyAlias "yizhaiyiju"
-            keyPassword "yizhaiyiju2026"
+            if (releaseSigningReady) {
+                storeFile file(releaseStoreFile.toString())
+                storePassword releaseStorePassword.toString()
+                keyAlias releaseKeyAlias.toString()
+                keyPassword releaseKeyPassword.toString()
+            }
         }
     }
 
@@ -44,7 +56,9 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            if (releaseSigningReady) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 
@@ -55,6 +69,12 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        baseline = file("lint-baseline.xml")
+        checkReleaseBuilds true
+        abortOnError true
     }
 }
 
