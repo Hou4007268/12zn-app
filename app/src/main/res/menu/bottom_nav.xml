@@ -11,7 +11,7 @@
     <item
         android:icon="@drawable/nav_test"
         android:id="@+id/nav_test"
-        android:title="AI"/>
+        android:title="测试"/>
     <item
         android:icon="@drawable/nav_messages"
         android:id="@+id/nav_messages"
