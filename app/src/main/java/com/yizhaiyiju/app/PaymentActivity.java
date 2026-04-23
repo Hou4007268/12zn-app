@@ -1,5 +1,6 @@
 package com.yizhaiyiju.app;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -60,11 +61,18 @@ public class PaymentActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showQRCode(String str) {
-        this.wvQr.getSettings().setJavaScriptEnabled(true);
+        String str2 = str == null ? "" : str.trim();
+        this.wvQr.getSettings().setJavaScriptEnabled(false);
+        this.wvQr.getSettings().setAllowFileAccess(false);
+        this.wvQr.getSettings().setDomStorageEnabled(false);
         this.wvQr.setWebViewClient(new WebViewClient());
-        this.wvQr.loadDataWithBaseURL(null, new StringBuilder().append("<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><style>body{margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#fefcf8;}canvas{border:8px solid #fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.1);}</style></head><body><canvas id='qr' width='200' height='200'></canvas><script>var QRCode=function(){function c(a,b){this.a=a;this.b=b}var d=[[-1,2,3,-1],[2,4,5,6],[3,5,7,8],[-1,6,8,9]];c.prototype.encode=function(a){var b=this.a,e=this.b,f=[],g,h,i,j,k,l,m,n,o,p;for(g=0;g<b;g++)f[g]=[];for(g=0;g<a.length&&g<b*b;g++){h=Math.floor(g/b);i=g%b;j=a.charCodeAt(g)%10;f[h][i]=j%2}return f};return c}();var url='")
-                .append(str.replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;"))
-                .append("';var c=document.getElementById('qr'),x=c.getContext('2d');x.fillStyle='#fefcf8';x.fillRect(0,0,200,200);var s=200,n=25,cs=s/n;function hash(s){var h=0;for(var i=0;i<s.length;i++)h=((h<<5)-h)+s.charCodeAt(i)|0;return Math.abs(h)}var h=hash(url);for(var r=0;r<n;r++)for(var col=0;col<n;col++){var bit=((h>>(r*n+col)%31)&1)||((r+col+h)%3===0);if(r<3&&col<3||r<3&&col>=n-3||r>=n-3&&col<3)bit=(r%2===0&&col%2===0)||((r+col)%3===0);if(bit){x.fillStyle='#3d3530';x.fillRect(col*cs+1,r*cs+1,cs-2,cs-2)}}</script></body></html>").toString(), "text/html", "UTF-8", null);
+        String str3;
+        if (str2.startsWith("data:image")) {
+            str3 = str2.replace("&", "&amp;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;");
+        } else {
+            str3 = "https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=" + Uri.encode(str2);
+        }
+        this.wvQr.loadDataWithBaseURL("https://12zn.com", "<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><style>body{margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#fefcf8;}img{width:320px;height:320px;border:8px solid #fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.1);}</style></head><body><img alt='qr' src='" + str3 + "'/></body></html>", "text/html", "UTF-8", null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

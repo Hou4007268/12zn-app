@@ -254,116 +254,67 @@ public class ApiHelper {
         /* JADX WARN: Removed duplicated region for block: B:32:0x009d  */
         /* JADX WARN: Removed duplicated region for block: B:33:0x008a  */
         @Override // q3.e
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-            To view partially-correct add '--show-bad-code' argument
-        */
-        public void onResponse(q3.d r9, q3.h0 r10) {
-            /*
-                r8 = ApiHelper.this;
-                java.lang.String r9 = "subject"
-                java.lang.String r0 = "amount"
-                java.lang.String r1 = "qr_code"
-                java.lang.String r2 = "qr_url"
-                java.lang.String r3 = "order_no"
-                boolean r4 = r10.C()     // Catch: java.lang.Exception -> Lc8
-                if (r4 != 0) goto L20
-                android.os.Handler r9 = com.yizhaiyiju.app.ApiHelper.access$000()     // Catch: java.lang.Exception -> Lc8
-                com.yizhaiyiju.app.ApiHelper$Callback r0 = r8.val$callback     // Catch: java.lang.Exception -> Lc8
-                com.yizhaiyiju.app.g r1 = new com.yizhaiyiju.app.g     // Catch: java.lang.Exception -> Lc8
-                r2 = 2
-                r1.<init>(r0, r10, r2)     // Catch: java.lang.Exception -> Lc8
-                r9.post(r1)     // Catch: java.lang.Exception -> Lc8
-                return
-            L20:
-                q3.j0 r10 = r10.f4104g     // Catch: java.lang.Exception -> Lc8
-                java.lang.String r10 = r10.C()     // Catch: java.lang.Exception -> Lc8
-                u2.b r10 = s2.r.d1(r10)     // Catch: java.lang.Exception -> Lc8
-                u2.e r10 = r10.g()     // Catch: java.lang.Exception -> Lc8
-                java.lang.String r4 = "error"
-                boolean r4 = r10.k(r4)     // Catch: java.lang.Exception -> Lc8
-                r5 = 1
-                if (r4 == 0) goto L46
-                android.os.Handler r9 = com.yizhaiyiju.app.ApiHelper.access$000()     // Catch: java.lang.Exception -> Lc8
-                com.yizhaiyiju.app.ApiHelper$Callback r0 = r8.val$callback     // Catch: java.lang.Exception -> Lc8
-                com.yizhaiyiju.app.b r1 = new com.yizhaiyiju.app.b     // Catch: java.lang.Exception -> Lc8
-                r1.<init>(r0, r10, r5)     // Catch: java.lang.Exception -> Lc8
-                r9.post(r1)     // Catch: java.lang.Exception -> Lc8
-                return
-            L46:
-                com.yizhaiyiju.app.ApiHelper$PayResult r4 = new com.yizhaiyiju.app.ApiHelper$PayResult     // Catch: java.lang.Exception -> Lc8
-                r4.<init>()     // Catch: java.lang.Exception -> Lc8
-                boolean r6 = r10.k(r3)     // Catch: java.lang.Exception -> Lc8
-                java.lang.String r7 = ""
-                if (r6 == 0) goto L5c
-                u2.b r3 = r10.j(r3)     // Catch: java.lang.Exception -> Lc8
-                java.lang.String r3 = r3.h()     // Catch: java.lang.Exception -> Lc8
-                goto L5d
-            L5c:
-                r3 = r7
-            L5d:
-                r4.orderNo = r3     // Catch: java.lang.Exception -> Lc8
-                boolean r3 = r10.k(r2)     // Catch: java.lang.Exception -> Lc8
-                if (r3 == 0) goto L6e
-                u2.b r1 = r10.j(r2)     // Catch: java.lang.Exception -> Lc8
-            L69:
-                java.lang.String r7 = r1.h()     // Catch: java.lang.Exception -> Lc8
-                goto L79
-            L6e:
-                boolean r2 = r10.k(r1)     // Catch: java.lang.Exception -> Lc8
-                if (r2 == 0) goto L79
-                u2.b r1 = r10.j(r1)     // Catch: java.lang.Exception -> Lc8
-                goto L69
-            L79:
-                r4.qrUrl = r7     // Catch: java.lang.Exception -> Lc8
-                boolean r1 = r10.k(r0)     // Catch: java.lang.Exception -> Lc8
-                if (r1 == 0) goto L8a
-                u2.b r0 = r10.j(r0)     // Catch: java.lang.Exception -> Lc8
-                java.lang.String r0 = r0.h()     // Catch: java.lang.Exception -> Lc8
-                goto L8c
-            L8a:
-                java.lang.String r0 = "0"
-            L8c:
-                r4.amount = r0     // Catch: java.lang.Exception -> Lc8
-                boolean r0 = r10.k(r9)     // Catch: java.lang.Exception -> Lc8
-                if (r0 == 0) goto L9d
-                u2.b r9 = r10.j(r9)     // Catch: java.lang.Exception -> Lc8
-                java.lang.String r9 = r9.h()     // Catch: java.lang.Exception -> Lc8
-                goto L9f
-            L9d:
-                java.lang.String r9 = "咨询服务"
-            L9f:
-                r4.subject = r9     // Catch: java.lang.Exception -> Lc8
-                java.lang.String r9 = r4.orderNo     // Catch: java.lang.Exception -> Lc8
-                boolean r9 = r9.isEmpty()     // Catch: java.lang.Exception -> Lc8
-                if (r9 == 0) goto Lb9
-                android.os.Handler r9 = com.yizhaiyiju.app.ApiHelper.access$000()     // Catch: java.lang.Exception -> Lc8
-                com.yizhaiyiju.app.ApiHelper$Callback r10 = r8.val$callback     // Catch: java.lang.Exception -> Lc8
-                com.yizhaiyiju.app.h r0 = new com.yizhaiyiju.app.h     // Catch: java.lang.Exception -> Lc8
-                r1 = 0
-                r0.<init>(r1, r10)     // Catch: java.lang.Exception -> Lc8
-                r9.post(r0)     // Catch: java.lang.Exception -> Lc8
-                return
-            Lb9:
-                android.os.Handler r9 = com.yizhaiyiju.app.ApiHelper.access$000()     // Catch: java.lang.Exception -> Lc8
-                com.yizhaiyiju.app.ApiHelper$Callback r10 = r8.val$callback     // Catch: java.lang.Exception -> Lc8
-                com.yizhaiyiju.app.f r0 = new com.yizhaiyiju.app.f     // Catch: java.lang.Exception -> Lc8
-                r0.<init>(r10, r5, r4)     // Catch: java.lang.Exception -> Lc8
-                r9.post(r0)     // Catch: java.lang.Exception -> Lc8
-                goto Ld8
-            Lc8:
-                r9 = move-exception
-                android.os.Handler r10 = com.yizhaiyiju.app.ApiHelper.access$000()
-                com.yizhaiyiju.app.ApiHelper$Callback r0 = r8.val$callback
-                com.yizhaiyiju.app.d r1 = new com.yizhaiyiju.app.d
-                r2 = 4
-                r1.<init>(r0, r9, r2)
-                r10.post(r1)
-            Ld8:
-                return
-            */
-            throw new UnsupportedOperationException("Method not decompiled: com.yizhaiyiju.app.ApiHelper.AnonymousClass5.onResponse(q3.d, q3.h0):void");
+        public void onResponse(q3.d dVar, final q3.h0 h0Var) {
+            try {
+                if (!h0Var.C()) {
+                    ApiHelper.mainHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            AnonymousClass5.this.val$callback.onError("请求失败: " + h0Var.f4101d);
+                        }
+                    });
+                    return;
+                }
+
+                final u2.e g4 = r.d1(h0Var.f4104g.C()).g();
+                if (g4.k("error")) {
+                    ApiHelper.mainHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            AnonymousClass5.this.val$callback.onError(g4.j("error").h());
+                        }
+                    });
+                    return;
+                }
+
+                final PayResult payResult = new PayResult();
+                payResult.orderNo = g4.k("order_no") ? g4.j("order_no").h() : "";
+                if (g4.k("qr_code") && !g4.j("qr_code").h().isEmpty()) {
+                    payResult.qrUrl = g4.j("qr_code").h();
+                } else if (g4.k("qr_url") && !g4.j("qr_url").h().isEmpty()) {
+                    payResult.qrUrl = g4.j("qr_url").h();
+                } else {
+                    payResult.qrUrl = "";
+                }
+                payResult.amount = g4.k("amount") ? g4.j("amount").h() : "0";
+                payResult.subject = g4.k("subject") ? g4.j("subject").h() : "咨询服务";
+
+                if (payResult.orderNo.isEmpty()) {
+                    ApiHelper.mainHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            AnonymousClass5.this.val$callback.onError("订单号为空");
+                        }
+                    });
+                    return;
+                }
+
+                ApiHelper.mainHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        AnonymousClass5.this.val$callback.onSuccess(payResult);
+                    }
+                });
+            } catch (final Exception e2) {
+                ApiHelper.mainHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        AnonymousClass5.this.val$callback.onError("创建订单失败: " + e2.getMessage());
+                    }
+                });
+            }
         }
+
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$6, reason: invalid class name */

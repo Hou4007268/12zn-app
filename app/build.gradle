@@ -16,8 +16,8 @@ android {
         applicationId "com.yizhaiyiju.app"
         minSdk 24
         targetSdk 34
-        versionCode 88
-        versionName "1.0.8"
+        versionCode 91
+        versionName "1.0.10"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
