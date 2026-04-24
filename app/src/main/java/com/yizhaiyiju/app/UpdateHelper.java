@@ -30,6 +30,8 @@ import okhttp3.ResponseBody;
 
 public class UpdateHelper {
     private static final String TAG = "UpdateHelper";
+    private static final String TRUSTED_UPDATE_HOST = "12zn.com";
+    private static final String FALLBACK_UPDATE_URL = "https://12zn.com/";
     private static long downloadId = -1;
     private static final Handler mainHandler = new Handler(Looper.getMainLooper());
     private static final OkHttpClient httpClient = new OkHttpClient.Builder()
@@ -37,7 +39,7 @@ public class UpdateHelper {
             .readTimeout(30, TimeUnit.SECONDS)
             .build();
 
-    private static final boolean IN_APP_UPDATE_ENABLED = true;
+    private static final boolean IN_APP_UPDATE_ENABLED = BuildConfig.IN_APP_APK_UPDATE_ENABLED;
 
     public static void checkUpdate(Context context) {
         if (!IN_APP_UPDATE_ENABLED) {
@@ -107,9 +109,14 @@ public class UpdateHelper {
                 String updateNote = data.optString("update_note", "");
                 boolean forceUpdate = data.optBoolean("force_update", false);
 
+                boolean trustedApkUrl = isTrustedApkUrl(apkUrl);
+                if (!trustedApkUrl) {
+                    Log.w(TAG, "Untrusted apk_url blocked: " + apkUrl);
+                }
+
                 if (context instanceof Activity) {
                     final Activity activity = (Activity) context;
-                    if (IN_APP_UPDATE_ENABLED) {
+                    if (IN_APP_UPDATE_ENABLED && trustedApkUrl) {
                         mainHandler.post(() -> showUpdateDialog(activity, versionName, apkUrl, updateNote, forceUpdate));
                     } else if (isManual) {
                         mainHandler.post(() -> showExternalUpdateDialog(activity, versionName, apkUrl));
@@ -154,7 +161,7 @@ public class UpdateHelper {
     }
 
     private static void showExternalUpdateDialog(Context context, String versionName, String apkUrl) {
-        String targetUrl = (apkUrl == null || apkUrl.isEmpty()) ? "https://12zn.com/" : apkUrl;
+        String targetUrl = isTrustedApkUrl(apkUrl) ? apkUrl : FALLBACK_UPDATE_URL;
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("发现新版本 v" + versionName);
         builder.setMessage("应用内更新已关闭。点击下方按钮前往官网下载安装最新版。");
@@ -164,6 +171,24 @@ public class UpdateHelper {
         });
         builder.setNegativeButton("取消", null);
         builder.show();
+    }
+
+    private static boolean isTrustedApkUrl(String url) {
+        if (url == null || url.trim().isEmpty()) {
+            return false;
+        }
+        try {
+            Uri uri = Uri.parse(url.trim());
+            String scheme = uri.getScheme();
+            String host = uri.getHost();
+            String path = uri.getPath();
+            return "https".equalsIgnoreCase(scheme)
+                    && TRUSTED_UPDATE_HOST.equalsIgnoreCase(host)
+                    && path != null
+                    && path.toLowerCase().endsWith(".apk");
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     private static void downloadAndInstall(final Context context, String url) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/bg_card"
     android:padding="24dp"
@@ -35,7 +36,7 @@
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:src="@drawable/nav_messages"
-            android:tint="@color/primary"
+            app:tint="@color/primary"
             android:contentDescription="微信图标"/>
         <LinearLayout
             android:orientation="vertical"
@@ -87,7 +88,7 @@
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:src="@drawable/ic_send"
-            android:tint="@color/primary"
+            app:tint="@color/primary"
             android:contentDescription="Telegram图标"/>
         <LinearLayout
             android:orientation="vertical"

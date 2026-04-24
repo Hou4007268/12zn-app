@@ -16,8 +16,8 @@ android {
         applicationId "com.yizhaiyiju.app"
         minSdk 24
         targetSdk 34
-        versionCode 91
-        versionName "1.0.10"
+        versionCode 93
+        versionName "1.0.12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -27,12 +27,14 @@ android {
             dimension "version"
             applicationId "com.yizhaiyiju.app"
             buildConfigField "boolean", "FULL_VERSION", "true"
+            buildConfigField "boolean", "IN_APP_APK_UPDATE_ENABLED", "true"
             versionNameSuffix ""
         }
         lite {
             dimension "version"
             applicationId "com.yizhaiyiju.app.lite"
             buildConfigField "boolean", "FULL_VERSION", "false"
+            buildConfigField "boolean", "IN_APP_APK_UPDATE_ENABLED", "false"
             versionNameSuffix "-lite"
         }
     }

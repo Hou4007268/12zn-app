@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bg_dark"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -39,7 +40,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/nav_messages"
-                android:tint="@color/gold"
+                app:tint="@color/gold"
                 android:contentDescription="联系方式图标"/>
             <LinearLayout
                 android:orientation="vertical"
@@ -91,7 +92,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_send"
-                android:tint="@color/gold"
+                app:tint="@color/gold"
                 android:contentDescription="邮箱图标"/>
             <LinearLayout
                 android:orientation="vertical"
@@ -143,7 +144,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_search_black_24"
-                android:tint="@color/gold"
+                app:tint="@color/gold"
                 android:contentDescription="网站图标"/>
             <LinearLayout
                 android:orientation="vertical"
