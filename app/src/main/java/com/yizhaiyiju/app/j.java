@@ -57,7 +57,7 @@ public final /* synthetic */ class j implements View.OnClickListener {
                 ((GenericTestActivity) obj2).lambda$onCreate$2((String) obj, view);
                 break;
             case 7:
-                ((ProfileFragment) obj2).lambda$onViewCreated$7((View) obj, view);
+                ((View) obj).performClick();
                 break;
             default:
                 ((SettingsActivity) obj2).lambda$onCreate$2((TextView) obj, view);

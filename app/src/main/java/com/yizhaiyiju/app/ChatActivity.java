@@ -97,7 +97,7 @@ public class ChatActivity extends d.s {
     public void addMessage(String str, boolean z4) {
         this.messages.add(new ChatMessage(str, z4));
         this.adapter.notifyItemInserted(this.messages.size() - 1);
-        this.rvMessages.e0(this.messages.size() - 1);
+        this.rvMessages.scrollToPosition(this.messages.size() - 1);
         saveMessages();
     }
 
@@ -311,7 +311,7 @@ public class ChatActivity extends d.s {
             addMessage("你好！我是AI风水助手，有什么风水问题可以问我。比如：\n\n• 我家大门朝南，风水好吗？\n• 卧室床应该怎么摆放？\n• 办公桌放哪里最好？", false);
         }
         final int i6 = 2;
-        imageButton.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.o
+        this.btnSend.setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.o
 
             /* renamed from: f, reason: collision with root package name */
             public final /* synthetic */ ChatActivity f2362f;

@@ -143,8 +143,8 @@ public class FlyingStarActivity extends d.s {
         super.onCreate(bundle);
         setContentView(R.layout.activity_flying_star);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().m(true);
-            getSupportActionBar().o("玄空飞星");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(玄空飞星);
         }
         this.spYear = (Spinner) findViewById(R.id.sp_build_year);
         this.spDir = (Spinner) findViewById(R.id.sp_direction);

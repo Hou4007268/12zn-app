@@ -42,7 +42,7 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
                 fragment = new HomeFragment();
             } else if (id == R.id.nav_test) {
                 fragment = new TestListFragment();
-            } else if (id == R.id.nav_services) {
+            } else if (id == navServicesId && navServicesId != 0) {
                 fragment = new ServicesFragment();
             } else if (id == R.id.nav_articles) {
                 fragment = new ArticlesFragment();

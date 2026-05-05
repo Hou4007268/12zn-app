@@ -24,7 +24,7 @@ public class ApiHelper {
     private static String userPhone;
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$1, reason: invalid class name */
-    public class AnonymousClass1 implements q3.e {
+    public static class AnonymousClass1 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass1(Callback callback) {
@@ -68,7 +68,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$2, reason: invalid class name */
-    public class AnonymousClass2 implements q3.e {
+    public static class AnonymousClass2 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass2(Callback callback) {
@@ -115,7 +115,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$3, reason: invalid class name */
-    public class AnonymousClass3 implements q3.e {
+    public static class AnonymousClass3 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass3(Callback callback) {
@@ -171,7 +171,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$4, reason: invalid class name */
-    public class AnonymousClass4 implements q3.e {
+    public static class AnonymousClass4 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass4(Callback callback) {
@@ -215,7 +215,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$5, reason: invalid class name */
-    public class AnonymousClass5 implements q3.e {
+    public static class AnonymousClass5 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass5(Callback callback) {
@@ -260,7 +260,6 @@ public class ApiHelper {
         */
         public void onResponse(q3.d r9, q3.h0 r10) {
             /*
-                r8 = ApiHelper.this;
                 java.lang.String r9 = "subject"
                 java.lang.String r0 = "amount"
                 java.lang.String r1 = "qr_code"
@@ -362,12 +361,40 @@ public class ApiHelper {
             Ld8:
                 return
             */
-            throw new UnsupportedOperationException("Method not decompiled: com.yizhaiyiju.app.ApiHelper.AnonymousClass5.onResponse(q3.d, q3.h0):void");
+            try {
+                if (!r10.C()) {
+                    ApiHelper.mainHandler.post(new g(this.val, r10, 2));
+                    return;
+                }
+                u2.e g4 = r.d1(r10.f4104g.C()).g();
+                if (g4.k("error")) {
+                    ApiHelper.mainHandler.post(new c(this.val$callback, g4.j("error").h(), 4));
+                    return;
+                }
+                PayResult payResult = new PayResult();
+                payResult.orderNo = g4.k("order_no") ? g4.j("order_no").h() : "";
+                String qr = "";
+                if (g4.k("qr_url")) {
+                    qr = g4.j("qr_url").h();
+                } else if (g4.k("qr_code")) {
+                    qr = g4.j("qr_code").h();
+                }
+                payResult.qrUrl = qr;
+                payResult.amount = g4.k("amount") ? g4.j("amount").h() : "0";
+                payResult.subject = g4.k("subject") ? g4.j("subject").h() : "咨询服务";
+                if (payResult.orderNo == null || payResult.orderNo.isEmpty()) {
+                    ApiHelper.mainHandler.post(new c(this.val$callback, "创建订单失败: 缺少订单号", 4));
+                    return;
+                }
+                ApiHelper.mainHandler.post(new f(this.val$callback, 1, payResult));
+            } catch (Exception e2) {
+                ApiHelper.mainHandler.post(new d(this.val$callback, e2, 4));
+            }
         }
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$6, reason: invalid class name */
-    public class AnonymousClass6 implements q3.e {
+    public static class AnonymousClass6 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass6(Callback callback) {
@@ -410,7 +437,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$7, reason: invalid class name */
-    public class AnonymousClass7 implements q3.e {
+    public static class AnonymousClass7 implements q3.e {
         final /* synthetic */ Callback val$callback;
 
         public AnonymousClass7(Callback callback) {
@@ -458,7 +485,7 @@ public class ApiHelper {
     }
 
     /* renamed from: com.yizhaiyiju.app.ApiHelper$8, reason: invalid class name */
-    public class AnonymousClass8 implements q3.e {
+    public static class AnonymousClass8 implements q3.e {
         final /* synthetic */ Callback val$cb;
 
         public AnonymousClass8(Callback callback) {
