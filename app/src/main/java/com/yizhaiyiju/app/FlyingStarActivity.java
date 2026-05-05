@@ -23,8 +23,6 @@ public class FlyingStarActivity extends d.s {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: calculate, reason: merged with bridge method [inline-methods] */
     public void lambda$onCreate$0() {
-        TextView textView;
-        int i4;
         int selectedItemPosition = this.spYear.getSelectedItemPosition() + 1864;
         int selectedItemPosition2 = this.spDir.getSelectedItemPosition();
         int calcPeriod = calcPeriod(selectedItemPosition);
@@ -41,22 +39,12 @@ public class FlyingStarActivity extends d.s {
             String quality = getQuality(iArr3[i5], i6, i7);
             this.tvCells[i5].setText(strArr[i5] + "\n" + iArr3[i5] + i6 + i7 + "\n" + quality);
             if (quality.contains("吉")) {
-                textView = this.tvCells[i5];
-                i4 = -1509911;
+                this.tvCells[i5].setBackgroundColor(-1509911);
             } else if (quality.contains("凶")) {
-                textView = this.tvCells[i5];
-                i4 = -5138;
+                this.tvCells[i5].setBackgroundColor(-5138);
             } else {
-                sb.append(strArr[i5]);
-                sb.append(": ");
-                sb.append(iArr3[i5]);
-                sb.append(i6);
-                sb.append(i7);
-                sb.append(" ");
-                sb.append(quality);
-                sb.append("\n");
+                this.tvCells[i5].setBackgroundColor(0);
             }
-            textView.setBackgroundColor(i4);
             sb.append(strArr[i5]);
             sb.append(": ");
             sb.append(iArr3[i5]);
@@ -144,7 +132,7 @@ public class FlyingStarActivity extends d.s {
         setContentView(R.layout.activity_flying_star);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(玄空飞星);
+            getSupportActionBar().setTitle("玄空飞星");
         }
         this.spYear = (Spinner) findViewById(R.id.sp_build_year);
         this.spDir = (Spinner) findViewById(R.id.sp_direction);

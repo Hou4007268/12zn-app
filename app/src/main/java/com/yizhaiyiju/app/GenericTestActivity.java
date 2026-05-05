@@ -218,3 +218,39 @@ public class GenericTestActivity extends d.s {
                         genericTestActivity.lambda$onCreate$0(view);
                         break;
                     default:
+                        genericTestActivity.lambda$onCreate$1(view);
+                        break;
+                }
+            }
+        });
+        this.scrollQuestions = findViewById(R.id.scroll_questions);
+        final int i5 = 1;
+        findViewById(R.id.btn_restart).setOnClickListener(new View.OnClickListener() { // from class: com.yizhaiyiju.app.h0
+
+            /* renamed from: f, reason: collision with root package name */
+            public final /* synthetic */ GenericTestActivity f2336f;
+
+            {
+                this.f2336f = GenericTestActivity.this;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view) {
+                int i52 = i5;
+                GenericTestActivity genericTestActivity = this.f2336f;
+                switch (i52) {
+                    case 0:
+                        genericTestActivity.lambda$onCreate$0(view);
+                        break;
+                    default:
+                        genericTestActivity.lambda$onCreate$1(view);
+                        break;
+                }
+            }
+        });
+        ((TextView) findViewById(R.id.tv_title)).setText(stringExtra != null ? stringExtra : "测试");
+        findViewById(R.id.btn_share).setOnClickListener(new j(this, 6, stringExtra));
+        loadQuestions();
+        TestBillingHelper.checkAndProceed(this, stringExtra, new k(this, 2));
+    }
+}

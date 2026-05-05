@@ -202,7 +202,7 @@ public class NameAnalysisActivity extends d.s {
         int i4 = 1;
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(姓名分析);
+            getSupportActionBar().setTitle("姓名分析");
         }
         this.etName = (EditText) findViewById(R.id.et_name);
         this.spYear = (Spinner) findViewById(R.id.sp_year);

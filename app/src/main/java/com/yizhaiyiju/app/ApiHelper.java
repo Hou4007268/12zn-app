@@ -363,7 +363,7 @@ public class ApiHelper {
             */
             try {
                 if (!r10.C()) {
-                    ApiHelper.mainHandler.post(new g(this.val, r10, 2));
+                    ApiHelper.mainHandler.post(new g(this.val$callback, r10, 2));
                     return;
                 }
                 u2.e g4 = r.d1(r10.f4104g.C()).g();

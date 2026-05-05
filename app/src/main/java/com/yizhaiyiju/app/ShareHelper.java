@@ -88,7 +88,7 @@ public class ShareHelper {
     /* JADX INFO: Access modifiers changed from: private */
     public static void lambda$loadQRAndShare$2(final ImageView imageView, final View view, final Context context, final String str) {
         Bitmap bitmap;
-        q3.h0 g4;
+        q3.h0 g4 = null;
         q3.j0 j0Var;
         try {
             q3.c0 c0Var = new q3.c0();

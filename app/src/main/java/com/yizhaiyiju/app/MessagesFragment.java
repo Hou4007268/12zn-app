@@ -135,18 +135,14 @@ public class MessagesFragment extends Fragment {
                         Date parse = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault()).parse(optString);
                         long currentTimeMillis = System.currentTimeMillis() - parse.getTime();
                         if (currentTimeMillis < 60000) {
-                            textView = vh.tvTime;
-                            str = "刚刚";
+                            vh.tvTime.setText("刚刚");
                         } else if (currentTimeMillis < 3600000) {
-                            textView = vh.tvTime;
-                            str = (currentTimeMillis / 60000) + "分钟前";
+                            vh.tvTime.setText((currentTimeMillis / 60000) + "分钟前");
                         } else if (currentTimeMillis < 86400000) {
-                            textView = vh.tvTime;
-                            str = (currentTimeMillis / 3600000) + "小时前";
+                            vh.tvTime.setText((currentTimeMillis / 3600000) + "小时前");
                         } else {
                             vh.tvTime.setText(new SimpleDateFormat("MM/dd", Locale.getDefault()).format(parse));
                         }
-                        textView.setText(str);
                     } catch (Exception unused) {
                         vh.tvTime.setText("");
                     }
