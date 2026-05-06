@@ -58,11 +58,11 @@ public class MarriageMatchActivity extends d.s {
         if (isLiuHe(maleBranch, femaleBranch)) {
             score += 18;
             detail.append("两人地支六合，说明相处时容易互相理解、互补。\n");
-            advice.append("✅ 属于六合组合，适合把共同目标定清楚后长期经营感情。\n");
+            advice.append("属于六合组合，适合把共同目标定清楚后长期经营感情。\n");
         } else if (isLiuChong(maleBranch, femaleBranch)) {
             score -= 20;
             detail.append("两人地支相冲，说明节奏和脾气上容易顶撞。\n");
-            advice.append("⚠️ 属于地支相冲，重要决定不要情绪化，当天有争执时先停一停。\n");
+            advice.append("属于地支相冲，重要决定不要情绪化，当天有争执时先停一停。\n");
         } else {
             detail.append("地支关系中性，关键看沟通习惯和生活节奏是否匹配。\n");
             advice.append("ℹ️ 没有明显六合/相冲，日常相处比玄学分值更重要。\n");
@@ -71,15 +71,15 @@ public class MarriageMatchActivity extends d.s {
         if (STEM_ELEM[maleStem] == STEM_ELEM[femaleStem]) {
             score += 8;
             detail.append("日主五行一致，价值观与做事方式更容易同频。\n");
-            advice.append("✅ 双方五行气质接近，适合一起做长期规划。\n");
+            advice.append("双方五行气质接近，适合一起做长期规划。\n");
         } else if (isGenerating(STEM_ELEM[maleStem], STEM_ELEM[femaleStem]) || isGenerating(STEM_ELEM[femaleStem], STEM_ELEM[maleStem])) {
             score += 12;
             detail.append("双方五行存在相生关系，彼此容易形成支持。\n");
-            advice.append("✅ 五行相生，适合建立互相扶持的相处模式。\n");
+            advice.append("五行相生，适合建立互相扶持的相处模式。\n");
         } else if (isControlling(STEM_ELEM[maleStem], STEM_ELEM[femaleStem]) || isControlling(STEM_ELEM[femaleStem], STEM_ELEM[maleStem])) {
             score -= 10;
             detail.append("双方五行有相克倾向，强势时容易互不相让。\n");
-            advice.append("⚠️ 五行相克，建议明确边界，别把控制当关心。\n");
+            advice.append("五行相克，建议明确边界，别把控制当关心。\n");
         } else {
             detail.append("五行关系平稳，没有明显相生相克。\n");
         }
@@ -106,15 +106,15 @@ public class MarriageMatchActivity extends d.s {
 
         String level;
         if (score >= 90) {
-            level = "⭐⭐⭐⭐⭐ 上等姻缘";
+            level = "上等姻缘";
         } else if (score >= 80) {
-            level = "⭐⭐⭐⭐ 良缘可成";
+            level = "良缘可成";
         } else if (score >= 70) {
-            level = "⭐⭐⭐ 需要经营";
+            level = "需要经营";
         } else if (score >= 60) {
-            level = "⭐⭐ 磨合偏多";
+            level = "磨合偏多";
         } else {
-            level = "⭐ 建议谨慎";
+            level = "建议谨慎";
         }
 
         if (advice.length() == 0) {

@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="��"/>
+            android:text="一宅一句"/>
         <TextView
             android:textSize="28sp"
             android:textStyle="bold"
@@ -73,7 +73,7 @@
                 android:textColor="@color/text_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="�� hou4007268@gmail.com �� 邮箱：houzhaiyiju �� 12zn.com"
+                android:text="微信：houzhaiyiju\n邮箱：hou4007268@gmail.com\n官网：12zn.com"
                 android:lineSpacingMultiplier="1.8"/>
         </LinearLayout>
     </LinearLayout>

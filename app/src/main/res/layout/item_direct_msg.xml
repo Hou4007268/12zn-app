@@ -19,7 +19,7 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginTop="4dp"
-            android:text="��‍��"
+            android:text="师傅"
             android:layout_marginEnd="8dp"/>
         <LinearLayout
             android:orientation="vertical"
@@ -57,7 +57,7 @@
                     android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="��"/>
+                    android:text="语音"/>
                 <TextView
                     android:textSize="14sp"
                     android:textColor="@color/text_primary"
@@ -112,7 +112,7 @@
                     android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="��"/>
+                    android:text="语音"/>
                 <TextView
                     android:textSize="14sp"
                     android:textColor="@color/text_primary"

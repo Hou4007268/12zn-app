@@ -81,7 +81,7 @@ public class ServicesFragment extends Fragment {
         arrayList.add(new ServiceItem("请符请物", "太岁符、招财符、桃花符、护身符，根据八字定制", "🪬"));
         arrayList.add(new ServiceItem("择日选时", "搬家吉日、开业良辰、婚嫁择日、动土奠基", "📅"));
         arrayList.add(new ServiceItem("起名改名", "宝宝起名、成人改名、公司取名、品牌命名", "📝"));
-        arrayList.add(new ServiceItem("开光法物", "水晶摆件、貔貅开光、风水罗盘、转运手链", "✨"));
+        arrayList.add(new ServiceItem("开光法物", "水晶摆件、貔貅开光、风水罗盘、转运手链", ""));
         arrayList.add(new ServiceItem("户型风水分析", "发送户型图，获得详细风水分析报告", "📐"));
         arrayList.add(new ServiceItem("财运事业咨询", "财运提升、事业方向分析、职业规划指导", "💰"));
         arrayList.add(new ServiceItem("姻缘感情咨询", "单身找对象、感情问题分析、婚姻调理", "💕"));

@@ -43,7 +43,7 @@
             android:textSize="48sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="��"/>
+            android:text="消息"/>
         <TextView
             android:textSize="18sp"
             android:textStyle="bold"

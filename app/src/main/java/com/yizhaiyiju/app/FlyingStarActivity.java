@@ -123,7 +123,7 @@ public class FlyingStarActivity extends d.s {
                 z7 = true;
             }
         }
-        return (z4 && z5) ? "⭐大吉" : (z4 || z5) ? "✅吉" : (z6 && z7) ? "❌大凶" : (z6 || z7) ? "⚠️凶" : "⚪平";
+        return (z4 && z5) ? "大吉" : (z4 || z5) ? "吉" : (z6 && z7) ? "大凶" : (z6 || z7) ? "凶" : "平";
     }
 
     @Override // androidx.fragment.app.a0, androidx.activity.ComponentActivity, x.m, android.app.Activity

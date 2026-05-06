@@ -72,19 +72,19 @@ public class NameAnalysisActivity extends d.s {
         if (i13 > 100) {
             i13 = 100;
         }
-        String str = i13 >= 90 ? "⭐ 大吉之名" : i13 >= 80 ? "💚 吉名" : i13 >= 70 ? "💛 中吉" : i13 >= 60 ? "🧡 吉凶参半" : "❤️ 建议改名";
+        String str = i13 >= 90 ? "大吉之名" : i13 >= 80 ? "吉名" : i13 >= 70 ? "中吉" : i13 >= 60 ? "吉凶参半" : "建议改名";
         ((TextView) findViewById(R.id.tv_score)).setText(i13 + "分");
         ((TextView) findViewById(R.id.tv_comment)).setText(str);
         ((TextView) findViewById(R.id.tv_strokes)).setText("姓 " + substring + "：" + kangxiStroke + "画\n名 " + substring2 + "：" + i4 + "画\n总笔画：" + (kangxiStroke + i4) + "画");
         ((TextView) findViewById(R.id.tv_grid)).setText("天格 " + i8 + "（" + elem + "）：祖先运，影响不大\n人格 " + i9 + "（" + elem2 + "）：主运，一生核心运势\n地格 " + i10 + "（" + elem3 + "）：前运，36岁前运势\n外格 1（" + getElem(1) + "）：社交运，人际关系\n总格 " + i12 + "（" + getElem(i12) + "）：后运，36岁后运势");
         StringBuilder sb = new StringBuilder();
-        sb.append(isGoodNumber[1] ? "✅ 人格数理吉利，主运顺畅\n" : "⚠️ 人格数理需注意，主运有波动\n");
-        sb.append(isGoodNumber[4] ? "✅ 总格数理吉利，晚年运势佳\n" : "⚠️ 总格数理需留意\n");
+        sb.append(isGoodNumber[1] ? "人格数理吉利，主运顺畅\n" : "人格数理需注意，主运有波动\n");
+        sb.append(isGoodNumber[4] ? "总格数理吉利，晚年运势佳\n" : "总格数理需留意\n");
         if (isGenerate(elem, elem2)) {
-            sb.append("✅ 天人相生，祖荫庇护\n");
+            sb.append("天人相生，祖荫庇护\n");
         }
         if (isClash(elem2, elem3)) {
-            sb.append("⚠️ 人地相克，青年时期需努力\n");
+            sb.append("人地相克，青年时期需努力\n");
         }
         if (sb.length() == 0) {
             sb.append("名字中规中矩，可通过佩戴对应五行饰品补益运势。");

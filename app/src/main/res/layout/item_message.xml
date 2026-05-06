@@ -19,7 +19,7 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginTop="4dp"
-            android:text="��"
+            android:text="AI"
             android:layout_marginEnd="8dp"/>
         <TextView
             android:textSize="15sp"

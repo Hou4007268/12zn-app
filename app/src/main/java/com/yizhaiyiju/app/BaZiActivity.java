@@ -11,13 +11,13 @@ import android.widget.TextView;
 import java.util.Calendar;
 
 public class BaZiActivity extends d.s {
-    static final String[] STEMS = {"Jia", "Yi", "Bing", "Ding", "Wu", "Ji", "Geng", "Xin", "Ren", "Gui"};
-    static final String[] BRANCHES = {"Zi", "Chou", "Yin", "Mao", "Chen", "Si", "Wu", "Wei", "Shen", "You", "Xu", "Hai"};
+    static final String[] STEMS = {"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
+    static final String[] BRANCHES = {"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
     static final int[][] BRANCH_HIDDEN = {new int[]{8}, new int[]{5, 8, 6}, new int[]{0, 2, 4}, new int[]{1}, new int[]{1, 4, 8}, new int[]{2, 4, 6}, new int[]{3, 5}, new int[]{5, 3, 1}, new int[]{6, 8, 4}, new int[]{7}, new int[]{7, 3, 4}, new int[]{8, 0}};
-    static final String[] ELEMENTS = {"Metal", "Wood", "Water", "Fire", "Earth"};
+    static final String[] ELEMENTS = {"金", "木", "水", "火", "土"};
     static final int[] STEM_ELEMENT = {1, 1, 3, 3, 4, 4, 0, 0, 2, 2};
-    static final String[] ELEMENT_NAMES = {"Metal", "Wood", "Water", "Fire", "Earth"};
-    static final String[] TEN_GODS = {"BiJian", "JieCai", "ShiShen", "ShangGuan", "PianCai", "ZhengCai", "QiSha", "ZhengGuan", "PianYin", "ZhengYin"};
+    static final String[] ELEMENT_NAMES = {"金", "木", "水", "火", "土"};
+    static final String[] TEN_GODS = {"比肩", "劫财", "食神", "伤官", "偏财", "正财", "七杀", "正官", "偏印", "正印"};
     private LinearLayout resultContainer;
     private RadioGroup rgGender;
     private Spinner spDay;
@@ -34,11 +34,11 @@ public class BaZiActivity extends d.s {
         int[] monthPillar = calcMonthPillar(year, month);
         int[] dayPillar = calcDayPillar(year, month, day);
         int[] hourPillar = calcHourPillar(dayPillar[0], hourBranch);
-        ((TextView) findViewById(R.id.tv_year_tg)).setText(STEMS[yearPillar[0]] + "-" + BRANCHES[yearPillar[1]]);
-        ((TextView) findViewById(R.id.tv_month_tg)).setText(STEMS[monthPillar[0]] + "-" + BRANCHES[monthPillar[1]]);
-        ((TextView) findViewById(R.id.tv_day_tg)).setText(STEMS[dayPillar[0]] + "-" + BRANCHES[dayPillar[1]]);
-        ((TextView) findViewById(R.id.tv_hour_tg)).setText(STEMS[hourPillar[0]] + "-" + BRANCHES[hourPillar[1]]);
-        ((TextView) findViewById(R.id.tv_day_master)).setText("Day Master: " + STEMS[dayPillar[0]] + " (" + ELEMENTS[STEM_ELEMENT[dayPillar[0]]] + ")");
+        ((TextView) findViewById(R.id.tv_year_tg)).setText(STEMS[yearPillar[0]] + BRANCHES[yearPillar[1]]);
+        ((TextView) findViewById(R.id.tv_month_tg)).setText(STEMS[monthPillar[0]] + BRANCHES[monthPillar[1]]);
+        ((TextView) findViewById(R.id.tv_day_tg)).setText(STEMS[dayPillar[0]] + BRANCHES[dayPillar[1]]);
+        ((TextView) findViewById(R.id.tv_hour_tg)).setText(STEMS[hourPillar[0]] + BRANCHES[hourPillar[1]]);
+        ((TextView) findViewById(R.id.tv_day_master)).setText("日主：" + STEMS[dayPillar[0]] + "（五行属" + ELEMENTS[STEM_ELEMENT[dayPillar[0]]] + "）");
         int[] counts = new int[5];
         counts[STEM_ELEMENT[yearPillar[0]]]++;
         counts[STEM_ELEMENT[monthPillar[0]]]++;
@@ -49,7 +49,7 @@ public class BaZiActivity extends d.s {
         addBranchElements(counts, dayPillar[1]);
         addBranchElements(counts, hourPillar[1]);
         StringBuilder elements = new StringBuilder();
-        for (int i = 0; i < 5; i++) elements.append(ELEMENT_NAMES[i]).append(": ").append(counts[i]).append("  ");
+        for (int i = 0; i < 5; i++) elements.append(ELEMENT_NAMES[i]).append("：").append(counts[i]).append("  ");
         ((TextView) findViewById(R.id.tv_elements)).setText(elements.toString());
         int weakest = 0;
         int strongest = 0;
@@ -57,13 +57,13 @@ public class BaZiActivity extends d.s {
             if (counts[i] < counts[weakest]) weakest = i;
             if (counts[i] > counts[strongest]) strongest = i;
         }
-        StringBuilder advice = new StringBuilder("Weakest: ");
-        advice.append(ELEMENT_NAMES[weakest]).append(". Strongest: ").append(ELEMENT_NAMES[strongest]).append(". ");
-        advice.append("Year ").append(tenGod(dayPillar[0], yearPillar[0]));
-        advice.append(", Month ").append(tenGod(dayPillar[0], monthPillar[0]));
-        advice.append(", Hour ").append(tenGod(dayPillar[0], hourPillar[0]));
+        StringBuilder advice = new StringBuilder("偏弱：");
+        advice.append(ELEMENT_NAMES[weakest]).append("。偏强：").append(ELEMENT_NAMES[strongest]).append("。 ");
+        advice.append("年柱：").append(tenGod(dayPillar[0], yearPillar[0]));
+        advice.append("，月柱：").append(tenGod(dayPillar[0], monthPillar[0]));
+        advice.append("，时柱：").append(tenGod(dayPillar[0], hourPillar[0]));
         ((TextView) findViewById(R.id.tv_element_advice)).setText(advice.toString());
-        ((TextView) findViewById(R.id.tv_dayun)).setText("Flow summary ready");
+        ((TextView) findViewById(R.id.tv_dayun)).setText("流年与大运解析整理中，可结合前述结果综合参考。");
         this.resultContainer.setVisibility(0);
         findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) { lambda$calculate$2(); }
@@ -71,13 +71,13 @@ public class BaZiActivity extends d.s {
     }
 
     public void lambda$onCreate$1(View view) {
-        TestBillingHelper.checkAndProceed(this, "BaZi", new TestBillingHelper.BillCallback() {
+        TestBillingHelper.checkAndProceed(this, "八字排盘", new TestBillingHelper.BillCallback() {
             @Override public void onAllowed() { lambda$onCreate$0(); }
         });
     }
 
     public void lambda$calculate$2() {
-        ShareHelper.shareResult(this, this.resultContainer, "BaZi Result");
+        ShareHelper.shareResult(this, this.resultContainer, "八字排盘结果");
     }
 
     public void lambda$calculate$3(View view) {
@@ -120,7 +120,7 @@ public class BaZiActivity extends d.s {
         super.onCreate(bundle);
         setContentView(R.layout.activity_bazi);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("BaZi");
+            getSupportActionBar().setTitle("八字排盘");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         this.spYear = (Spinner) findViewById(R.id.sp_year);
@@ -146,7 +146,8 @@ public class BaZiActivity extends d.s {
         for (int i = 0; i < 31; i++) days[i] = String.valueOf(i + 1);
         this.spDay.setAdapter((SpinnerAdapter) new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, days));
         String[] hours = new String[12];
-        for (int i = 0; i < 12; i++) hours[i] = BRANCHES[i] + " (" + (i * 2) + "-" + ((i * 2) + 2) + ")";
+        String[] hourNames = {"子时", "丑时", "寅时", "卯时", "辰时", "巳时", "午时", "未时", "申时", "酉时", "戌时", "亥时"};
+        for (int i = 0; i < 12; i++) hours[i] = hourNames[i] + "（" + (i * 2) + "-" + ((i * 2) + 2) + "时）";
         this.spHour.setAdapter((SpinnerAdapter) new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, hours));
     }
 

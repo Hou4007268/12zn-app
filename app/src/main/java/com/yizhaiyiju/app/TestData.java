@@ -44,14 +44,14 @@ public class TestData {
 
     public static List<TestInfo> getAllTests() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new TestInfo("bazi", "八字排盘", "🔮", "四柱八字+大运流年排盘", null));
+        arrayList.add(new TestInfo("bazi", "八字排盘", "", "四柱八字+大运流年排盘", null));
         arrayList.add(new TestInfo("marriage", "八字合婚", "💕", "男女八字配对+五行分析", null));
         arrayList.add(new TestInfo("name", "姓名分析", "✍️", "三才五格+笔画数理", null));
         arrayList.add(new TestInfo("flying_star", "玄空飞星", "🏠", "九宫飞星吉凶方位", null));
         arrayList.add(new TestInfo("kua_number", "八宅命卦", "🧭", "命卦+四吉方四凶方", null));
         arrayList.add(new TestInfo("fortune", "每日运势", "🌟", "选择生肖查看今日运势", null));
-        arrayList.add(new TestInfo("wuxing", "五行测试", "☯️", "测测你的五行属性", getWuxingQuestions()));
-        arrayList.add(new TestInfo("romance", "桃花运", "🌸", "测你今年的爱情运势", getRomanceQuestions()));
+        arrayList.add(new TestInfo("wuxing", "五行测试", "", "测测你的五行属性", getWuxingQuestions()));
+        arrayList.add(new TestInfo("romance", "桃花运", "", "测你今年的爱情运势", getRomanceQuestions()));
         arrayList.add(new TestInfo("mental_age", "心理年龄", "🧠", "你的心智年龄是多少？", getMentalAgeQuestions()));
         arrayList.add(new TestInfo("financial", "财富智商", "💰", "测测你的赚钱能力", getFinancialQuestions()));
         arrayList.add(new TestInfo("mbti", "MBTI性格", "🎭", "16种人格类型测试", getMBTIQuestions()));

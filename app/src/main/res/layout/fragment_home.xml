@@ -98,7 +98,9 @@
                     android:textSize="24sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="☯"/>
+                    android:src="@drawable/ic_bagua"
+                    android:contentDescription="品牌图标"
+                    android:tint="@null"/>
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="0dp"
@@ -156,11 +158,12 @@
                 android:layout_height="110dp"
                 android:layout_margin="4dp"
                 android:layout_weight="1">
-                <TextView
-                    android:textSize="32sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🔮"/>
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_crystal_ball"
+                    android:contentDescription="每日运势图标"
+                    android:tint="@null"/>
                 <TextView
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -260,7 +263,7 @@
                 android:textColor="@color/primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="✨ 更多趣味测试 · 免费参与 →"/>
+                android:text="更多趣味测试 · 免费参与 →"/>
         </LinearLayout>
 
         <!-- 咨询流程 -->

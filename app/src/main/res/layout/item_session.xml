@@ -16,7 +16,7 @@
         android:background="@drawable/bg_bubble_ai"
         android:layout_width="44dp"
         android:layout_height="44dp"
-        android:text="��‍��"/>
+        android:text="师傅"/>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="0dp"

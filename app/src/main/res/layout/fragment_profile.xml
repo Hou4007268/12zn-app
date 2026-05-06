@@ -19,7 +19,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="☯"/>
+                android:src="@drawable/ic_bagua"
+                android:contentDescription="用户头像占位图标"
+                android:tint="@null"/>
             <TextView
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -64,7 +66,9 @@
                     android:background="@drawable/bg_red_button"
                     android:layout_width="52dp"
                     android:layout_height="52dp"
-                    android:text="☯"/>
+                    android:src="@drawable/ic_bagua"
+                    android:contentDescription="会员图标"
+                    android:tint="@null"/>
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="0dp"
