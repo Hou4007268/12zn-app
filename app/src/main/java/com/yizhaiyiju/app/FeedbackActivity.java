@@ -27,7 +27,7 @@ public class FeedbackActivity extends d.s {
         String trim2 = this.etContent.getText().toString().trim();
         String obj = spinner.getSelectedItem().toString();
         if (TextUtils.isEmpty(trim2)) {
-            Toast.makeText(this, "请描述您的反馈内容", 0).show();
+            Toast.makeText(this, "请描述您的反馈内容", Toast.LENGTH_SHORT).show();
         } else {
             submitFeedback(obj, trim, trim2);
         }
@@ -35,13 +35,13 @@ public class FeedbackActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$submitFeedback$2() {
-        Toast.makeText(this, "反馈已提交，感谢您的建议！", 1).show();
+        Toast.makeText(this, "反馈已提交，感谢您的建议！", Toast.LENGTH_LONG).show();
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$submitFeedback$3() {
-        Toast.makeText(this, "提交失败，请稍后再试", 0).show();
+        Toast.makeText(this, "提交失败，请稍后再试", Toast.LENGTH_SHORT).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,60 +54,24 @@ public class FeedbackActivity extends d.s {
             }
             jSONObject.put("contact", str2);
             jSONObject.put("content", str3);
-            String jSONObject2 = jSONObject.toString();
+            String body = jSONObject.toString();
             Pattern pattern = q3.v.f4179d;
-            q3.f0 f4 = q3.o.f(jSONObject2, q3.o.r("application/json"));
+            q3.f0 requestBody = q3.o.f(body, q3.o.r("application/json"));
             q3.c0 c0Var = new q3.c0();
             c0Var.d("https://12zn.com/api/app/feedback");
-            c0Var.c("POST", f4);
+            c0Var.c("POST", requestBody);
             ApiHelper.getClient().a(c0Var.a()).g();
-            final int i4 = 0;
-            runOnUiThread(new Runnable() { // from class: com.yizhaiyiju.app.d0
-
-                /* renamed from: b, reason: collision with root package name */
-                public final /* synthetic */ FeedbackActivity f2313b;
-
-                {
-                    this.f2313b = FeedbackActivity.this;
-                }
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    int i5 = i4;
-                    FeedbackActivity feedbackActivity = this.f2313b;
-                    switch (i5) {
-                        case 0:
-                            feedbackActivity.lambda$submitFeedback$2();
-                            break;
-                        default:
-                            feedbackActivity.lambda$submitFeedback$3();
-                            break;
-                    }
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    FeedbackActivity.this.lambda$submitFeedback$2();
                 }
             });
         } catch (Exception unused) {
-            final int i5 = 1;
-            runOnUiThread(new Runnable() { // from class: com.yizhaiyiju.app.d0
-
-                /* renamed from: b, reason: collision with root package name */
-                public final /* synthetic */ FeedbackActivity f2313b;
-
-                {
-                    this.f2313b = FeedbackActivity.this;
-                }
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    int i52 = i5;
-                    FeedbackActivity feedbackActivity = this.f2313b;
-                    switch (i52) {
-                        case 0:
-                            feedbackActivity.lambda$submitFeedback$2();
-                            break;
-                        default:
-                            feedbackActivity.lambda$submitFeedback$3();
-                            break;
-                    }
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    FeedbackActivity.this.lambda$submitFeedback$3();
                 }
             });
         }
@@ -117,17 +81,27 @@ public class FeedbackActivity extends d.s {
         new Thread(new e0(this, str, str2, str3)).start();
     }
 
-    @Override // androidx.fragment.app.a0, androidx.activity.ComponentActivity, x.m, android.app.Activity
+    @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_feedback);
-        findViewById(R.id.btn_back).setOnClickListener(new i(2, this));
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_type);
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FeedbackActivity.this.lambda$onCreate$0(view);
+            }
+        });
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner_type);
         this.etContact = (EditText) findViewById(R.id.et_contact);
         this.etContent = (EditText) findViewById(R.id.et_content);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, new String[]{"Bug反馈", "服务问题", "功能建议", "其他"});
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter((SpinnerAdapter) arrayAdapter);
-        findViewById(R.id.btn_submit).setOnClickListener(new j(this, 5, spinner));
+        findViewById(R.id.btn_submit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FeedbackActivity.this.lambda$onCreate$1(spinner, view);
+            }
+        });
     }
 }

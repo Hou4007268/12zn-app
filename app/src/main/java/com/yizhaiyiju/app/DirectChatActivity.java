@@ -519,26 +519,24 @@ public class DirectChatActivity extends d.s {
             File file = new File(getCacheDir(), "chat_img_" + System.currentTimeMillis() + ".jpg");
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             byte[] bArr = new byte[4096];
-            while (true) {
-                int read = openInputStream.read(bArr);
-                if (read == -1) {
-                    fileOutputStream.close();
-                    openInputStream.close();
-                    Pattern pattern = q3.v.f4179d;
-                    q3.e0 e0Var = new q3.e0(file, q3.o.r("image/jpeg"));
-                    q3.w wVar = new q3.w();
-                    wVar.c(q3.y.N);
-                    wVar.a("session_id", this.sessionId);
-                    wVar.f4186c.add(q3.o.g("file", file.getName(), e0Var));
-                    q3.y b5 = wVar.b();
-                    q3.c0 authRequest = ApiHelper.authRequest();
-                    authRequest.d("https://12zn.com/api/app/chat/messages/image");
-                    authRequest.c("POST", b5);
-                    ApiHelper.getClient().a(authRequest.a()).f(new AnonymousClass6());
-                    return;
-                }
+            int read;
+            while ((read = openInputStream.read(bArr)) != -1) {
                 fileOutputStream.write(bArr, 0, read);
             }
+            fileOutputStream.close();
+            openInputStream.close();
+            Pattern pattern = q3.v.f4179d;
+            q3.e0 e0Var = new q3.e0(file, q3.o.r("image/jpeg"));
+            q3.w wVar = new q3.w();
+            wVar.c(q3.y.N);
+            wVar.a("session_id", this.sessionId);
+            wVar.f4186c.add(q3.o.g("file", file.getName(), e0Var));
+            q3.y b5 = wVar.b();
+            q3.c0 authRequest = ApiHelper.authRequest();
+            authRequest.d("https://12zn.com/api/app/chat/messages/image");
+            authRequest.c("POST", b5);
+            ApiHelper.getClient().a(authRequest.a()).f(new AnonymousClass6());
+            return;
         } catch (Exception unused) {
             Toast.makeText(this, "图片读取失败", 0).show();
         }

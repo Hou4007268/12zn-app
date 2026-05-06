@@ -51,7 +51,7 @@
                 android:textColor="@color/text_on_accent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🏠 13项专业服务"/>
+                android:text="13项专业服务"/>
             <TextView
                 android:textSize="14sp"
                 android:textColor="#ccffffff"

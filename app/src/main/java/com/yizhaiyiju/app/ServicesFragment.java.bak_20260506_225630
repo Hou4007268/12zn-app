@@ -67,18 +67,11 @@ public class ServicesFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(VH vh, int i4) {
-            final ServiceItem serviceItem = this.data.get(i4);
+            ServiceItem serviceItem = this.data.get(i4);
             vh.ivIcon.setImageResource(resolveIconRes(serviceItem.name));
             vh.tvName.setText(serviceItem.name);
             vh.tvSummary.setText(serviceItem.summary);
-            vh.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(ServicesFragment.this.getActivity(), (Class<?>) ServiceDetailActivity.class);
-                    intent.putExtra("service_name", serviceItem.name);
-                    ServicesFragment.this.startActivity(intent);
-                }
-            });
+            vh.itemView.setOnClickListener(new j(this, 2, serviceItem));
         }
 
         @Override

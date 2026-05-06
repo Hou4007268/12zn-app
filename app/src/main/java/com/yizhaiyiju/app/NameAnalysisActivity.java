@@ -181,14 +181,10 @@ public class NameAnalysisActivity extends d.s {
         boolean[] zArr = new boolean[5];
         int[] iArr2 = {1, 3, 5, 6, 7, 8, 11, 13, 15, 16, 17, 18, 21, 23, 24, 25, 29, 31, 32, 33, 35, 37, 39, 41, 45, 47, 48, 52, 57, 61, 63, 65, 67, 68, 81};
         for (int i4 = 0; i4 < 5; i4++) {
-            int i5 = 0;
-            while (true) {
-                if (i5 < 35) {
-                    if (iArr[i4] == iArr2[i5]) {
-                        zArr[i4] = true;
-                        break;
-                    }
-                    i5++;
+            for (int i5 = 0; i5 < iArr2.length; i5++) {
+                if (iArr[i4] == iArr2[i5]) {
+                    zArr[i4] = true;
+                    break;
                 }
             }
         }

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.i1;
 import com.yizhaiyiju.app.ApiHelper;
-import com.yizhaiyiju.app.MessagesFragment;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,7 +27,6 @@ public class MessagesFragment extends Fragment {
     private RecyclerView rvSessions;
     private List<JSONObject> sessions = new ArrayList();
 
-    /* renamed from: com.yizhaiyiju.app.MessagesFragment$1, reason: invalid class name */
     public class AnonymousClass1 implements ApiHelper.Callback<JSONObject> {
         public AnonymousClass1() {
         }
@@ -53,13 +51,17 @@ public class MessagesFragment extends Fragment {
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("data");
                 MessagesFragment.this.sessions.clear();
-                final int i4 = 0;
-                for (int i5 = 0; i5 < jSONArray.length(); i5++) {
-                    MessagesFragment.this.sessions.add(jSONArray.getJSONObject(i5));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    MessagesFragment.this.sessions.add(jSONArray.getJSONObject(i));
                 }
                 if (MessagesFragment.this.sessions.isEmpty()) {
                     MessagesFragment.this.showEmpty();
-            MessagesFragment.this.layoutEmpty.setOnClickListener(view -> lambda$onSuccess$0(view));
+                    MessagesFragment.this.layoutEmpty.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            AnonymousClass1.this.lambda$onSuccess$0(view);
+                        }
+                    });
                 } else {
                     MessagesFragment.this.rvSessions.setVisibility(0);
                     MessagesFragment.this.layoutEmpty.setVisibility(8);
@@ -67,12 +69,16 @@ public class MessagesFragment extends Fragment {
                 }
             } catch (Exception unused) {
                 MessagesFragment.this.showEmpty();
-                final int i6 = 1;
-                MessagesFragment.this.layoutEmpty.setOnClickListener(view -> lambda$onSuccess$1(view));
+                MessagesFragment.this.layoutEmpty.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        AnonymousClass1.this.lambda$onSuccess$1(view);
+                    }
+                });
             }
         }
 
-        @Override // com.yizhaiyiju.app.ApiHelper.Callback
+        @Override
         public void onError(String str) {
             if (MessagesFragment.this.getActivity() == null) {
                 return;
@@ -80,7 +86,7 @@ public class MessagesFragment extends Fragment {
             MessagesFragment.this.getActivity().runOnUiThread(new h(2, this));
         }
 
-        @Override // com.yizhaiyiju.app.ApiHelper.Callback
+        @Override
         public void onSuccess(JSONObject jSONObject) {
             if (MessagesFragment.this.getActivity() == null) {
                 return;
@@ -90,7 +96,6 @@ public class MessagesFragment extends Fragment {
     }
 
     public class SessionAdapter extends androidx.recyclerview.widget.g0<SessionAdapter.VH> {
-
         public class VH extends i1 {
             TextView tvLastMsg;
             TextView tvName;
@@ -116,17 +121,15 @@ public class MessagesFragment extends Fragment {
             MessagesFragment.this.startActivity(intent);
         }
 
-        @Override // androidx.recyclerview.widget.g0
+        @Override
         public int getItemCount() {
             return MessagesFragment.this.sessions.size();
         }
 
-        @Override // androidx.recyclerview.widget.g0
+        @Override
         public void onBindViewHolder(VH vh, int i4) {
-            TextView textView;
-            String str;
             try {
-                JSONObject jSONObject = (JSONObject) MessagesFragment.this.sessions.get(i4);
+                final JSONObject jSONObject = (JSONObject) MessagesFragment.this.sessions.get(i4);
                 vh.tvName.setText("张师傅");
                 vh.tvLastMsg.setText(jSONObject.optString("last_message", "点击开始对话"));
                 String optString = jSONObject.optString("updated_at", "");
@@ -154,12 +157,17 @@ public class MessagesFragment extends Fragment {
                 } else {
                     vh.tvUnread.setVisibility(8);
                 }
-                vh.itemView.setOnClickListener(new j(this, 1, jSONObject));
+                vh.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        SessionAdapter.this.lambda$onBindViewHolder$0(jSONObject, view);
+                    }
+                });
             } catch (Exception unused2) {
             }
         }
 
-        @Override // androidx.recyclerview.widget.g0
+        @Override
         public VH onCreateViewHolder(ViewGroup viewGroup, int i4) {
             return new VH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_session, viewGroup, false));
         }
@@ -176,7 +184,12 @@ public class MessagesFragment extends Fragment {
             ApiHelper.apiGet("app/chat/sessions?user_id=".concat(userId), new AnonymousClass1());
         } else {
             showEmpty();
-            this.layoutEmpty.setOnClickListener(new i(4, this));
+            this.layoutEmpty.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MessagesFragment.this.lambda$loadSessions$0(view);
+                }
+            });
         }
     }
 
@@ -186,26 +199,24 @@ public class MessagesFragment extends Fragment {
         this.layoutEmpty.setVisibility(0);
     }
 
-    @Override // androidx.lifecycle.i
+    @Override
     public u0.b getDefaultViewModelCreationExtras() {
         return u0.a.f4680b;
     }
 
-    @Override // androidx.fragment.app.Fragment
+    @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.fragment_messages, viewGroup, false);
         this.rvSessions = (RecyclerView) inflate.findViewById(R.id.rv_sessions);
         this.layoutEmpty = (LinearLayout) inflate.findViewById(R.id.layout_empty);
         this.adapter = new SessionAdapter();
-        RecyclerView recyclerView = this.rvSessions;
-        getContext();
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        this.rvSessions.setLayoutManager(new LinearLayoutManager(getContext()));
         this.rvSessions.setAdapter(this.adapter);
         loadSessions();
         return inflate;
     }
 
-    @Override // androidx.fragment.app.Fragment
+    @Override
     public void onResume() {
         super.onResume();
         loadSessions();

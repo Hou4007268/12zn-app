@@ -39,11 +39,6 @@ public class ArticlesFragment extends Fragment {
             this.data = list;
         }
 
-        @Override
-        public int getItemCount() {
-            return this.data.size();
-        }
-
         /* JADX INFO: Access modifiers changed from: private */
         public /* synthetic */ void lambda$onBindViewHolder$0(ArticleItem articleItem, View view) {
             Intent intent = new Intent(ArticlesFragment.this.getActivity(), (Class<?>) ArticleDetailActivity.class);
@@ -52,24 +47,21 @@ public class ArticlesFragment extends Fragment {
             ArticlesFragment.this.startActivity(intent);
         }
 
-        @Override
+        @Override // androidx.recyclerview.widget.g0
+        public int getItemCount() {
+            return this.data.size();
+        }
+
+        @Override // androidx.recyclerview.widget.g0
         public void onBindViewHolder(VH vh, int i4) {
-            final ArticleItem articleItem = this.data.get(i4);
+            ArticleItem articleItem = this.data.get(i4);
             vh.tvTitle.setText(articleItem.title);
             vh.tvSummary.setText(articleItem.summary);
             vh.tvDate.setText(articleItem.date);
-            vh.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(ArticlesFragment.this.getActivity(), (Class<?>) ArticleDetailActivity.class);
-                    intent.putExtra("article_title", articleItem.title);
-                    intent.putExtra("article_url", articleItem.url);
-                    ArticlesFragment.this.startActivity(intent);
-                }
-            });
+            vh.itemView.setOnClickListener(new j(this, 0, articleItem));
         }
 
-        @Override
+        @Override // androidx.recyclerview.widget.g0
         public VH onCreateViewHolder(ViewGroup viewGroup, int i4) {
             return new VH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_article, viewGroup, false));
         }
@@ -97,12 +89,12 @@ public class ArticlesFragment extends Fragment {
     }
 
     private void loadArticles() {
-        ApiHelper.getArticles(new ApiHelper.Callback<List<ApiHelper.Article>>() {
-            @Override
+        ApiHelper.getArticles(new ApiHelper.Callback<List<ApiHelper.Article>>() { // from class: com.yizhaiyiju.app.ArticlesFragment.1
+            @Override // com.yizhaiyiju.app.ApiHelper.Callback
             public void onError(String str) {
             }
 
-            @Override
+            @Override // com.yizhaiyiju.app.ApiHelper.Callback
             public void onSuccess(List<ApiHelper.Article> list) {
                 ArticlesFragment.this.articles.clear();
                 for (ApiHelper.Article article : list) {
@@ -113,28 +105,22 @@ public class ArticlesFragment extends Fragment {
         });
     }
 
-    @Override
+    @Override // androidx.lifecycle.i
     public u0.b getDefaultViewModelCreationExtras() {
         return u0.a.f4680b;
     }
 
-    @Override
+    @Override // androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         return layoutInflater.inflate(R.layout.fragment_articles, viewGroup, false);
     }
 
-    @Override
+    @Override // androidx.fragment.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        view.findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).switchToTab(R.id.nav_home);
-                }
-            }
-        });
+        view.findViewById(R.id.btn_back).setOnClickListener(new i(1, this));
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_articles);
+        getContext();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ArticleAdapter articleAdapter = new ArticleAdapter(this.articles);
         this.adapter = articleAdapter;

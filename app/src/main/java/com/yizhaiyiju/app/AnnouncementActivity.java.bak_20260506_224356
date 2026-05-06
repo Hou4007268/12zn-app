@@ -39,24 +39,29 @@ public class AnnouncementActivity extends d.s {
             if (h4.isEmpty()) {
                 return;
             }
+            int i4 = 0;
             if (h4.equals(context.getSharedPreferences("app_prefs", 0).getString("last_read_announcement", ""))) {
                 return;
             }
             String h5 = eVar.k("title") ? eVar.j("title").h() : "更新内容";
             String h6 = eVar.k("date") ? eVar.j("date").h() : "";
             u2.a aVar = eVar.k("items") ? (u2.a) eVar.f4744a.get("items") : new u2.a();
-            ArrayList arrayList = aVar.f4742a;
-            String[] strArr = new String[arrayList.size()];
-            for (int i4 = 0; i4 < arrayList.size(); i4++) {
+            String[] strArr = new String[aVar.f4742a.size()];
+            while (true) {
+                ArrayList arrayList = aVar.f4742a;
+                if (i4 >= arrayList.size()) {
+                    Intent intent = new Intent(context, (Class<?>) AnnouncementActivity.class);
+                    intent.putExtra("version", h4);
+                    intent.putExtra("title", h5);
+                    intent.putExtra("date", h6);
+                    intent.putExtra("items", strArr);
+                    intent.addFlags(268435456);
+                    context.startActivity(intent);
+                    return;
+                }
                 strArr[i4] = ((u2.b) arrayList.get(i4)).h();
+                i4++;
             }
-            Intent intent = new Intent(context, (Class<?>) AnnouncementActivity.class);
-            intent.putExtra("version", h4);
-            intent.putExtra("title", h5);
-            intent.putExtra("date", h6);
-            intent.putExtra("items", strArr);
-            intent.addFlags(268435456);
-            context.startActivity(intent);
         } catch (Exception unused) {
         }
     }
@@ -69,7 +74,7 @@ public class AnnouncementActivity extends d.s {
         finish();
     }
 
-    @Override
+    @Override // androidx.fragment.app.a0, androidx.activity.ComponentActivity, x.m, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_announcement);

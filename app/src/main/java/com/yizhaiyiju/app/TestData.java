@@ -6,12 +6,12 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class TestData {
     public static String[] ELEMENTS = {"金", "木", "水", "火", "土"};
-    public static String[] ELEMENT_EMOJIS = {"⚔️", "🌳", "🌊", "🔥", "⛰️"};
+    public static String[] ELEMENT_EMOJIS = {"金", "木", "水", "火", "土"};
     public static String[] ELEMENT_DESC = {"金主义，你是一个果断坚毅的人，具有强烈的正义感和责任心。你做事有条理，追求完美，但有时过于固执。", "木主仁，你是一个富有同情心的人，善于倾听和理解他人。你有创造力，追求成长，但有时优柔寡断。", "水主智，你是一个聪明灵活的人，善于思考和分析。你适应力强，追求知识，但有时过于敏感。", "火主礼，你是一个热情开朗的人，充满活力和感染力。你善于表达，追求快乐，但有时冲动急躁。", "土主信，你是一个稳重踏实的人，值得信赖。你务实可靠，追求稳定，但有时过于保守。"};
     public static String[] ELEMENT_ADVICE = {"建议：多接触木属性事物（绿色植物、东方方位），可平衡五行。适合从事金融、法律、管理等行业。", "建议：多接触水属性事物（蓝色装饰、北方方位），可滋养木气。适合从事教育、医疗、艺术等行业。", "建议：多接触金属性事物（白色装饰、西方方位），可生水旺运。适合从事科研、IT、咨询等行业。", "建议：多接触土属性事物（黄色装饰、中央方位），可泄火生财。适合从事演艺、餐饮、能源等行业。", "建议：多接触火属性事物（红色装饰、南方方位），可生土旺运。适合从事农业、房地产、服务业等行业。"};
     public static String[][] LUCKY_COLORS = {new String[]{"🔴 红色", "象征热情和好运，今天穿红色能提升自信"}, new String[]{"🟢 绿色", "象征生机和成长，今天绿色能带来平和"}, new String[]{"🔵 蓝色", "象征智慧和冷静，今天蓝色能带来好运"}, new String[]{"🟣 紫色", "象征高贵和神秘，今天紫色能提升魅力"}};
-    public static String[][] ZODIAC_FORTUNES = {new String[]{"🐀 鼠", "今天适合处理财务事务，可能会有意外收入。感情方面需要多沟通。", "3", "4", "4", "幸运色：金色，幸运数字：3"}, new String[]{"🐂 牛", "工作上会有贵人相助，适合推进重要项目。注意休息，别太劳累。", "4", "3", "5", "幸运色：红色，幸运数字：8"}, new String[]{"🐅 虎", "今天精力充沛，适合挑战新事物。但要注意控制脾气。", "4", "4", "3", "幸运色：绿色，幸运数字：1"}, new String[]{"🐇 兔", "今天桃花运不错，单身者可能有惊喜。工作平稳发展。", "3", "5", "3", "幸运色：粉色，幸运数字：6"}, new String[]{"🐉 龙", "今天运势很好，做事顺心如意。适合签约、面试等重要事项。", "5", "4", "5", "幸运色：金色，幸运数字：9"}, new String[]{"🐍 蛇", "今天需要谨慎行事，避免冲动决策。多听听他人意见。", "2", "3", "3", "幸运色：紫色，幸运数字：2"}, new String[]{"🐴 马", "今天社交运很好，适合拓展人脉。可能会认识新朋友。", "3", "4", "4", "幸运色：蓝色，幸运数字：7"}, new String[]{"🐑 羊", "今天创意灵感旺盛，适合从事创作工作。感情温馨。", "4", "4", "4", "幸运色：白色，幸运数字：5"}, new String[]{"🐵 猴", "今天运势起伏较大，需要保持冷静。投资需谨慎。", "3", "3", "3", "幸运色：黄色，幸运数字：4"}, new String[]{"🐔 鸡", "今天工作表现突出，可能获得认可。注意身体健康。", "4", "4", "4", "幸运色：红色，幸运数字：8"}, new String[]{"🐕 狗", "今天贵人运强，遇到困难会有人帮忙。适合求人办事。", "4", "3", "5", "幸运色：棕色，幸运数字：3"}, new String[]{"🐖 猪", "今天财运不错，可能会有意外收获。心情愉快。", "5", "4", "4", "幸运色：金色，幸运数字：9"}};
-    public static String[] ZODIAC_EMOJIS = {"🐀", "🐂", "🐅", "🐇", "🐉", "🐍", "🐴", "🐑", "🐵", "🐔", "🐕", "🐖"};
+    public static String[][] ZODIAC_FORTUNES = {new String[]{"鼠", "今天适合处理财务事务，可能会有意外收入。感情方面需要多沟通。", "3", "4", "4", "幸运色：金色，幸运数字：3"}, new String[]{"牛", "工作上会有贵人相助，适合推进重要项目。注意休息，别太劳累。", "4", "3", "5", "幸运色：红色，幸运数字：8"}, new String[]{"虎", "今天精力充沛，适合挑战新事物。但要注意控制脾气。", "4", "4", "3", "幸运色：绿色，幸运数字：1"}, new String[]{"兔", "今天桃花运不错，单身者可能有惊喜。工作平稳发展。", "3", "5", "3", "幸运色：粉色，幸运数字：6"}, new String[]{"龙", "今天运势很好，做事顺心如意。适合签约、面试等重要事项。", "5", "4", "5", "幸运色：金色，幸运数字：9"}, new String[]{"蛇", "今天需要谨慎行事，避免冲动决策。多听听他人意见。", "2", "3", "3", "幸运色：紫色，幸运数字：2"}, new String[]{"马", "今天社交运很好，适合拓展人脉。可能会认识新朋友。", "3", "4", "4", "幸运色：蓝色，幸运数字：7"}, new String[]{"羊", "今天创意灵感旺盛，适合从事创作工作。感情温馨。", "4", "4", "4", "幸运色：白色，幸运数字：5"}, new String[]{"猴", "今天运势起伏较大，需要保持冷静。投资需谨慎。", "3", "3", "3", "幸运色：黄色，幸运数字：4"}, new String[]{"鸡", "今天工作表现突出，可能获得认可。注意身体健康。", "4", "4", "4", "幸运色：红色，幸运数字：8"}, new String[]{"狗", "今天贵人运强，遇到困难会有人帮忙。适合求人办事。", "4", "3", "5", "幸运色：棕色，幸运数字：3"}, new String[]{"猪", "今天财运不错，可能会有意外收获。心情愉快。", "5", "4", "4", "幸运色：金色，幸运数字：9"}};
+    public static String[] ZODIAC_EMOJIS = {"鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"};
     public static String[] ZODIAC_NAMES = {"鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"};
 
     public static class Question {
@@ -45,17 +45,17 @@ public class TestData {
     public static List<TestInfo> getAllTests() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new TestInfo("bazi", "八字排盘", "", "四柱八字+大运流年排盘", null));
-        arrayList.add(new TestInfo("marriage", "八字合婚", "💕", "男女八字配对+五行分析", null));
-        arrayList.add(new TestInfo("name", "姓名分析", "✍️", "三才五格+笔画数理", null));
-        arrayList.add(new TestInfo("flying_star", "玄空飞星", "🏠", "九宫飞星吉凶方位", null));
-        arrayList.add(new TestInfo("kua_number", "八宅命卦", "🧭", "命卦+四吉方四凶方", null));
-        arrayList.add(new TestInfo("fortune", "每日运势", "🌟", "选择生肖查看今日运势", null));
+        arrayList.add(new TestInfo("marriage", "八字合婚", "", "男女八字配对+五行分析", null));
+        arrayList.add(new TestInfo("name", "姓名分析", "", "三才五格+笔画数理", null));
+        arrayList.add(new TestInfo("flying_star", "玄空飞星", "", "九宫飞星吉凶方位", null));
+        arrayList.add(new TestInfo("kua_number", "八宅命卦", "", "命卦+四吉方四凶方", null));
+        arrayList.add(new TestInfo("fortune", "每日运势", "", "选择生肖查看今日运势", null));
         arrayList.add(new TestInfo("wuxing", "五行测试", "", "测测你的五行属性", getWuxingQuestions()));
         arrayList.add(new TestInfo("romance", "桃花运", "", "测你今年的爱情运势", getRomanceQuestions()));
-        arrayList.add(new TestInfo("mental_age", "心理年龄", "🧠", "你的心智年龄是多少？", getMentalAgeQuestions()));
-        arrayList.add(new TestInfo("financial", "财富智商", "💰", "测测你的赚钱能力", getFinancialQuestions()));
-        arrayList.add(new TestInfo("mbti", "MBTI性格", "🎭", "16种人格类型测试", getMBTIQuestions()));
-        arrayList.add(new TestInfo("lucky_color", "幸运色", "🎨", "找到你的幸运颜色", getLuckyColorQuestions()));
+        arrayList.add(new TestInfo("mental_age", "心理年龄", "", "你的心智年龄是多少？", getMentalAgeQuestions()));
+        arrayList.add(new TestInfo("financial", "财富智商", "", "测测你的赚钱能力", getFinancialQuestions()));
+        arrayList.add(new TestInfo("mbti", "MBTI性格", "", "16种人格类型测试", getMBTIQuestions()));
+        arrayList.add(new TestInfo("lucky_color", "幸运色", "", "找到你的幸运颜色", getLuckyColorQuestions()));
         return arrayList;
     }
 

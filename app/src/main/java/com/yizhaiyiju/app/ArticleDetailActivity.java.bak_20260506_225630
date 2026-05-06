@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Locale;
+import r2.e1;
 
 /* loaded from: classes.dex */
 public class ArticleDetailActivity extends d.s {
@@ -44,6 +45,7 @@ public class ArticleDetailActivity extends d.s {
         Toast.makeText(this, "仅允许打开 12zn.com 的安全链接", Toast.LENGTH_SHORT).show();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     private String extractTestName(String str) {
         try {
             String path = Uri.parse(str).getPath();
@@ -53,6 +55,7 @@ public class ArticleDetailActivity extends d.s {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public String extractTestIdFromServices(String str) {
         try {
             String path = Uri.parse(str).getPath();
@@ -95,7 +98,7 @@ public class ArticleDetailActivity extends d.s {
         }
     }
 
-    @Override
+    @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         WebView webView = (WebView) findViewById(R.id.web_view);
         if (webView.canGoBack()) {
@@ -105,7 +108,7 @@ public class ArticleDetailActivity extends d.s {
         }
     }
 
-    @Override
+    @Override // androidx.fragment.app.a0, androidx.activity.ComponentActivity, x.m, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_article_detail);
@@ -116,12 +119,7 @@ public class ArticleDetailActivity extends d.s {
             stringExtra = "文章";
         }
         textView.setText(stringExtra);
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ArticleDetailActivity.this.finish();
-            }
-        });
+        findViewById(R.id.btn_back).setOnClickListener(new i(0, this));
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         final WebView webView = (WebView) findViewById(R.id.web_view);
         WebSettings settings = webView.getSettings();
@@ -140,7 +138,7 @@ public class ArticleDetailActivity extends d.s {
                 return false;
             }
 
-            @Override
+            @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView2, String str) {
                 progressBar.setVisibility(8);
                 if (ArticleDetailActivity.this.isTrustedUrl(str)) {
@@ -148,12 +146,12 @@ public class ArticleDetailActivity extends d.s {
                 }
             }
 
-            @Override
+            @Override // android.webkit.WebViewClient
             public boolean shouldOverrideUrlLoading(WebView webView2, WebResourceRequest webResourceRequest) {
                 return handleLink(webResourceRequest.getUrl().toString());
             }
 
-            @Override
+            @Override // android.webkit.WebViewClient
             public boolean shouldOverrideUrlLoading(WebView webView2, String str) {
                 return handleLink(str);
             }

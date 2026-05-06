@@ -45,7 +45,7 @@ public class GenericTestActivity extends d.s {
                 int i4 = ((int) (d5 * 30.0d)) + 18;
                 String[] strArr = new String[3];
                 strArr[0] = "心理年龄：" + i4 + "岁";
-                strArr[1] = "🧠";
+                strArr[1] = "结果";
                 StringBuilder j4 = new StringBuilder("你的心智成熟度相当于").append(i4).append("岁。");
                 j4.append(i4 > 35 ? "你比同龄人更加成熟稳重。" : "你保持着年轻的心态和活力。");
                 strArr[2] = j4.toString();
@@ -71,19 +71,19 @@ public class GenericTestActivity extends d.s {
                 for (int i11 = 0; i11 < 16; i11++) {
                     String[] strArr5 = strArr4[i11];
                     if (strArr5[0].equals(sb2)) {
-                        return new String[]{sb2 + " · " + strArr5[1], "🎭", strArr5[2]};
+                        return new String[]{sb2 + " · " + strArr5[1], "结果", strArr5[2]};
                     }
                 }
-                return new String[]{sb2, "🎭", "你的性格类型是" + sb2 + "，每种类型都有独特的优势。"};
+                return new String[]{sb2, "结果", "你的性格类型是" + sb2 + "，每种类型都有独特的优势。"};
             case "name":
                 int i12 = ((int) (d5 * 35.0d)) + 60;
                 return new String[]{"名字评分：" + i12 + "分", "结果", i12 >= 90 ? "名字非常好！五行搭配得当，音韵和谐，寓意深远，对运势有积极加持。" : i12 >= 80 ? "名字不错，五行基本平衡，音韵流畅。稍加调整可以更完美。" : i12 >= 70 ? "名字尚可，但五行搭配有些偏颇，音韵上也有优化空间。建议咨询师傅做微调。" : "名字有待改善，五行存在明显偏差，可能对运势有一定影响。建议考虑调整。"};
             case "financial":
-                return d5 > 0.7d ? new String[]{"财商很高！", "💰", "你有很好的理财意识和投资直觉，建议继续保持学习。"} : d5 > 0.5d ? new String[]{"财商中等", "📊", "你有一定的理财基础，但还有提升空间。建议多学习投资知识。"} : new String[]{"需要提升财商", "📚", "建议从基础理财开始学习，建立财务规划意识。"};
+                return d5 > 0.7d ? new String[]{"财商很高！", "高分", "你有很好的理财意识和投资直觉，建议继续保持学习。"} : d5 > 0.5d ? new String[]{"财商中等", "中等", "你有一定的理财基础，但还有提升空间。建议多学习投资知识。"} : new String[]{"需要提升财商", "提升", "建议从基础理财开始学习，建立财务规划意识。"};
             case "romance":
                 return d5 > 0.8d ? new String[]{"桃花运爆棚！", "桃花运势", "你的爱情运势非常好，最近可能会遇到心仪的对象，或者现有的感情会更进一步。"} : d5 > 0.6d ? new String[]{"桃花运不错", "桃花运势", "你的爱情运势较好，保持开放的心态，缘分可能就在不远处。"} : d5 > 0.4d ? new String[]{"桃花运一般", "桃花运势", "目前爱情运势平稳，建议多参加社交活动，拓展交际圈。"} : new String[]{"需要耐心等待", "桃花运势", "桃花暂时还没开，但请不要灰心。趁这段时间提升自己，缘分自然会来。"};
             default:
-                return new String[]{"测试完成", "🎉", "感谢参与测试！"};
+                return new String[]{"测试完成", "完成", "感谢参与测试！"};
         }
     }
 

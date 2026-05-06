@@ -24,7 +24,7 @@ public class WuxingBarView extends View {
         super(context);
         this.labels = new String[]{"金", "木", "水", "火", "土"};
         this.colors = new int[]{-4153266, -10580895, -11896139, -4172998, -6587058};
-        this.emojis = new String[]{"🥇", "🌲", "💧", "🔥", "🏔️"};
+        this.emojis = new String[]{"金", "木", "水", "火", "土"};
         this.scores = new int[]{0, 0, 0, 0, 0};
         this.maxScore = 1;
         this.barBgPaint = new Paint(1);
@@ -96,7 +96,7 @@ public class WuxingBarView extends View {
         super(context, attributeSet);
         this.labels = new String[]{"金", "木", "水", "火", "土"};
         this.colors = new int[]{-4153266, -10580895, -11896139, -4172998, -6587058};
-        this.emojis = new String[]{"🥇", "🌲", "💧", "🔥", "🏔️"};
+        this.emojis = new String[]{"金", "木", "水", "火", "土"};
         this.scores = new int[]{0, 0, 0, 0, 0};
         this.maxScore = 1;
         this.barBgPaint = new Paint(1);

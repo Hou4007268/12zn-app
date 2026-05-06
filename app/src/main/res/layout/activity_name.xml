@@ -16,7 +16,7 @@
             android:paddingBottom="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="✍️ 姓名分析"/>
+            android:text="姓名分析"/>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

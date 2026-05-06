@@ -1,14 +1,8 @@
 package com.yizhaiyiju.app;
 
 import android.view.View;
-import android.widget.Spinner;
 import android.widget.TextView;
-import com.yizhaiyiju.app.ArticlesFragment;
-import com.yizhaiyiju.app.MessagesFragment;
-import com.yizhaiyiju.app.ServicesFragment;
 import com.yizhaiyiju.app.TestData;
-import com.yizhaiyiju.app.TestListFragment;
-import org.json.JSONObject;
 import r2.e1;
 
 /* loaded from: classes.dex */
@@ -29,39 +23,23 @@ public final /* synthetic */ class j implements View.OnClickListener {
         this.f2343g = obj2;
     }
 
-    @Override // android.view.View.OnClickListener
+    @Override
     public final void onClick(View view) {
-        int i4 = this.f2341e;
         Object obj = this.f2343g;
         Object obj2 = this.f2342f;
-        switch (i4) {
-            case 0:
-                ((ArticlesFragment.ArticleAdapter) obj2).lambda$onBindViewHolder$0((ArticlesFragment.ArticleItem) obj, view);
-                break;
-            case 1:
-                ((MessagesFragment.SessionAdapter) obj2).lambda$onBindViewHolder$0((JSONObject) obj, view);
-                break;
-            case 2:
-                ((ServicesFragment.ServiceAdapter) obj2).lambda$onBindViewHolder$0((ServicesFragment.ServiceItem) obj, view);
-                break;
-            case 3:
-                ((TestListFragment.TestAdapter) obj2).lambda$onBindViewHolder$0((TestData.TestInfo) obj, view);
-                break;
+        switch (this.f2341e) {
             case 4:
                 ((AnnouncementActivity) obj2).lambda$onCreate$0((String) obj, view);
-                break;
-            case e1.CATALOGUE_NAME_FIELD_NUMBER /* 5 */:
-                ((FeedbackActivity) obj2).lambda$onCreate$1((Spinner) obj, view);
-                break;
+                return;
             case 6:
                 ((GenericTestActivity) obj2).lambda$onCreate$2((String) obj, view);
-                break;
+                return;
             case 7:
                 ((View) obj).performClick();
-                break;
+                return;
             default:
                 ((SettingsActivity) obj2).lambda$onCreate$2((TextView) obj, view);
-                break;
+                return;
         }
     }
 }

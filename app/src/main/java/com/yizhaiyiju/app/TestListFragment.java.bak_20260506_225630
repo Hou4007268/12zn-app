@@ -85,37 +85,11 @@ public class TestListFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(VH vh, int i4) {
-            final TestData.TestInfo testInfo = this.data.get(i4);
+            TestData.TestInfo testInfo = this.data.get(i4);
             vh.ivIcon.setImageResource(resolveIconRes(testInfo.id));
             vh.tvName.setText(testInfo.name);
             vh.tvDesc.setText(testInfo.description);
-            vh.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent;
-                    if (testInfo.id.equals("fortune")) {
-                        intent = new Intent(TestListFragment.this.getActivity(), (Class<?>) FortuneActivity.class);
-                    } else if (testInfo.id.equals("wuxing")) {
-                        intent = new Intent(TestListFragment.this.getActivity(), (Class<?>) WuxingTestActivity.class);
-                    } else if (testInfo.id.equals("bazi")) {
-                        intent = new Intent(TestListFragment.this.getActivity(), (Class<?>) BaZiActivity.class);
-                    } else if (testInfo.id.equals("flying_star")) {
-                        intent = new Intent(TestListFragment.this.getActivity(), (Class<?>) FlyingStarActivity.class);
-                    } else if (testInfo.id.equals("kua_number")) {
-                        intent = new Intent(TestListFragment.this.getActivity(), (Class<?>) KuaNumberActivity.class);
-                    } else if (testInfo.id.equals("marriage")) {
-                        intent = new Intent(TestListFragment.this.getActivity(), (Class<?>) MarriageMatchActivity.class);
-                    } else if (testInfo.id.equals("name")) {
-                        intent = new Intent(TestListFragment.this.getActivity(), (Class<?>) NameAnalysisActivity.class);
-                    } else {
-                        Intent intent2 = new Intent(TestListFragment.this.getActivity(), (Class<?>) GenericTestActivity.class);
-                        intent2.putExtra("test_id", testInfo.id);
-                        intent2.putExtra("test_name", testInfo.name);
-                        intent = intent2;
-                    }
-                    TestListFragment.this.startActivity(intent);
-                }
-            });
+            vh.itemView.setOnClickListener(new j(this, 3, testInfo));
         }
 
         @Override
@@ -143,14 +117,7 @@ public class TestListFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        view.findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).switchToTab(R.id.nav_home);
-                }
-            }
-        });
+        view.findViewById(R.id.btn_back).setOnClickListener(new i(6, this));
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_tests);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new TestAdapter(TestData.getAllTests()));
