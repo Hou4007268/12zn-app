@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/bg_dark"
+    android:background="@color/bg_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -9,12 +9,12 @@
         android:padding="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:textSize="64sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_marginTop="32dp"
-            android:text="一宅一句"/>
+            android:src="@drawable/ic_service_home"
+            android:contentDescription="品牌图标"/>
         <TextView
             android:textSize="28sp"
             android:textStyle="bold"
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="专业风水命理咨询平台"/>
+            android:text="师傅风水命理咨询平台"/>
         <LinearLayout
             android:orientation="vertical"
             android:background="@drawable/bg_card"
@@ -50,7 +50,7 @@
                 android:textColor="@color/text_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="一宅一句是一个专业的风水命理咨询平台，致力于传承和发扬中国传统风水文化。我们提供在线风水咨询、八字命理分析、家居风水布局等服务。"
+                android:text="一宅一句致力于传承和发扬中国传统风水文化，为用户提供在线咨询、八字命理分析、家居风水建议等服务。"
                 android:lineSpacingMultiplier="1.6"/>
         </LinearLayout>
         <LinearLayout
@@ -73,7 +73,7 @@
                 android:textColor="@color/text_primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="微信：houzhaiyiju\n邮箱：hou4007268@gmail.com\n官网：12zn.com"
+                android:text="联系邮箱：hou4007268@gmail.com&#10;客服微信：ayizhaiyiju&#10;官方网站：12zn.com"
                 android:lineSpacingMultiplier="1.8"/>
         </LinearLayout>
     </LinearLayout>

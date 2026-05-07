@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/bg_dark"
+    android:background="@color/bg_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -35,11 +35,11 @@
             android:layout_height="72dp"
             android:layout_marginBottom="12dp"
             android:paddingHorizontal="20dp">
-            <TextView
-                android:textSize="28sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="联系"/>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_service_consult"
+                android:contentDescription="在线客服"/>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
@@ -86,11 +86,11 @@
             android:layout_height="72dp"
             android:layout_marginBottom="12dp"
             android:paddingHorizontal="20dp">
-            <TextView
-                android:textSize="28sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="联系"/>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_service_name"
+                android:contentDescription="邮箱咨询"/>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
@@ -137,11 +137,11 @@
             android:layout_height="72dp"
             android:layout_marginBottom="12dp"
             android:paddingHorizontal="20dp">
-            <TextView
-                android:textSize="28sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="联系"/>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_service_home"
+                android:contentDescription="访问网站"/>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
