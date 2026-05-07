@@ -85,7 +85,7 @@ public class WuxingTestActivity extends d.s {
         this.scrollQuestions.setVisibility(8);
         findViewById(R.id.result_container).setVisibility(0);
         ((TextView) findViewById(R.id.tv_result_title)).setText("你的五行属性");
-        ((TextView) findViewById(R.id.tv_result_element)).setText(TestData.ELEMENT_EMOJIS[i4] + " " + TestData.ELEMENTS[i4]);
+        ((TextView) findViewById(R.id.tv_result_element)).setText(TestData.ELEMENTS[i4]);
         ((TextView) findViewById(R.id.tv_result_desc)).setText(TestData.ELEMENT_DESC[i4]);
         ((TextView) findViewById(R.id.tv_result_advice)).setText(TestData.ELEMENT_ADVICE[i4]);
         ((WuxingBarView) findViewById(R.id.wuxing_chart)).setScores(this.scores);

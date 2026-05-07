@@ -1,6 +1,8 @@
 package com.yizhaiyiju.app;
 
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
@@ -27,10 +29,14 @@ public class FortuneActivity extends d.s {
         showFortune(i4);
     }
 
+    private int dp(int i4) {
+        return (int) TypedValue.applyDimension(1, i4, getResources().getDisplayMetrics());
+    }
+
     private void showFortune(int i4) {
         this.resultContainer.setVisibility(0);
         String[] strArr = TestData.ZODIAC_FORTUNES[i4];
-        this.tvFortuneTitle.setText(strArr[0] + " 今日运势");
+        this.tvFortuneTitle.setText(TestData.ZODIAC_NAMES[i4] + " 今日运势");
         this.tvOverall.setText(strArr[1]);
         try {
             this.ratingMoney.setRating(Integer.parseInt(strArr[2]));
@@ -45,16 +51,11 @@ public class FortuneActivity extends d.s {
         }
     }
 
-    @Override
+    @Override // androidx.fragment.app.a0, androidx.activity.ComponentActivity, x.m, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_fortune);
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FortuneActivity.this.finish();
-            }
-        });
+        findViewById(R.id.btn_back).setOnClickListener(new i(3, this));
         this.resultContainer = (LinearLayout) findViewById(R.id.result_container);
         this.tvFortuneTitle = (TextView) findViewById(R.id.tv_fortune_title);
         this.tvOverall = (TextView) findViewById(R.id.tv_overall);
@@ -63,28 +64,26 @@ public class FortuneActivity extends d.s {
         this.ratingLove = (RatingBar) findViewById(R.id.rating_love);
         this.ratingCareer = (RatingBar) findViewById(R.id.rating_career);
         GridLayout gridLayout = (GridLayout) findViewById(R.id.zodiac_grid);
+        int i4 = 0;
         for (int i5 = 0; i5 < 12; i5++) {
-            final int zodiacIndex = i5;
             TextView textView = new TextView(this);
-            textView.setText(TestData.ZODIAC_EMOJIS[i5] + "\n" + TestData.ZODIAC_NAMES[i5]);
-            textView.setTextSize(14.0f);
-            textView.setTextColor(getResources().getColor(R.color.text_on_accent));
-            textView.setGravity(17);
-            textView.setPadding(16, 16, 16, 16);
+            textView.setText(TestData.ZODIAC_NAMES[i5]);
+            textView.setTextSize(16.0f);
+            textView.setTextColor(getResources().getColor(R.color.text_primary));
+            textView.setGravity(Gravity.CENTER);
+            int dp = dp(14);
+            textView.setPadding(dp, dp, dp, dp);
             textView.setBackgroundResource(R.drawable.bg_card);
             GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
             layoutParams.width = 0;
             layoutParams.height = -2;
             layoutParams.columnSpec = GridLayout.spec(i5 % 4, 1.0f);
             layoutParams.rowSpec = GridLayout.spec(i5 / 4);
-            layoutParams.setMargins(6, 6, 6, 6);
+            int dp2 = dp(6);
+            layoutParams.setMargins(dp2, dp2, dp2, dp2);
             textView.setLayoutParams(layoutParams);
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    FortuneActivity.this.showFortune(zodiacIndex);
-                }
-            });
+            textView.setMinHeight(dp(64));
+            textView.setOnClickListener(new g0(this, i5, i4));
             gridLayout.addView(textView);
         }
     }
