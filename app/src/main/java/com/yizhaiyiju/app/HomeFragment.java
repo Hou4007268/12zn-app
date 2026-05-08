@@ -36,6 +36,19 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ void lambda$onViewCreated$5(View view) {
+        if (!(getActivity() instanceof MainActivity)) {
+            return;
+        }
+        MainActivity mainActivity = (MainActivity) getActivity();
+        if (BuildConfig.FULL_VERSION) {
+            mainActivity.switchToTab(R.id.nav_services);
+        } else {
+            startActivity(new Intent(getActivity(), (Class<?>) ConsultActivity.class));
+        }
+    }
+
     @Override
     public u0.b getDefaultViewModelCreationExtras() {
         return u0.a.f4680b;
@@ -77,6 +90,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view2) {
                 HomeFragment.this.lambda$onViewCreated$4(view2);
+            }
+        });
+        view.findViewById(R.id.btn_all_services).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view2) {
+                HomeFragment.this.lambda$onViewCreated$5(view2);
             }
         });
     }
