@@ -104,6 +104,9 @@
             android:name="com.yizhaiyiju.app.RedeemActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name="com.yizhaiyiju.app.TestDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:theme="@style/Theme.YizhaiYiju"
             android:name="com.yizhaiyiju.app.AnnouncementActivity"
             android:screenOrientation="portrait"/>

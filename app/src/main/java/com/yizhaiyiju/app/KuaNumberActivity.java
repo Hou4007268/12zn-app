@@ -9,6 +9,9 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import java.util.Calendar;
+import android.content.SharedPreferences;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class KuaNumberActivity extends d.s {
     private static final String[] DIRECTION_NAMES = {"北", "东北", "东", "东南", "南", "西南", "西", "西北"};
@@ -43,6 +46,22 @@ public class KuaNumberActivity extends d.s {
     private RadioGroup rgGender;
     private Spinner spYear;
 
+    
+
+    private void saveTestResult(String testName, String resultTitle, String resultDesc) {
+        try {
+            TestHistoryHelper.Record r = new TestHistoryHelper.Record();
+            r.testId = "";
+            r.testName = testName != null ? testName : "测试";
+            r.resultTitle = resultTitle != null ? resultTitle : "";
+            r.resultDesc = resultDesc != null ? resultDesc : "";
+            r.resultIcon = "";
+            r.resultData = "";
+            r.timestamp = System.currentTimeMillis();
+            TestHistoryHelper.saveRecord(this, r);
+        } catch (Exception ignored) {}
+    }
+
     public void lambda$onCreate$0() {
         int kuaNumber = calcKua(this.spYear.getSelectedItemPosition() + 1950, this.rgGender.getCheckedRadioButtonId() == R.id.rb_male);
         String groupName = isEastGroup(kuaNumber) ? "东四命" : "西四命";
@@ -54,6 +73,7 @@ public class KuaNumberActivity extends d.s {
         ((TextView) findViewById(R.id.tv_advice)).setText(buildAdvice(kuaNumber));
 
         this.resultContainer.setVisibility(View.VISIBLE);
+        saveTestResult("八宅命卦", "命卦：" + kuaNumber + " (" + groupName + ")", "吉方：\n" + buildDirectionBlock(kuaNumber, true) + "\n凶方：\n" + buildDirectionBlock(kuaNumber, false) + "\n\n" + buildAdvice(kuaNumber));
         findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

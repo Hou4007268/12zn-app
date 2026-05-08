@@ -9,6 +9,9 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import java.util.Calendar;
+import android.content.SharedPreferences;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class BaZiActivity extends d.s {
     static final String[] STEMS = {"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
@@ -24,6 +27,22 @@ public class BaZiActivity extends d.s {
     private Spinner spHour;
     private Spinner spMonth;
     private Spinner spYear;
+
+    
+
+    private void saveTestResult(String testName, String resultTitle, String resultDesc) {
+        try {
+            TestHistoryHelper.Record r = new TestHistoryHelper.Record();
+            r.testId = "";
+            r.testName = testName != null ? testName : "测试";
+            r.resultTitle = resultTitle != null ? resultTitle : "";
+            r.resultDesc = resultDesc != null ? resultDesc : "";
+            r.resultIcon = "";
+            r.resultData = "";
+            r.timestamp = System.currentTimeMillis();
+            TestHistoryHelper.saveRecord(this, r);
+        } catch (Exception ignored) {}
+    }
 
     public void lambda$onCreate$0() {
         int year = this.spYear.getSelectedItemPosition() + 1950;
@@ -65,6 +84,7 @@ public class BaZiActivity extends d.s {
         ((TextView) findViewById(R.id.tv_element_advice)).setText(advice.toString());
         ((TextView) findViewById(R.id.tv_dayun)).setText("流年与大运解析整理中，可结合前述结果综合参考。");
         this.resultContainer.setVisibility(0);
+        saveTestResult("八字排盘", "日主：" + STEMS[dayPillar[0]] + "（五行属" + ELEMENTS[STEM_ELEMENT[dayPillar[0]]] + "）", elements.toString() + " " + advice.toString());
         findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) { lambda$calculate$2(); }
         });

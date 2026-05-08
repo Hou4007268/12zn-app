@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.content.SharedPreferences;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import com.yizhaiyiju.app.TestData;
 import java.util.List;
 
@@ -74,6 +77,22 @@ public class WuxingTestActivity extends d.s {
         }
     }
 
+    
+
+    private void saveTestResult(String testName, String resultTitle, String resultDesc) {
+        try {
+            TestHistoryHelper.Record r = new TestHistoryHelper.Record();
+            r.testId = "";
+            r.testName = testName != null ? testName : "测试";
+            r.resultTitle = resultTitle != null ? resultTitle : "";
+            r.resultDesc = resultDesc != null ? resultDesc : "";
+            r.resultIcon = "";
+            r.resultData = "";
+            r.timestamp = System.currentTimeMillis();
+            TestHistoryHelper.saveRecord(this, r);
+        } catch (Exception ignored) {}
+    }
+
     private void showResult() {
         int i4 = 0;
         for (int i5 = 1; i5 < 5; i5++) {
@@ -89,6 +108,7 @@ public class WuxingTestActivity extends d.s {
         ((TextView) findViewById(R.id.tv_result_desc)).setText(TestData.ELEMENT_DESC[i4]);
         ((TextView) findViewById(R.id.tv_result_advice)).setText(TestData.ELEMENT_ADVICE[i4]);
         ((WuxingBarView) findViewById(R.id.wuxing_chart)).setScores(this.scores);
+        saveTestResult("五行测试", "你的五行属性: " + TestData.ELEMENTS[i4], TestData.ELEMENT_DESC[i4] + "\n\n" + TestData.ELEMENT_ADVICE[i4]);
     }
 
     @Override // androidx.fragment.app.a0, androidx.activity.ComponentActivity, x.m, android.app.Activity

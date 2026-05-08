@@ -98,12 +98,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="一宅一句 · 趣味测试"/>
-                <TextView
-                    android:textSize="56sp"
-                    android:id="@+id/tv_result_emoji"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"/>
+                <ImageView
+                    android:id="@+id/iv_result_icon"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="测试结果图标"
+                    android:src="@drawable/ic_test_result_default"/>
                 <TextView
                     android:textSize="22sp"
                     android:textStyle="bold"

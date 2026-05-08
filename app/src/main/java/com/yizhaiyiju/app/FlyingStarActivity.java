@@ -7,6 +7,9 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.content.SharedPreferences;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /* loaded from: classes.dex */
 public class FlyingStarActivity extends d.s {
@@ -22,6 +25,22 @@ public class FlyingStarActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: calculate, reason: merged with bridge method [inline-methods] */
+    
+
+    private void saveTestResult(String testName, String resultTitle, String resultDesc) {
+        try {
+            TestHistoryHelper.Record r = new TestHistoryHelper.Record();
+            r.testId = "";
+            r.testName = testName != null ? testName : "测试";
+            r.resultTitle = resultTitle != null ? resultTitle : "";
+            r.resultDesc = resultDesc != null ? resultDesc : "";
+            r.resultIcon = "";
+            r.resultData = "";
+            r.timestamp = System.currentTimeMillis();
+            TestHistoryHelper.saveRecord(this, r);
+        } catch (Exception ignored) {}
+    }
+
     public void lambda$onCreate$0() {
         int selectedItemPosition = this.spYear.getSelectedItemPosition() + 1864;
         int selectedItemPosition2 = this.spDir.getSelectedItemPosition();
@@ -56,6 +75,7 @@ public class FlyingStarActivity extends d.s {
         }
         ((TextView) findViewById(R.id.tv_analysis)).setText(sb.toString());
         this.resultContainer.setVisibility(0);
+        saveTestResult("玄空飞星", ((TextView) findViewById(R.id.tv_period_info)).getText().toString(), ((TextView) findViewById(R.id.tv_analysis)).getText().toString());
         findViewById(R.id.btn_share).setOnClickListener(new f0(this, 1));
     }
 

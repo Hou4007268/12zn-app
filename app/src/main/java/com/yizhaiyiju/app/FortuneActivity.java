@@ -8,6 +8,9 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.content.SharedPreferences;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /* loaded from: classes.dex */
 public class FortuneActivity extends d.s {
@@ -43,12 +46,29 @@ public class FortuneActivity extends d.s {
             this.ratingLove.setRating(Integer.parseInt(strArr[3]));
             this.ratingCareer.setRating(Integer.parseInt(strArr[4]));
             this.tvLucky.setText(strArr[5]);
+        saveTestResult("生肖运势", TestData.ZODIAC_NAMES[i4] + " 今日运势", 
+            "综合运势：" + strArr[1] + "\n财运评分：" + strArr[2] + "/5 爱情评分：" + strArr[3] + "/5 事业评分：" + strArr[4] + "/5\n幸运：" + strArr[5]);
         } catch (Exception unused) {
             this.ratingMoney.setRating(3.0f);
             this.ratingLove.setRating(3.0f);
             this.ratingCareer.setRating(3.0f);
             this.tvLucky.setText("");
         }
+    }
+
+
+    private void saveTestResult(String testName, String resultTitle, String resultDesc) {
+        try {
+            TestHistoryHelper.Record r = new TestHistoryHelper.Record();
+            r.testId = "";
+            r.testName = testName != null ? testName : "测试";
+            r.resultTitle = resultTitle != null ? resultTitle : "";
+            r.resultDesc = resultDesc != null ? resultDesc : "";
+            r.resultIcon = "";
+            r.resultData = "";
+            r.timestamp = System.currentTimeMillis();
+            TestHistoryHelper.saveRecord(this, r);
+        } catch (Exception ignored) {}
     }
 
     @Override // androidx.fragment.app.a0, androidx.activity.ComponentActivity, x.m, android.app.Activity

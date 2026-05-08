@@ -1,5 +1,6 @@
 package com.yizhaiyiju.app;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,9 +31,21 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
         }
 
         if (savedInstanceState == null) {
+            String targetTab = getIntent().getStringExtra("tab");
+            Fragment initFragment = new HomeFragment();
+            if ("test".equals(targetTab)) {
+                initFragment = new TestListFragment();
+            } else if ("services".equals(targetTab) && navServicesId != 0) {
+                initFragment = new ServicesFragment();
+            }
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new HomeFragment())
+                    .replace(R.id.fragment_container, initFragment)
                     .commit();
+            if ("test".equals(targetTab)) {
+                bottomNav.setSelectedItemId(R.id.nav_test);
+            } else if ("services".equals(targetTab) && navServicesId != 0) {
+                bottomNav.setSelectedItemId(navServicesId);
+            }
         }
 
         bottomNav.setOnItemSelectedListener(item -> {
@@ -62,4 +75,24 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
     public void switchToTab(int tabId) {
         ((BottomNavigationView) findViewById(R.id.bottom_nav)).setSelectedItemId(tabId);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences prefs = getSharedPreferences("app_prefs", 0);
+        if (prefs.getBoolean("goto_test_tab", false)) {
+            prefs.edit().putBoolean("goto_test_tab", false).apply();
+            BottomNavigationView bn = findViewById(R.id.bottom_nav);
+            if (bn != null) {
+                int testTabId = R.id.nav_test;
+                int servicesTabId = getResources().getIdentifier("nav_services", "id", getPackageName());
+                if (bn.getMenu().findItem(testTabId) != null) {
+                    bn.setSelectedItemId(testTabId);
+                } else if (servicesTabId != 0 && bn.getMenu().findItem(servicesTabId) != null) {
+                    bn.setSelectedItemId(servicesTabId);
+                }
+            }
+        }
+    }
+
 }

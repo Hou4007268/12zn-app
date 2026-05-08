@@ -69,6 +69,20 @@ public class MyTestsActivity extends d.s {
             vh.tvTitle.setText(testRecord.resultTitle);
             vh.tvDesc.setText(testRecord.resultDesc);
             vh.tvTime.setText(MyTestsActivity.this.formatTime(testRecord.timestamp));
+            vh.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MyTestsActivity.this, TestDetailActivity.class);
+                    intent.putExtra("test_id", testRecord.testId);
+                    intent.putExtra("test_name", testRecord.testName);
+                    intent.putExtra("result_title", testRecord.resultTitle);
+                    intent.putExtra("result_desc", testRecord.resultDesc);
+                    intent.putExtra("result_icon", "");
+                    intent.putExtra("result_data", "");
+                    intent.putExtra("timestamp", testRecord.timestamp);
+                    MyTestsActivity.this.startActivity(intent);
+                }
+            });
             vh.btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -89,7 +103,13 @@ public class MyTestsActivity extends d.s {
             return;
         }
         this.records.remove(indexOf);
-        persistRecords();
+        TestHistoryHelper.Record r = new TestHistoryHelper.Record();
+        r.testId = testRecord.testId;
+        r.testName = testRecord.testName;
+        r.resultTitle = testRecord.resultTitle;
+        r.resultDesc = testRecord.resultDesc;
+        r.timestamp = testRecord.timestamp;
+        TestHistoryHelper.deleteRecord(this, r);
         this.adapter.notifyItemRemoved(indexOf);
         updateState();
         Toast.makeText(this, "测试记录已删除", 0).show();
@@ -101,41 +121,20 @@ public class MyTestsActivity extends d.s {
 
     private void loadRecords() {
         this.records.clear();
-        try {
-            SharedPreferences sharedPreferences = getSharedPreferences(PREFS_TEST_HISTORY, 0);
-            JSONArray jSONArray = new JSONArray(sharedPreferences.getString(KEY_TEST_HISTORY, "[]"));
-            for (int i4 = 0; i4 < jSONArray.length(); i4++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i4);
-                if (optJSONObject != null) {
-                    TestRecord testRecord = new TestRecord();
-                    testRecord.testId = optJSONObject.optString("test_id", "");
-                    testRecord.testName = optJSONObject.optString("test_name", "测试");
-                    testRecord.resultTitle = optJSONObject.optString("result_title", "测试完成");
-                    testRecord.resultDesc = optJSONObject.optString("result_desc", "");
-                    testRecord.timestamp = optJSONObject.optLong("timestamp", 0L);
-                    this.records.add(testRecord);
-                }
-            }
-        } catch (Exception unused) {
+        java.util.List<TestHistoryHelper.Record> list = TestHistoryHelper.loadRecords(this);
+        for (TestHistoryHelper.Record r : list) {
+            TestRecord tr = new TestRecord();
+            tr.testId = r.testId;
+            tr.testName = r.testName;
+            tr.resultTitle = r.resultTitle;
+            tr.resultDesc = r.resultDesc;
+            tr.timestamp = r.timestamp;
+            this.records.add(tr);
         }
     }
 
     private void persistRecords() {
-        JSONArray jSONArray = new JSONArray();
-        try {
-            for (int i4 = 0; i4 < this.records.size(); i4++) {
-                TestRecord testRecord = (TestRecord) this.records.get(i4);
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("test_id", testRecord.testId);
-                jSONObject.put("test_name", testRecord.testName);
-                jSONObject.put("result_title", testRecord.resultTitle);
-                jSONObject.put("result_desc", testRecord.resultDesc);
-                jSONObject.put("timestamp", testRecord.timestamp);
-                jSONArray.put(jSONObject);
-            }
-        } catch (Exception unused) {
-        }
-        getSharedPreferences(PREFS_TEST_HISTORY, 0).edit().putString(KEY_TEST_HISTORY, jSONArray.toString()).apply();
+        // delegated to TestHistoryHelper via deleteRecord/clearAll
     }
 
     private void updateState() {
@@ -150,7 +149,7 @@ public class MyTestsActivity extends d.s {
 
     private void clearAll() {
         this.records.clear();
-        persistRecords();
+        TestHistoryHelper.clearAll(this);
         this.adapter.notifyDataSetChanged();
         updateState();
         Toast.makeText(this, "测试记录已清空", 0).show();
@@ -173,7 +172,8 @@ public class MyTestsActivity extends d.s {
         findViewById(R.id.btn_empty_action).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyTestsActivity.this.finish();
+                getSharedPreferences("app_prefs", 0).edit().putBoolean("goto_test_tab", true).apply();
+                finish();
             }
         });
         findViewById(R.id.btn_clear_all).setOnClickListener(new View.OnClickListener() {
@@ -190,4 +190,13 @@ public class MyTestsActivity extends d.s {
         loadRecords();
         updateState();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadRecords();
+        updateState();
+        if (adapter != null) adapter.notifyDataSetChanged();
+    }
+
 }

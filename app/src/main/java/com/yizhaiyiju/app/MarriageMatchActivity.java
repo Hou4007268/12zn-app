@@ -8,6 +8,9 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import java.util.Calendar;
+import android.content.SharedPreferences;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /* loaded from: classes.dex */
 public class MarriageMatchActivity extends d.s {
@@ -31,6 +34,22 @@ public class MarriageMatchActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: calculate, reason: merged with bridge method [inline-methods] */
+    
+
+    private void saveTestResult(String testName, String resultTitle, String resultDesc) {
+        try {
+            TestHistoryHelper.Record r = new TestHistoryHelper.Record();
+            r.testId = "";
+            r.testName = testName != null ? testName : "测试";
+            r.resultTitle = resultTitle != null ? resultTitle : "";
+            r.resultDesc = resultDesc != null ? resultDesc : "";
+            r.resultIcon = "";
+            r.resultData = "";
+            r.timestamp = System.currentTimeMillis();
+            TestHistoryHelper.saveRecord(this, r);
+        } catch (Exception ignored) {}
+    }
+
     public void lambda$onCreate$0() {
         int maleYear = this.spMaleYear.getSelectedItemPosition() + 1950;
         int maleMonth = this.spMaleMonth.getSelectedItemPosition() + 1;
@@ -124,6 +143,7 @@ public class MarriageMatchActivity extends d.s {
         }
 
         this.resultContainer.setVisibility(0);
+        saveTestResult("八字合婚", score + "分 " + level, detail.toString().trim() + "\n\n💡 " + advice.toString().trim());
         ((TextView) findViewById(R.id.tv_score)).setText(score + "分");
         ((TextView) findViewById(R.id.tv_level)).setText(level);
         ((TextView) findViewById(R.id.tv_detail)).setText(detail.toString().trim());

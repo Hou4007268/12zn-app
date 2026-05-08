@@ -10,6 +10,9 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Calendar;
+import android.content.SharedPreferences;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /* loaded from: classes.dex */
 public class NameAnalysisActivity extends d.s {
@@ -20,6 +23,22 @@ public class NameAnalysisActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: calculate, reason: merged with bridge method [inline-methods] */
+    
+
+    private void saveTestResult(String testName, String resultTitle, String resultDesc) {
+        try {
+            TestHistoryHelper.Record r = new TestHistoryHelper.Record();
+            r.testId = "";
+            r.testName = testName != null ? testName : "测试";
+            r.resultTitle = resultTitle != null ? resultTitle : "";
+            r.resultDesc = resultDesc != null ? resultDesc : "";
+            r.resultIcon = "";
+            r.resultData = "";
+            r.timestamp = System.currentTimeMillis();
+            TestHistoryHelper.saveRecord(this, r);
+        } catch (Exception ignored) {}
+    }
+
     public void lambda$onCreate$0() {
         String trim = this.etName.getText().toString().trim();
         if (trim.isEmpty()) {
@@ -91,6 +110,11 @@ public class NameAnalysisActivity extends d.s {
         }
         ((TextView) findViewById(R.id.tv_interpret)).setText(sb.toString());
         this.resultContainer.setVisibility(0);
+        ((TextView) findViewById(R.id.tv_strokes)).getText();  // trigger layout
+        String nameResultDesc = ((TextView) findViewById(R.id.tv_strokes)).getText().toString() 
+            + "\n\n" + ((TextView) findViewById(R.id.tv_grid)).getText().toString()
+            + "\n\n" + ((TextView) findViewById(R.id.tv_interpret)).getText().toString();
+        saveTestResult("姓名分析", i13 + "分 " + str, nameResultDesc);
         findViewById(R.id.btn_share).setOnClickListener(new p0(this, 0));
     }
 

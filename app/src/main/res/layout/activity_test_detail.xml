@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_page">
+
+    <!-- Top bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="@color/bg_card">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
+            android:padding="4dp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="测试详情"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btn_delete_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除"
+            android:textColor="#E53935"
+            android:textSize="14sp"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- Content scroll -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Result icon -->
+            <ImageView
+                android:id="@+id/iv_result_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Result title -->
+            <TextView
+                android:id="@+id/tv_result_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:gravity="center"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Test name + time -->
+            <TextView
+                android:id="@+id/tv_meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/text_secondary"
+                android:gravity="center"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Result description -->
+            <TextView
+                android:id="@+id/tv_result_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Extra data section (for zodiac fortune etc.) -->
+            <LinearLayout
+                android:id="@+id/layout_extra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:background="@drawable/bg_card"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_extra_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="详细数据"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tv_extra_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:lineSpacingExtra="3dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/btn_retake"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="重新测试"
+            android:textColor="@color/gold"
+            android:textSize="15sp"
+            android:background="@drawable/bg_card" />
+
+        <TextView
+            android:id="@+id/btn_share_detail"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="分享结果"
+            android:textColor="@color/bg_card"
+            android:textSize="15sp"
+            android:background="@drawable/bg_gold_button"
+            android:layout_marginStart="12dp" />
+    </LinearLayout>
+
+</LinearLayout>

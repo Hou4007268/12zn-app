@@ -52,7 +52,7 @@ public class GenericTestActivity extends d.s {
                 String[] strArr = new String[3];
                 strArr[0] = "心理年龄：" + i4 + "岁";
                 strArr[1] = String.valueOf(R.drawable.ic_test_mental_age);
-                StringBuilder j4 = androidx.appcompat.widget.b0.j("你的心智成熟度相当于", i4, "岁。");
+                StringBuilder j4 = new StringBuilder("你的心智成熟度相当于").append(i4).append("岁。");
                 j4.append(i4 > 35 ? "你比同龄人更加成熟稳重。" : "你保持着年轻的心态和活力。");
                 strArr[2] = j4.toString();
                 return strArr;
@@ -60,7 +60,7 @@ public class GenericTestActivity extends d.s {
                 int i5 = this.totalScore;
                 String[][] strArr2 = TestData.LUCKY_COLORS;
                 String[] strArr3 = strArr2[i5 % strArr2.length];
-                return new String[]{"你的幸运色", strArr3[0], strArr3[1]};
+                return new String[]{"你的幸运色：" + strArr3[0], String.valueOf(R.drawable.ic_test_palette), strArr3[1]};
             case "mbti":
                 int i6 = this.totalScore;
                 int i7 = (i6 % 100) / 10;
@@ -80,7 +80,7 @@ public class GenericTestActivity extends d.s {
                         return new String[]{sb2 + " · " + strArr5[1], String.valueOf(R.drawable.ic_test_mbti), strArr5[2]};
                     }
                 }
-                return new String[]{sb2, String.valueOf(R.drawable.ic_test_mbti), androidx.appcompat.widget.b0.i("你的性格类型是", sb2, "，每种类型都有独特的优势。")};
+                return new String[]{sb2, String.valueOf(R.drawable.ic_test_mbti), "你的性格类型是" + sb2 + "，每种类型都有独特的优势。"};
             case "name":
                 int i12 = ((int) (d5 * 35.0d)) + 60;
                 return new String[]{"名字评分：" + i12 + "分", String.valueOf(R.drawable.ic_test_name), i12 >= 90 ? "名字非常好！五行搭配得当，音韵和谐，寓意深远，对运势有积极加持。" : i12 >= 80 ? "名字不错，五行基本平衡，音韵流畅。稍加调整可以更完美。" : i12 >= 70 ? "名字尚可，但五行搭配有些偏颇，音韵上也有优化空间。建议咨询师傅做微调。" : "名字有待改善，五行存在明显偏差，可能对运势有一定影响。建议考虑调整。"};
@@ -158,21 +158,15 @@ public class GenericTestActivity extends d.s {
 
     private void saveTestResult(String str, String[] strArr) {
         try {
-            SharedPreferences sharedPreferences = getSharedPreferences(PREFS_TEST_HISTORY, 0);
-            JSONArray jSONArray = new JSONArray(sharedPreferences.getString(KEY_TEST_HISTORY, "[]"));
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("test_id", this.testId == null ? "" : this.testId);
-            jSONObject.put("test_name", str == null ? "测试" : str);
-            jSONObject.put("result_title", strArr[0]);
-            jSONObject.put("result_desc", strArr[2]);
-            jSONObject.put("timestamp", System.currentTimeMillis());
-            jSONArray.put(0, jSONObject);
-            JSONArray jSONArray2 = new JSONArray();
-            int min = Math.min(jSONArray.length(), 50);
-            for (int i4 = 0; i4 < min; i4++) {
-                jSONArray2.put(jSONArray.get(i4));
-            }
-            sharedPreferences.edit().putString(KEY_TEST_HISTORY, jSONArray2.toString()).apply();
+            TestHistoryHelper.Record r = new TestHistoryHelper.Record();
+            r.testId = this.testId == null ? "" : this.testId;
+            r.testName = str == null ? "测试" : str;
+            r.resultTitle = strArr[0];
+            r.resultDesc = strArr[2];
+            r.resultIcon = strArr[1];
+            r.resultData = "";
+            r.timestamp = System.currentTimeMillis();
+            TestHistoryHelper.saveRecord(this, r);
         } catch (Exception unused) {
         }
     }
