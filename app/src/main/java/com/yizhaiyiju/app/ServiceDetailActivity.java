@@ -99,9 +99,9 @@ public class ServiceDetailActivity extends d.s {
         final ServiceInfo serviceInfo = getServiceInfo(stringExtra);
         ((TextView) findViewById(R.id.tv_title)).setText(serviceInfo.name);
         ((TextView) findViewById(R.id.tv_service_name)).setText(serviceInfo.name);
-        ImageView imageView = (ImageView) findViewById(R.id.iv_icon);
-        if (imageView != null) {
-            imageView.setImageResource(serviceInfo.iconRes);
+        ImageView iconView = (ImageView) findViewById(R.id.tv_icon);
+        if (iconView != null) {
+            iconView.setImageResource(serviceInfo.iconRes);
         }
         ((TextView) findViewById(R.id.tv_price)).setText(serviceInfo.price);
         ((TextView) findViewById(R.id.tv_desc)).setText(serviceInfo.desc);

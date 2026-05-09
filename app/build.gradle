@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.yizhaiyiju.app'
-    compileSdk 34
+    compileSdk 35
 
     def releaseStoreFile = project.findProperty('RELEASE_STORE_FILE') ?: System.getenv('RELEASE_STORE_FILE')
     def releaseStorePassword = project.findProperty('RELEASE_STORE_PASSWORD') ?: System.getenv('RELEASE_STORE_PASSWORD')
@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId "com.yizhaiyiju.app"
         minSdk 24
-        targetSdk 34
+        targetSdk 35
         versionCode 111
         versionName "1.0.23"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

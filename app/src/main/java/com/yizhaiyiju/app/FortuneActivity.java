@@ -33,7 +33,7 @@ public class FortuneActivity extends d.s {
     }
 
     private int dp(int i4) {
-        return (int) TypedValue.applyDimension(1, i4, getResources().getDisplayMetrics());
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, i4, getResources().getDisplayMetrics());
     }
 
     private void showFortune(int i4) {

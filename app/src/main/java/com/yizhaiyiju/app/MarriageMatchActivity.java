@@ -142,7 +142,7 @@ public class MarriageMatchActivity extends d.s {
             advice.append("共同原则比临时情绪更重要，感情要靠长期经营。");
         }
 
-        this.resultContainer.setVisibility(0);
+        this.resultContainer.setVisibility(View.VISIBLE);
         saveTestResult("八字合婚", score + "分 " + level, detail.toString().trim() + "\n\n💡 " + advice.toString().trim());
         ((TextView) findViewById(R.id.tv_score)).setText(score + "分");
         ((TextView) findViewById(R.id.tv_level)).setText(level);

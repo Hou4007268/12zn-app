@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 /* loaded from: classes.dex */
 public class ContactFragment extends Fragment {
     private void copyToClipboard(String str) {
-        ((ClipboardManager) requireContext().getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("text", str));
+        ((ClipboardManager) requireContext().getSystemService(android.content.Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("text", str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

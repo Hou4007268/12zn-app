@@ -447,7 +447,7 @@ public class DirectChatActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$showContactDialog$6(View view) {
-        ((ClipboardManager) getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("WeChat", "ayizhaiyiju"));
+        ((ClipboardManager) getSystemService(android.content.Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("WeChat", "ayizhaiyiju"));
         Toast.makeText(this, "微信号已复制", 0).show();
     }
 

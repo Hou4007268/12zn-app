@@ -112,7 +112,7 @@ public class MyTestsActivity extends d.s {
         TestHistoryHelper.deleteRecord(this, r);
         this.adapter.notifyItemRemoved(indexOf);
         updateState();
-        Toast.makeText(this, "测试记录已删除", 0).show();
+        Toast.makeText(this, "测试记录已删除", Toast.LENGTH_SHORT).show();
     }
 
     private String formatTime(long j4) {
@@ -139,12 +139,12 @@ public class MyTestsActivity extends d.s {
 
     private void updateState() {
         if (this.records.isEmpty()) {
-            this.layoutEmpty.setVisibility(0);
-            this.layoutList.setVisibility(8);
+            this.layoutEmpty.setVisibility(View.VISIBLE);
+            this.layoutList.setVisibility(View.GONE);
             return;
         }
-        this.layoutEmpty.setVisibility(8);
-        this.layoutList.setVisibility(0);
+        this.layoutEmpty.setVisibility(View.GONE);
+        this.layoutList.setVisibility(View.VISIBLE);
     }
 
     private void clearAll() {
@@ -152,7 +152,7 @@ public class MyTestsActivity extends d.s {
         TestHistoryHelper.clearAll(this);
         this.adapter.notifyDataSetChanged();
         updateState();
-        Toast.makeText(this, "测试记录已清空", 0).show();
+        Toast.makeText(this, "测试记录已清空", Toast.LENGTH_SHORT).show();
     }
 
     @Override // androidx.fragment.app.a0, androidx.activity.ComponentActivity, x.m, android.app.Activity
