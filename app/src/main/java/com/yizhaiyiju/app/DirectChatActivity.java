@@ -83,7 +83,7 @@ public class DirectChatActivity extends d.s {
                 JSONObject jSONObject = new JSONObject(h0Var.f4104g.C());
                 if (jSONObject.optBoolean("success")) {
                     DirectChatActivity.this.sessionId = jSONObject.getJSONObject("data").getString("id");
-                    DirectChatActivity.this.runOnUiThread(new h(1, this));
+                    DirectChatActivity.this.runOnUiThread(new Runnable() { @Override public void run() { lambda$onResponse$0(); } });
                 }
             } catch (Exception unused) {
             }
@@ -155,13 +155,13 @@ public class DirectChatActivity extends d.s {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            DirectChatActivity.this.runOnUiThread(new z(this, 0));
+            DirectChatActivity.this.runOnUiThread(new Runnable() { @Override public void run() { lambda$onFailure$0(); } });
         }
 
         @Override // q3.e
         public void onResponse(q3.d dVar, q3.h0 h0Var) {
             h0Var.close();
-            DirectChatActivity.this.runOnUiThread(new z(this, 1));
+            DirectChatActivity.this.runOnUiThread(new Runnable() { @Override public void run() { lambda$onResponse$1(); } });
         }
     }
 
@@ -182,13 +182,13 @@ public class DirectChatActivity extends d.s {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            DirectChatActivity.this.runOnUiThread(new a0(this, 0));
+            DirectChatActivity.this.runOnUiThread(new Runnable() { @Override public void run() { lambda$onFailure$0(); } });
         }
 
         @Override // q3.e
         public void onResponse(q3.d dVar, q3.h0 h0Var) {
             h0Var.close();
-            DirectChatActivity.this.runOnUiThread(new a0(this, 1));
+            DirectChatActivity.this.runOnUiThread(new Runnable() { @Override public void run() { lambda$onResponse$1(); } });
         }
     }
 
@@ -209,13 +209,13 @@ public class DirectChatActivity extends d.s {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            DirectChatActivity.this.runOnUiThread(new b0(this, 0));
+            DirectChatActivity.this.runOnUiThread(new Runnable() { @Override public void run() { lambda$onFailure$0(); } });
         }
 
         @Override // q3.e
         public void onResponse(q3.d dVar, q3.h0 h0Var) {
             h0Var.close();
-            DirectChatActivity.this.runOnUiThread(new b0(this, 1));
+            DirectChatActivity.this.runOnUiThread(new Runnable() { @Override public void run() { lambda$onResponse$1(); } });
         }
     }
 
@@ -503,8 +503,8 @@ public class DirectChatActivity extends d.s {
             MediaPlayer mediaPlayer = new MediaPlayer();
             mediaPlayer.setDataSource(str);
             mediaPlayer.prepareAsync();
-            mediaPlayer.setOnPreparedListener(new w());
-            mediaPlayer.setOnCompletionListener(new x());
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { @Override public void onPrepared(MediaPlayer mp) { mp.start(); } });
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { @Override public void onCompletion(MediaPlayer mp) { mp.release(); } });
         } catch (Exception unused) {
             Toast.makeText(this, "播放失败", 0).show();
         }
@@ -601,8 +601,8 @@ public class DirectChatActivity extends d.s {
         d.o oVar = new d.o(this);
         ((d.k) oVar.f2561f).f2485n = inflate;
         d.p a5 = oVar.a();
-        inflate.findViewById(R.id.layout_wechat).setOnClickListener(new v(this, 4));
-        inflate.findViewById(R.id.layout_telegram).setOnClickListener(new v(this, 5));
+        inflate.findViewById(R.id.layout_wechat).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$showContactDialog$6(v); } });
+        inflate.findViewById(R.id.layout_telegram).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$showContactDialog$7(v); } });
         a5.show();
     }
 
@@ -661,7 +661,7 @@ public class DirectChatActivity extends d.s {
         if (this.isRecording) {
             long currentTimeMillis = (System.currentTimeMillis() - this.recordingStart) / 1000;
             this.tvRecordingTime.setText(String.format(Locale.getDefault(), "%d:%02d", Long.valueOf(currentTimeMillis / 60), Long.valueOf(currentTimeMillis % 60)));
-            this.handler.postDelayed(new h(5, this), 200L);
+            this.handler.postDelayed(new Runnable() { @Override public void run() { updateRecordingTime(); } }, 200L);
         }
     }
 
@@ -692,17 +692,17 @@ public class DirectChatActivity extends d.s {
         this.layoutRecording = (FrameLayout) findViewById(R.id.layout_recording);
         this.tvRecordingTime = (TextView) findViewById(R.id.tv_recording_time);
         this.tvRecordingStatus = (TextView) findViewById(R.id.tv_recording_status);
-        ((ImageButton) findViewById(R.id.btn_back)).setOnClickListener(new v(this, 0));
+        ((ImageButton) findViewById(R.id.btn_back)).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$0(v); } });
         this.adapter = new ChatAdapter();
         int i4 = 1;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         this.rvMessages.setLayoutManager(linearLayoutManager);
         this.rvMessages.setAdapter(this.adapter);
-        this.btnSend.setOnClickListener(new v(this, i4));
-        this.etMessage.setOnEditorActionListener(new p(this, i4));
-        this.btnImage.setOnClickListener(new v(this, 2));
-        this.btnContact.setOnClickListener(new v(this, 3));
+        this.btnSend.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$1(v); } });
+        this.etMessage.setOnEditorActionListener(new TextView.OnEditorActionListener() { @Override public boolean onEditorAction(TextView tv, int action, KeyEvent e) { return lambda$onCreate$2(tv, action, e); } });
+        this.btnImage.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$3(v); } });
+        this.btnContact.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$4(v); } });
         setupVoiceRecording();
         this.pollRunnable = new Runnable() { // from class: com.yizhaiyiju.app.DirectChatActivity.1
             @Override // java.lang.Runnable

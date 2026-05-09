@@ -115,7 +115,7 @@ public class NameAnalysisActivity extends d.s {
             + "\n\n" + ((TextView) findViewById(R.id.tv_grid)).getText().toString()
             + "\n\n" + ((TextView) findViewById(R.id.tv_interpret)).getText().toString();
         saveTestResult("姓名分析", i13 + "分 " + str, nameResultDesc);
-        findViewById(R.id.btn_share).setOnClickListener(new p0(this, 0));
+        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$calculate$3(v); } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -125,12 +125,12 @@ public class NameAnalysisActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$calculate$3(View view) {
-        this.resultContainer.post(new h(9, this));
+        this.resultContainer.post(new Runnable() { @Override public void run() { lambda$calculate$2(); } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$onCreate$1(View view) {
-        TestBillingHelper.checkAndProceed(this, "姓名分析", new k(this, 6));
+        TestBillingHelper.checkAndProceed(this, "姓名分析", new TestBillingHelper.BillCallback() { @Override public void onAllowed() { lambda$onCreate$0(); } });
     }
 
     public String getElem(int i4) {
@@ -234,7 +234,7 @@ public class NameAnalysisActivity extends d.s {
         }
         this.spYear.setAdapter((SpinnerAdapter) new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, strArr));
         this.spYear.setSelection(Math.max(0, 40));
-        findViewById(R.id.btn_calc).setOnClickListener(new p0(this, i4));
+        findViewById(R.id.btn_calc).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$1(v); } });
     }
 
     @Override // d.s

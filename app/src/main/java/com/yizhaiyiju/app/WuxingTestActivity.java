@@ -72,7 +72,10 @@ public class WuxingTestActivity extends d.s {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(0, 0, 0, 12);
             textView.setLayoutParams(layoutParams);
-            textView.setOnClickListener(new g0(this, question.scores[i4], 2));
+            final int idx = i4;
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) { lambda$showQuestion$4(idx, v); }
+            });
             linearLayout.addView(textView);
         }
     }
@@ -197,6 +200,6 @@ public class WuxingTestActivity extends d.s {
                 }
             }
         });
-        TestBillingHelper.checkAndProceed(this, "五行测试", new k(this, 7));
+        TestBillingHelper.checkAndProceed(this, "五行测试", new TestBillingHelper.BillCallback() { @Override public void onAllowed() { lambda$onCreate$3(); } });
     }
 }

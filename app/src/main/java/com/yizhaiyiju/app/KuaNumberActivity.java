@@ -121,11 +121,11 @@ public class KuaNumberActivity extends d.s {
     }
 
     public void lambda$calculate$3(View view) {
-        this.resultContainer.post(new h(7, this));
+        this.resultContainer.post(new Runnable() { @Override public void run() { lambda$calculate$2(); } });
     }
 
     public void lambda$onCreate$1(View view) {
-        TestBillingHelper.checkAndProceed(this, "八宅命卦", new k(this, 3));
+        TestBillingHelper.checkAndProceed(this, "八宅命卦", new TestBillingHelper.BillCallback() { @Override public void onAllowed() { lambda$onCreate$0(); } });
     }
 
     public int calcKua(int year, boolean male) {
@@ -172,7 +172,7 @@ public class KuaNumberActivity extends d.s {
         }
         this.spYear.setAdapter((SpinnerAdapter) new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, years));
         this.spYear.setSelection(Math.max(0, 40));
-        findViewById(R.id.btn_calc).setOnClickListener(new j0(this, 1));
+        findViewById(R.id.btn_calc).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$1(v); } });
     }
 
     @Override

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_page"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/bg_toolbar"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="返回"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="我的咨询记录"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border_soft" />
+
+    <LinearLayout
+        android:id="@+id/layout_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_empty_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="56sp" />
+
+        <TextView
+            android:id="@+id/tv_empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="暂无咨询记录"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_empty_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="预约咨询服务后，记录将显示在这里"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/btn_empty_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_gold_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp">
+
+            <TextView
+                android:id="@+id/tv_empty_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="去预约咨询"
+                android:textColor="@color/text_on_accent"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/btn_clear_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_outline_button"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="8dp"
+            android:text="清空记录"
+            android:textColor="@color/primary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_consult_history"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

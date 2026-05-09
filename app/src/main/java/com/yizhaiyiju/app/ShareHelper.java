@@ -82,7 +82,7 @@ public class ShareHelper {
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
         }
-        view.post(new y0(context, view, str));
+        view.post(new Runnable() { @Override public void run() { doShare(context, view, str); } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -122,7 +122,7 @@ public class ShareHelper {
     }
 
     private static void loadQRAndShare(Context context, View view, ImageView imageView, String str) {
-        new Thread(new e0(imageView, view, context, str)).start();
+        new Thread(new Runnable() { @Override public void run() { lambda$loadQRAndShare$2(imageView, view, context, str); } }).start();
     }
 
     private static Uri saveBitmap(Context context, Bitmap bitmap, String str) {

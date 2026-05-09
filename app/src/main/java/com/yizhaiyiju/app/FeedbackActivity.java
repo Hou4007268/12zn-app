@@ -78,7 +78,7 @@ public class FeedbackActivity extends d.s {
     }
 
     private void submitFeedback(String str, String str2, String str3) {
-        new Thread(new e0(this, str, str2, str3)).start();
+        new Thread(new Runnable() { @Override public void run() { lambda$submitFeedback$4(str, str2, str3); } }).start();
     }
 
     @Override

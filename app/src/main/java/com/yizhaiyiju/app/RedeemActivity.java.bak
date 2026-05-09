@@ -75,13 +75,13 @@ public class RedeemActivity extends d.s {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            final RedeemActivity.AnonymousClass1 self = this; final IOException fio = iOException; RedeemActivity.this.runOnUiThread(new Runnable() { @Override public void run() { self.lambda$onFailure$0(fio); } });
+            RedeemActivity.this.runOnUiThread(new f(this, 6, iOException));
         }
 
         @Override // q3.e
         public void onResponse(q3.d dVar, q3.h0 h0Var) {
             try {
-                final RedeemActivity.AnonymousClass1 self = this; final u2.e fres = r.d1(h0Var.f4104g.C()).g(); RedeemActivity.this.runOnUiThread(new Runnable() { @Override public void run() { self.lambda$onResponse$1(fres); } });
+                RedeemActivity.this.runOnUiThread(new f(this, 5, r.d1(h0Var.f4104g.C()).g()));
             } catch (Exception unused) {
                 RedeemActivity.this.runOnUiThread(new Runnable() { @Override public void run() { lambda$onResponse$2(); } });
             }

@@ -45,6 +45,7 @@ public class ConsultActivity extends d.s {
 
                 @Override // com.yizhaiyiju.app.ApiHelper.Callback
                 public void onSuccess(String str) {
+                    saveConsultLocally(trim, trim2, obj, trim3);
                     Toast.makeText(ConsultActivity.this, "预约成功！师傅会尽快联系您", 1).show();
                     ConsultActivity.this.finish();
                 }
@@ -111,5 +112,25 @@ public class ConsultActivity extends d.s {
                 }
             }
         });
+    }
+
+    private void saveConsultLocally(String name, String phone, String type, String desc) {
+        try {
+            android.content.SharedPreferences prefs = getSharedPreferences("app_prefs", 0);
+            String json = prefs.getString("consult_records", "[]");
+            org.json.JSONArray arr = new org.json.JSONArray(json);
+            org.json.JSONObject obj = new org.json.JSONObject();
+            obj.put("name", name);
+            obj.put("phone", phone);
+            obj.put("type", type);
+            obj.put("desc", desc);
+            obj.put("timestamp", System.currentTimeMillis());
+            org.json.JSONArray newArr = new org.json.JSONArray();
+            newArr.put(obj);
+            for (int i = 0; i < arr.length(); i++) {
+                newArr.put(arr.get(i));
+            }
+            prefs.edit().putString("consult_records", newArr.toString()).commit();
+        } catch (Exception ignored) {}
     }
 }

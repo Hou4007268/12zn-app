@@ -91,7 +91,7 @@ public class MessagesFragment extends Fragment {
             if (MessagesFragment.this.getActivity() == null) {
                 return;
             }
-            final MessagesFragment.AnonymousClass1 self = this; final JSONObject fres = jSONObject; MessagesFragment.this.getActivity().runOnUiThread(new Runnable() { @Override public void run() { self.lambda$onSuccess$2(fres); } });
+            MessagesFragment.this.getActivity().runOnUiThread(new f(this, 4, jSONObject));
         }
     }
 

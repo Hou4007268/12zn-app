@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
-import android.graphics.Bitmap;
 import android.widget.Toast;
 import com.yizhaiyiju.app.ApiHelper;
 import com.yizhaiyiju.app.TestBillingHelper;
@@ -41,7 +40,7 @@ public class TestBillingHelper {
         /* JADX INFO: Access modifiers changed from: private */
         public static /* synthetic */ void lambda$onSuccess$1(ApiHelper.PayResult payResult, Context context, ImageView imageView) {
             try {
-                final Bitmap bmp = BitmapFactory.decodeStream(new URL("https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + URLEncoder.encode(payResult.qrUrl, "UTF-8")).openStream()); ((Activity) context).runOnUiThread(new Runnable() { @Override public void run() { imageView.setImageBitmap(bmp); } });
+                ((Activity) context).runOnUiThread(new f(imageView, 7, BitmapFactory.decodeStream(new URL("https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + URLEncoder.encode(payResult.qrUrl, "UTF-8")).openStream())));
             } catch (Exception unused) {
             }
         }

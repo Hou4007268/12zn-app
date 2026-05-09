@@ -95,7 +95,7 @@ public class ServiceDetailActivity extends d.s {
         if (stringExtra == null) {
             stringExtra = "服务";
         }
-        findViewById(R.id.btn_back).setOnClickListener(new i(5, this));
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$0(v); } });
         final ServiceInfo serviceInfo = getServiceInfo(stringExtra);
         ((TextView) findViewById(R.id.tv_title)).setText(serviceInfo.name);
         ((TextView) findViewById(R.id.tv_service_name)).setText(serviceInfo.name);

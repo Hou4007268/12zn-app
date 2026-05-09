@@ -75,7 +75,7 @@ public class FortuneActivity extends d.s {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_fortune);
-        findViewById(R.id.btn_back).setOnClickListener(new i(3, this));
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$0(v); } });
         this.resultContainer = (LinearLayout) findViewById(R.id.result_container);
         this.tvFortuneTitle = (TextView) findViewById(R.id.tv_fortune_title);
         this.tvOverall = (TextView) findViewById(R.id.tv_overall);
@@ -103,7 +103,10 @@ public class FortuneActivity extends d.s {
             layoutParams.setMargins(dp2, dp2, dp2, dp2);
             textView.setLayoutParams(layoutParams);
             textView.setMinHeight(dp(64));
-            textView.setOnClickListener(new g0(this, i5, i4));
+            final int zodiacIdx = i5;
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) { lambda$onCreate$1(zodiacIdx, v); }
+            });
             gridLayout.addView(textView);
         }
     }

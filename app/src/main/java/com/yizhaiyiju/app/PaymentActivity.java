@@ -60,13 +60,8 @@ public class PaymentActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showQRCode(String str) {
-        this.wvQr.getSettings().setJavaScriptEnabled(true);
-        this.wvQr.setWebViewClient(new WebViewClient());
-        String safeUrl = str.replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;");
-        String html = "<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><style>body{margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#fefcf8;}canvas{border:8px solid #fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.1);}</style></head><body><canvas id='qr' width='200' height='200'></canvas><script>var url='" + safeUrl + "';var c=document.getElementById('qr'),x=c.getContext('2d');x.fillStyle='#fefcf8';x.fillRect(0,0,200,200);var s=200,n=25,cs=s/n;function hash(s){var h=0;for(var i=0;i<s.length;i++)h=((h<<5)-h)+s.charCodeAt(i)|0;return Math.abs(h)}var h=hash(url);for(var r=0;r<n;r++)for(var col=0;col<n;col++){var bit=((h>>((r*n+col)%31))&1)||((r+col+h)%3===0);if((r<3&&col<3)||(r<3&&col>=n-3)||(r>=n-3&&col<3))bit=(r%2===0&&col%2===0)||((r+col)%3===0);if(bit){x.fillStyle='#3d3530';x.fillRect(col*cs+1,r*cs+1,cs-2,cs-2)}}</script></body></html>";
-        this.wvQr.loadDataWithBaseURL(null, html, "text/html", "UTF-8", null);
+        this.wvQr.loadUrl(str);
     }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void showSuccess() {
         this.wvQr.setVisibility(8);

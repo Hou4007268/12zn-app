@@ -65,10 +65,7 @@ public class FlyingStarActivity extends d.s {
                 this.tvCells[i5].setBackgroundColor(0);
             }
             sb.append(strArr[i5]);
-            sb.append(": ");
-            sb.append(iArr3[i5]);
-            sb.append(i6);
-            sb.append(i7);
+            sb.append(": 运" + i6 + "山" + iArr3[i5] + "向" + i7 + " ");
             sb.append(" ");
             sb.append(quality);
             sb.append("\n");
@@ -76,7 +73,7 @@ public class FlyingStarActivity extends d.s {
         ((TextView) findViewById(R.id.tv_analysis)).setText(sb.toString());
         this.resultContainer.setVisibility(0);
         saveTestResult("玄空飞星", ((TextView) findViewById(R.id.tv_period_info)).getText().toString(), ((TextView) findViewById(R.id.tv_analysis)).getText().toString());
-        findViewById(R.id.btn_share).setOnClickListener(new f0(this, 1));
+        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$calculate$3(v); } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -86,12 +83,12 @@ public class FlyingStarActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$calculate$3(View view) {
-        this.resultContainer.post(new h(6, this));
+        this.resultContainer.post(new Runnable() { @Override public void run() { lambda$calculate$2(); } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$onCreate$1(View view) {
-        TestBillingHelper.checkAndProceed(this, "玄空飞星", new k(this, 1));
+        TestBillingHelper.checkAndProceed(this, "玄空飞星", new TestBillingHelper.BillCallback() { @Override public void onAllowed() { lambda$onCreate$0(); } });
     }
 
     public int calcPeriod(int i4) {
@@ -169,7 +166,7 @@ public class FlyingStarActivity extends d.s {
         for (int i6 = 0; i6 < 9; i6++) {
             this.tvCells[i6] = (TextView) findViewById(iArr[i6]);
         }
-        findViewById(R.id.btn_calc).setOnClickListener(new f0(this, i4));
+        findViewById(R.id.btn_calc).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$1(v); } });
     }
 
     @Override // d.s

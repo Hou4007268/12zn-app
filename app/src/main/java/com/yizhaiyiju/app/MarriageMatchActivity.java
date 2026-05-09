@@ -148,7 +148,7 @@ public class MarriageMatchActivity extends d.s {
         ((TextView) findViewById(R.id.tv_level)).setText(level);
         ((TextView) findViewById(R.id.tv_detail)).setText(detail.toString().trim());
         ((TextView) findViewById(R.id.tv_advice)).setText(advice.toString().trim());
-        findViewById(R.id.btn_share).setOnClickListener(new l0(this, 0));
+        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$calculate$3(v); } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -158,12 +158,12 @@ public class MarriageMatchActivity extends d.s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$calculate$3(View view) {
-        this.resultContainer.post(new h(8, this));
+        this.resultContainer.post(new Runnable() { @Override public void run() { lambda$calculate$2(); } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$onCreate$1(View view) {
-        TestBillingHelper.checkAndProceed(this, "八字合婚", new k(this, 5));
+        TestBillingHelper.checkAndProceed(this, "八字合婚", new TestBillingHelper.BillCallback() { @Override public void onAllowed() { lambda$onCreate$0(); } });
     }
 
     private boolean isLiuHe(int a, int b) {
@@ -279,7 +279,7 @@ public class MarriageMatchActivity extends d.s {
         this.spFemaleMonth.setAdapter((SpinnerAdapter) arrayAdapter2);
         this.spFemaleDay.setAdapter((SpinnerAdapter) arrayAdapter3);
         this.spFemaleHour.setAdapter((SpinnerAdapter) arrayAdapter4);
-        findViewById(R.id.btn_calc).setOnClickListener(new l0(this, i4));
+        findViewById(R.id.btn_calc).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$1(v); } });
     }
 
     @Override // d.s

@@ -170,7 +170,7 @@ public class LoginActivity extends d.s {
         this.btnLogin.setText("重置密码");
         this.tvSwitchMode.setText("返回登录");
         this.tvForgot.setVisibility(8);
-        this.btnLogin.setOnClickListener(new k0(this, 0));
+        this.btnLogin.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$resetPassword$6(v); } });
     }
 
     private void sendCode() {
@@ -216,7 +216,7 @@ public class LoginActivity extends d.s {
 
     private void switchMode() {
         this.isRegisterMode = !this.isRegisterMode;
-        this.btnLogin.setOnClickListener(new k0(this, 1));
+        this.btnLogin.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$switchMode$5(v); } });
         updateUI();
     }
 
@@ -272,7 +272,7 @@ public class LoginActivity extends d.s {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_login);
-        findViewById(R.id.btn_back).setOnClickListener(new k0(this, 2));
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$0(v); } });
         this.etPhone = (EditText) findViewById(R.id.et_phone);
         this.etEmail = (EditText) findViewById(R.id.et_email);
         this.etCode = (EditText) findViewById(R.id.et_code);
@@ -285,10 +285,10 @@ public class LoginActivity extends d.s {
         this.tvPasswordHint = (TextView) findViewById(R.id.tv_password_hint);
         this.layoutCode = (LinearLayout) findViewById(R.id.layout_code);
         this.layoutEmail = (LinearLayout) findViewById(R.id.layout_email);
-        this.btnSendCode.setOnClickListener(new k0(this, 3));
-        this.btnLogin.setOnClickListener(new k0(this, 4));
-        this.tvSwitchMode.setOnClickListener(new k0(this, 5));
-        this.tvForgot.setOnClickListener(new k0(this, 6));
+        this.btnSendCode.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$1(v); } });
+        this.btnLogin.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$2(v); } });
+        this.tvSwitchMode.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$3(v); } });
+        this.tvForgot.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$4(v); } });
         if ("reset".equals(getIntent().getStringExtra("mode"))) {
             resetPassword();
         }

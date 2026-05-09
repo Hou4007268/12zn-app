@@ -12,7 +12,7 @@ import s2.r;
 /* loaded from: classes.dex */
 public class AnnouncementActivity extends d.s {
     public static void checkAndShow(Context context) {
-        new Thread(new a(context, 0)).start();
+        new Thread(new Runnable() { @Override public void run() { lambda$checkAndShow$1(context); } }).start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -100,6 +100,6 @@ public class AnnouncementActivity extends d.s {
                 linearLayout.addView(textView4);
             }
         }
-        findViewById(R.id.btn_dismiss).setOnClickListener(new j(this, 4, stringExtra));
+        findViewById(R.id.btn_dismiss).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$0(stringExtra, v); } });
     }
 }

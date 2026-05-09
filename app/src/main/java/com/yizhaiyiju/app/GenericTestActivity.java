@@ -200,7 +200,10 @@ public class GenericTestActivity extends d.s {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(0, 0, 0, 12);
             textView2.setLayoutParams(layoutParams);
-            textView2.setOnClickListener(new g0(this, question.scores[i5], i4));
+            final int score = question.scores[i5];
+            textView2.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) { lambda$showQuestion$4(score, v); }
+            });
             linearLayout.addView(textView2);
         }
     }
@@ -271,8 +274,8 @@ public class GenericTestActivity extends d.s {
             }
         });
         ((TextView) findViewById(R.id.tv_title)).setText(stringExtra != null ? stringExtra : "测试");
-        findViewById(R.id.btn_share).setOnClickListener(new j(this, 6, stringExtra));
+        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$2(stringExtra, v); } });
         loadQuestions();
-        TestBillingHelper.checkAndProceed(this, stringExtra, new k(this, 2));
+        TestBillingHelper.checkAndProceed(this, stringExtra, new TestBillingHelper.BillCallback() { @Override public void onAllowed() { lambda$onCreate$3(); } });
     }
 }

@@ -48,7 +48,7 @@ public class ApiHelper {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            final ApiHelper.Callback x500 = this.val$callback; final IOException e500 = iOException; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass1.lambda$onFailure$0(x500, e500); } });
+            ApiHelper.mainHandler.post(new e(this.val$callback, iOException, 0));
         }
 
         @Override // q3.e
@@ -57,23 +57,12 @@ public class ApiHelper {
             try {
                 u2.e g4 = r.d1(h0Var.f4104g.C()).g();
                 if (g4.k("success") && g4.j("success").f()) {
-                    final ApiHelper.Callback x1 = this.val$callback; final int m1 = i4; final u2.e r1 = g4; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { if (m1 == 0) { ApiHelper.AnonymousClass1.lambda$onResponse$1(x1, r1); } else { ApiHelper.AnonymousClass5.lambda$onResponse$2(x1, r1); } } });
+                    ApiHelper.mainHandler.post(new b(this.val$callback, g4, i4));
                 } else {
-                    final ApiHelper.Callback x1 = this.val$callback; final int m1 = i4; final String s1 = g4.k("error") ? g4.j("error").h() : "发送失败"; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { if (m1 == 0 || m1 == 1) { x1.onError(s1); } else { x1.onSuccess(s1); } } });
+                    ApiHelper.mainHandler.post(new c(this.val$callback, g4.k("error") ? g4.j("error").h() : "发送失败", i4));
                 }
             } catch (Exception e2) {
-                final ApiHelper.Callback x900 = this.val$callback; final Exception e900 = e2; final int m900 = i4; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() {
-    switch (m900) {
-        case 0: ApiHelper.AnonymousClass1.lambda$onResponse$3(x900, e900); break;
-        case 1: ApiHelper.AnonymousClass2.lambda$onResponse$3(x900, e900); break;
-        case 2: ApiHelper.AnonymousClass3.lambda$onResponse$3(x900, e900); break;
-        case 3: ApiHelper.AnonymousClass4.lambda$onResponse$3(x900, e900); break;
-        case 4: ApiHelper.AnonymousClass5.lambda$onResponse$5(x900, e900); break;
-        case 5: ApiHelper.AnonymousClass6.lambda$onResponse$3(x900, e900); break;
-        case 6: ApiHelper.AnonymousClass7.lambda$onResponse$2(x900, e900); break;
-        default: ApiHelper.AnonymousClass8.lambda$onResponse$2(x900, e900); break;
-    }
-} });
+                ApiHelper.mainHandler.post(new d(this.val$callback, e2, i4));
             }
         }
     }
@@ -98,7 +87,7 @@ public class ApiHelper {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            final ApiHelper.Callback x600 = this.val$callback; final IOException e600 = iOException; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass2.lambda$onFailure$0(x600, e600); } });
+            ApiHelper.mainHandler.post(new e(this.val$callback, iOException, 1));
         }
 
         @Override // q3.e
@@ -107,7 +96,7 @@ public class ApiHelper {
             try {
                 u2.e g4 = r.d1(h0Var.f4104g.C()).g();
                 if (!g4.k("success") || !g4.j("success").f()) {
-                    final ApiHelper.Callback x11 = this.val$callback; final int m11 = i4; final String s11 = g4.k("error") ? g4.j("error").h() : "操作失败"; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { if (m11 == 0 || m11 == 1) { x11.onError(s11); } else { x11.onSuccess(s11); } } });
+                    ApiHelper.mainHandler.post(new c(this.val$callback, g4.k("error") ? g4.j("error").h() : "操作失败", i4));
                     return;
                 }
                 LoginResult loginResult = new LoginResult();
@@ -118,20 +107,9 @@ public class ApiHelper {
                 int i5 = 0;
                 loginResult.isNew = g4.k("is_new") && g4.j("is_new").f();
                     loginResult.memberExpires = g4.k("member_expires") ? g4.j("member_expires").h() : null;
-                final ApiHelper.Callback fcb = this.val$callback; final ApiHelper.LoginResult fres = loginResult; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { fcb.onSuccess(fres); } });
+                ApiHelper.mainHandler.post(new f(this.val$callback, i5, loginResult));
             } catch (Exception e2) {
-                final ApiHelper.Callback x901 = this.val$callback; final Exception e901 = e2; final int m901 = i4; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() {
-    switch (m901) {
-        case 0: ApiHelper.AnonymousClass1.lambda$onResponse$3(x901, e901); break;
-        case 1: ApiHelper.AnonymousClass2.lambda$onResponse$3(x901, e901); break;
-        case 2: ApiHelper.AnonymousClass3.lambda$onResponse$3(x901, e901); break;
-        case 3: ApiHelper.AnonymousClass4.lambda$onResponse$3(x901, e901); break;
-        case 4: ApiHelper.AnonymousClass5.lambda$onResponse$5(x901, e901); break;
-        case 5: ApiHelper.AnonymousClass6.lambda$onResponse$3(x901, e901); break;
-        case 6: ApiHelper.AnonymousClass7.lambda$onResponse$2(x901, e901); break;
-        default: ApiHelper.AnonymousClass8.lambda$onResponse$2(x901, e901); break;
-    }
-} });
+                ApiHelper.mainHandler.post(new d(this.val$callback, e2, i4));
             }
         }
     }
@@ -161,7 +139,7 @@ public class ApiHelper {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            final ApiHelper.Callback x700 = this.val$callback; final IOException e700 = iOException; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass3.lambda$onFailure$0(x700, e700); } });
+            ApiHelper.mainHandler.post(new e(this.val$callback, iOException, 2));
         }
 
         @Override // q3.e
@@ -171,7 +149,7 @@ public class ApiHelper {
             int i4 = 2;
             try {
                 if (!h0Var.C()) {
-                    final ApiHelper.Callback x100 = this.val$callback; final q3.h0 r100 = h0Var; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass3.lambda$onResponse$1(x100, r100); } });
+                    ApiHelper.mainHandler.post(new g(this.val$callback, h0Var, 0));
                     return;
                 }
                 u2.e g4 = r.d1(h0Var.f4104g.C()).g();
@@ -180,25 +158,14 @@ public class ApiHelper {
                 } else {
                     if (!g4.k("reply")) {
                         str = "抱歉，暂时无法回答";
-                        final ApiHelper.Callback x21 = this.val$callback; final int m21 = i4; final String s21 = str; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { if (m21 == 0 || m21 == 1) { x21.onError(s21); } else { x21.onSuccess(s21); } } });
+                        ApiHelper.mainHandler.post(new c(this.val$callback, str, i4));
                     }
                     j4 = g4.j("reply");
                 }
                 str = j4.h();
-                final ApiHelper.Callback x22 = this.val$callback; final int m22 = i4; final String s22 = str; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { if (m22 == 0 || m22 == 1) { x22.onError(s22); } else { x22.onSuccess(s22); } } });
+                ApiHelper.mainHandler.post(new c(this.val$callback, str, i4));
             } catch (Exception e2) {
-                final ApiHelper.Callback x902 = this.val$callback; final Exception e902 = e2; final int m902 = i4; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() {
-    switch (m902) {
-        case 0: ApiHelper.AnonymousClass1.lambda$onResponse$3(x902, e902); break;
-        case 1: ApiHelper.AnonymousClass2.lambda$onResponse$3(x902, e902); break;
-        case 2: ApiHelper.AnonymousClass3.lambda$onResponse$3(x902, e902); break;
-        case 3: ApiHelper.AnonymousClass4.lambda$onResponse$3(x902, e902); break;
-        case 4: ApiHelper.AnonymousClass5.lambda$onResponse$5(x902, e902); break;
-        case 5: ApiHelper.AnonymousClass6.lambda$onResponse$3(x902, e902); break;
-        case 6: ApiHelper.AnonymousClass7.lambda$onResponse$2(x902, e902); break;
-        default: ApiHelper.AnonymousClass8.lambda$onResponse$2(x902, e902); break;
-    }
-} });
+                ApiHelper.mainHandler.post(new d(this.val$callback, e2, i4));
             }
         }
     }
@@ -228,7 +195,7 @@ public class ApiHelper {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            final ApiHelper.Callback x800 = this.val$callback; final IOException e800 = iOException; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass4.lambda$onFailure$0(x800, e800); } });
+            ApiHelper.mainHandler.post(new e(this.val$callback, iOException, 3));
         }
 
         @Override // q3.e
@@ -236,24 +203,13 @@ public class ApiHelper {
             int i4 = 3;
             try {
                 if (!h0Var.C()) {
-                    final ApiHelper.Callback x110 = this.val$callback; final q3.h0 r110 = h0Var; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass4.lambda$onResponse$1(x110, r110); } });
+                    ApiHelper.mainHandler.post(new g(this.val$callback, h0Var, 1));
                 } else {
                     u2.e g4 = r.d1(h0Var.f4104g.C()).g();
-                    final ApiHelper.Callback x41 = this.val$callback; final int m41 = i4; final String s41 = g4.k("message") ? g4.j("message").h() : "提交成功"; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { if (m41 == 0 || m41 == 1) { x41.onError(s41); } else { x41.onSuccess(s41); } } });
+                    ApiHelper.mainHandler.post(new c(this.val$callback, g4.k("message") ? g4.j("message").h() : "提交成功", i4));
                 }
             } catch (Exception e2) {
-                final ApiHelper.Callback x903 = this.val$callback; final Exception e903 = e2; final int m903 = i4; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() {
-    switch (m903) {
-        case 0: ApiHelper.AnonymousClass1.lambda$onResponse$3(x903, e903); break;
-        case 1: ApiHelper.AnonymousClass2.lambda$onResponse$3(x903, e903); break;
-        case 2: ApiHelper.AnonymousClass3.lambda$onResponse$3(x903, e903); break;
-        case 3: ApiHelper.AnonymousClass4.lambda$onResponse$3(x903, e903); break;
-        case 4: ApiHelper.AnonymousClass5.lambda$onResponse$5(x903, e903); break;
-        case 5: ApiHelper.AnonymousClass6.lambda$onResponse$3(x903, e903); break;
-        case 6: ApiHelper.AnonymousClass7.lambda$onResponse$2(x903, e903); break;
-        default: ApiHelper.AnonymousClass8.lambda$onResponse$2(x903, e903); break;
-    }
-} });
+                ApiHelper.mainHandler.post(new d(this.val$callback, e2, i4));
             }
         }
     }
@@ -288,7 +244,7 @@ public class ApiHelper {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            final ApiHelper.Callback x900 = this.val$callback; final IOException e900 = iOException; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass5.lambda$onFailure$0(x900, e900); } });
+            ApiHelper.mainHandler.post(new e(this.val$callback, iOException, 4));
         }
 
         /* JADX WARN: Removed duplicated region for block: B:22:0x0081 A[Catch: Exception -> 0x00c8, TryCatch #0 {Exception -> 0x00c8, blocks: (B:3:0x000a, B:5:0x0010, B:8:0x0020, B:10:0x0037, B:12:0x0046, B:15:0x0053, B:16:0x005d, B:18:0x0065, B:19:0x0069, B:20:0x0079, B:22:0x0081, B:23:0x008c, B:25:0x0094, B:26:0x009f, B:28:0x00a9, B:30:0x00b9, B:34:0x006e, B:36:0x0074), top: B:2:0x000a }] */
@@ -407,12 +363,12 @@ public class ApiHelper {
             */
             try {
                 if (!r10.C()) {
-                    final ApiHelper.Callback x120 = this.val$callback; final q3.h0 r120 = r10; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass5.lambda$onResponse$1(x120, r120); } });
+                    ApiHelper.mainHandler.post(new g(this.val$callback, r10, 2));
                     return;
                 }
                 u2.e g4 = r.d1(r10.f4104g.C()).g();
                 if (g4.k("error")) {
-                    final ApiHelper.Callback x51 = this.val$callback; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { x51.onSuccess(g4.j("error").h()); } });
+                    ApiHelper.mainHandler.post(new c(this.val$callback, g4.j("error").h(), 4));
                     return;
                 }
                 PayResult payResult = new PayResult();
@@ -427,12 +383,12 @@ public class ApiHelper {
                 payResult.amount = g4.k("amount") ? g4.j("amount").h() : "0";
                 payResult.subject = g4.k("subject") ? g4.j("subject").h() : "咨询服务";
                 if (payResult.orderNo == null || payResult.orderNo.isEmpty()) {
-                    final ApiHelper.Callback x61 = this.val$callback; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { x61.onSuccess("创建订单失败: 缺少订单号"); } });
+                    ApiHelper.mainHandler.post(new c(this.val$callback, "创建订单失败: 缺少订单号", 4));
                     return;
                 }
-                final ApiHelper.Callback fcb = this.val$callback; final ApiHelper.PayResult fres = payResult; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { fcb.onSuccess(fres); } });
+                ApiHelper.mainHandler.post(new f(this.val$callback, 1, payResult));
             } catch (Exception e2) {
-                final ApiHelper.Callback x1150 = this.val$callback; final Exception e1150 = e2; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass5.lambda$onResponse$5(x1150, e1150); } });
+                ApiHelper.mainHandler.post(new d(this.val$callback, e2, 4));
             }
         }
     }
@@ -462,20 +418,20 @@ public class ApiHelper {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            final ApiHelper.Callback x1000 = this.val$callback; final IOException e1000 = iOException; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass6.lambda$onFailure$0(x1000, e1000); } });
+            ApiHelper.mainHandler.post(new e(this.val$callback, iOException, 5));
         }
 
         @Override // q3.e
         public void onResponse(q3.d dVar, q3.h0 h0Var) {
             try {
                 if (!h0Var.C()) {
-                    final ApiHelper.Callback x130 = this.val$callback; final q3.h0 r130 = h0Var; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass6.lambda$onResponse$1(x130, r130); } });
+                    ApiHelper.mainHandler.post(new g(this.val$callback, h0Var, 3));
                 } else {
                     u2.e g4 = r.d1(h0Var.f4104g.C()).g();
-                    final ApiHelper.Callback x71 = this.val$callback; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { x71.onSuccess(g4.k("status") ? g4.j("status").h() : "unknown"); } });
+                    ApiHelper.mainHandler.post(new c(this.val$callback, g4.k("status") ? g4.j("status").h() : "unknown", 4));
                 }
             } catch (Exception e2) {
-                final ApiHelper.Callback x1200 = this.val$callback; final Exception e1200 = e2; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass6.lambda$onResponse$3(x1200, e1200); } });
+                ApiHelper.mainHandler.post(new d(this.val$callback, e2, 5));
             }
         }
     }
@@ -500,7 +456,7 @@ public class ApiHelper {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            final ApiHelper.Callback x1100 = this.val$callback; final IOException e1100 = iOException; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass7.lambda$onFailure$0(x1100, e1100); } });
+            ApiHelper.mainHandler.post(new e(this.val$callback, iOException, 6));
         }
 
         @Override // q3.e
@@ -521,9 +477,9 @@ public class ApiHelper {
                     article.url = str;
                     arrayList.add(article);
                 }
-                final ApiHelper.Callback fcb = this.val$callback; final java.util.List fres = arrayList; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { fcb.onSuccess(fres); } });
+                ApiHelper.mainHandler.post(new f(this.val$callback, 2, arrayList));
             } catch (Exception e2) {
-                final ApiHelper.Callback x1250 = this.val$callback; final Exception e1250 = e2; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass7.lambda$onResponse$2(x1250, e1250); } });
+                ApiHelper.mainHandler.post(new d(this.val$callback, e2, 6));
             }
         }
     }
@@ -548,15 +504,15 @@ public class ApiHelper {
 
         @Override // q3.e
         public void onFailure(q3.d dVar, IOException iOException) {
-            final ApiHelper.Callback x1200 = this.val$cb; final IOException e1200 = iOException; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass8.lambda$onFailure$0(x1200, e1200); } });
+            ApiHelper.mainHandler.post(new e(this.val$cb, iOException, 7));
         }
 
         @Override // q3.e
         public void onResponse(q3.d dVar, q3.h0 h0Var) {
             try {
-                final ApiHelper.Callback fcb = this.val$cb; final JSONObject fres = new JSONObject(h0Var.f4104g.C()); ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { fcb.onSuccess(fres); } });
+                ApiHelper.mainHandler.post(new f(this.val$cb, 3, new JSONObject(h0Var.f4104g.C())));
             } catch (Exception e2) {
-                final ApiHelper.Callback x1300 = this.val$cb; final Exception e1300 = e2; ApiHelper.mainHandler.post(new Runnable() { @Override public void run() { ApiHelper.AnonymousClass8.lambda$onResponse$2(x1300, e1300); } });
+                ApiHelper.mainHandler.post(new d(this.val$cb, e2, 7));
             }
         }
     }

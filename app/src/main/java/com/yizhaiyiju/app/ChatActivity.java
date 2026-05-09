@@ -337,6 +337,6 @@ public class ChatActivity extends d.s {
                 }
             }
         });
-        this.etMessage.setOnEditorActionListener(new p(this, i4));
+        this.etMessage.setOnEditorActionListener(new TextView.OnEditorActionListener() { @Override public boolean onEditorAction(TextView tv, int action, KeyEvent e) { return lambda$onCreate$3(tv, action, e); } });
     }
 }

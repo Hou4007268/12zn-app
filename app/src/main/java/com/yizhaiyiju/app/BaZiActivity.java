@@ -84,7 +84,12 @@ public class BaZiActivity extends d.s {
         ((TextView) findViewById(R.id.tv_element_advice)).setText(advice.toString());
         ((TextView) findViewById(R.id.tv_dayun)).setText("流年与大运解析整理中，可结合前述结果综合参考。");
         this.resultContainer.setVisibility(0);
-        saveTestResult("八字排盘", "日主：" + STEMS[dayPillar[0]] + "（五行属" + ELEMENTS[STEM_ELEMENT[dayPillar[0]]] + "）", elements.toString() + " " + advice.toString());
+        String yearPillarStr = STEMS[yearPillar[0]] + BRANCHES[yearPillar[1]];
+        String monthPillarStr = STEMS[monthPillar[0]] + BRANCHES[monthPillar[1]];
+        String dayPillarStr = STEMS[dayPillar[0]] + BRANCHES[dayPillar[1]];
+        String hourPillarStr = STEMS[hourPillar[0]] + BRANCHES[hourPillar[1]];
+        String fullDesc = "年柱：" + yearPillarStr + " 月柱：" + monthPillarStr + " 日柱：" + dayPillarStr + " 时柱：" + hourPillarStr + "\n" + elements.toString() + "\n" + advice.toString() + "\n大运：流年与大运解析整理中，可结合前述结果综合参考。";
+        saveTestResult("八字排盘", "日主：" + STEMS[dayPillar[0]] + "（五行属" + ELEMENTS[STEM_ELEMENT[dayPillar[0]]] + "）", fullDesc);
         findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) { lambda$calculate$2(); }
         });
@@ -101,7 +106,7 @@ public class BaZiActivity extends d.s {
     }
 
     public void lambda$calculate$3(View view) {
-        this.resultContainer.post(new h(4, this));
+        this.resultContainer.post(new Runnable() { @Override public void run() { lambda$calculate$2(); } });
     }
 
     private void addBranchElements(int[] counts, int branch) {
@@ -150,7 +155,7 @@ public class BaZiActivity extends d.s {
         this.rgGender = (RadioGroup) findViewById(R.id.rg_gender);
         this.resultContainer = (LinearLayout) findViewById(R.id.result_container);
         setupSpinners();
-        findViewById(R.id.btn_calc).setOnClickListener(new l(this, 1));
+        findViewById(R.id.btn_calc).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$1(v); } });
     }
 
     public void setupSpinners() {

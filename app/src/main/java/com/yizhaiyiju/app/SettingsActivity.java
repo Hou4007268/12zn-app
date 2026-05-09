@@ -71,7 +71,7 @@ public class SettingsActivity extends d.s {
         });
         TextView textView = (TextView) findViewById(R.id.tv_auto_clear_value);
         textView.setText(this.chatPrefs.getLong("auto_clear_days", 7L) + "天");
-        findViewById(R.id.item_auto_clear).setOnClickListener(new j(this, 8, textView));
+        findViewById(R.id.item_auto_clear).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$2(textView, v); } });
         findViewById(R.id.item_clear_chat).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
