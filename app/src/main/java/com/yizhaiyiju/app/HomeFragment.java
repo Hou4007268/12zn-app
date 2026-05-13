@@ -11,7 +11,10 @@ import androidx.fragment.app.Fragment;
 public class HomeFragment extends Fragment {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$onViewCreated$0(View view) {
-        startActivity(new Intent(getActivity(), (Class<?>) ChatActivity.class));
+        Intent intent = new Intent(getActivity(), (Class<?>) ArticleDetailActivity.class);
+        intent.putExtra("article_title", "八字命理体验");
+        intent.putExtra("article_url", "https://12zn.com/test/bazi/");
+        startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -21,7 +24,7 @@ public class HomeFragment extends Fragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$onViewCreated$2(View view) {
-        startActivity(new Intent(getActivity(), (Class<?>) FortuneActivity.class));
+        startActivity(new Intent(getActivity(), (Class<?>) ChatActivity.class));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

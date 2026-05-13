@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -14,14 +18,32 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         setContentView(R.layout.activity_main);
 
         ApiHelper.initFromPrefs(this);
         AnnouncementActivity.checkAndShow(this);
         UpdateHelper.checkUpdate(this);
 
+        View fragmentContainer = findViewById(R.id.fragment_container);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         int navServicesId = getResources().getIdentifier("nav_services", "id", getPackageName());
+
+        final int fragmentTop = fragmentContainer.getPaddingTop();
+        final int fragmentLeft = fragmentContainer.getPaddingLeft();
+        final int fragmentRight = fragmentContainer.getPaddingRight();
+        final int fragmentBottom = fragmentContainer.getPaddingBottom();
+        final int navLeft = bottomNav.getPaddingLeft();
+        final int navTop = bottomNav.getPaddingTop();
+        final int navRight = bottomNav.getPaddingRight();
+        final int navBottom = bottomNav.getPaddingBottom();
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            fragmentContainer.setPadding(fragmentLeft, fragmentTop + insets.top, fragmentRight, fragmentBottom);
+            bottomNav.setPadding(navLeft, navTop, navRight, navBottom + insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
 
         // Hide Services tab for lite version
         if (!BuildConfig.FULL_VERSION) {
@@ -94,5 +116,4 @@ public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
             }
         }
     }
-
 }

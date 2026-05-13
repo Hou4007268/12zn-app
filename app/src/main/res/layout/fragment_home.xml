@@ -165,7 +165,7 @@
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:src="@drawable/ic_crystal_ball"
+                    android:src="@drawable/ic_test_bazi"
                     android:contentDescription="每日运势图标"
                     android:tint="@null"/>
                 <TextView
@@ -175,13 +175,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="今日运势"/>
+                    android:text="八字命理体验"/>
                 <TextView
                     android:textSize="10sp"
                     android:textColor="@color/text_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="趋吉避凶"/>
+                    android:text="先看命盘，再决定下一步"/>
             </LinearLayout>
             <LinearLayout
                 android:gravity="center"
