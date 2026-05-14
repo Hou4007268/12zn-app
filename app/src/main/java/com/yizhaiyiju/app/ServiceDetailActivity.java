@@ -91,6 +91,7 @@ public class ServiceDetailActivity extends d.s {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_service_detail);
+        InsetsHelper.applyTopInset(this, R.id.top_bar);
         String stringExtra = getIntent().getStringExtra("service_name");
         if (stringExtra == null) {
             stringExtra = "服务";

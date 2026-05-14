@@ -18,6 +18,7 @@ public class TestDetailActivity extends d.s {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_test_detail);
+        InsetsHelper.applyTopInset(this, R.id.top_bar);
 
         // Parse record from intent
         String testId = getIntent().getStringExtra("test_id");

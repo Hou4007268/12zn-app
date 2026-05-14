@@ -143,6 +143,7 @@ public class TestListFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
+        InsetsHelper.applyTopInset(view.findViewById(R.id.top_bar));
         view.findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

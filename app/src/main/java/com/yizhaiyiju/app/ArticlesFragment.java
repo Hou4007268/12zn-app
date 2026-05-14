@@ -126,6 +126,12 @@ public class ArticlesFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
+        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(view.findViewById(R.id.top_bar), (v, insets) -> {
+            androidx.core.graphics.Insets bars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars());
+            v.setPadding(v.getPaddingLeft(), v.getPaddingTop() + bars.top, v.getPaddingRight(), v.getPaddingBottom());
+            return insets;
+        });
+        androidx.core.view.ViewCompat.requestApplyInsets(view.findViewById(R.id.top_bar));
         view.findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

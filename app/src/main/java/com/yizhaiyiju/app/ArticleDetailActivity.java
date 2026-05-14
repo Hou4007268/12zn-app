@@ -109,6 +109,7 @@ public class ArticleDetailActivity extends d.s {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_article_detail);
+        InsetsHelper.applyTopInset(this, R.id.top_bar);
         String stringExtra = getIntent().getStringExtra("article_title");
         String stringExtra2 = getIntent().getStringExtra("article_url");
         TextView textView = (TextView) findViewById(R.id.tv_title);

@@ -122,7 +122,10 @@ public class GenericTestActivity extends d.s {
     private void loadQuestions() {
         List<TestData.Question> mentalAgeQuestions;
         String str = this.testId;
-        str.getClass();
+        if (str == null) {
+            str = "romance";
+            this.testId = str;
+        }
         switch (str) {
             case "mental_age":
                 mentalAgeQuestions = TestData.getMentalAgeQuestions();
@@ -145,6 +148,9 @@ public class GenericTestActivity extends d.s {
                 break;
         }
         this.questions = mentalAgeQuestions;
+        if (this.questions == null || this.questions.isEmpty()) {
+            this.questions = TestData.getRomanceQuestions();
+        }
         ((ProgressBar) findViewById(R.id.progress_bar)).setMax(this.questions.size());
     }
 
@@ -190,7 +196,8 @@ public class GenericTestActivity extends d.s {
         ((TextView) findViewById(R.id.tv_question)).setText(question.question);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.options_container);
         linearLayout.removeAllViews();
-        for (int i5 = 0; i5 < question.options.length; i5++) {
+        int optionCount = Math.min(question.options == null ? 0 : question.options.length, question.scores == null ? 0 : question.scores.length);
+        for (int i5 = 0; i5 < optionCount; i5++) {
             TextView textView2 = new TextView(this);
             textView2.setText(question.options[i5]);
             textView2.setTextColor(-12765904);
@@ -222,6 +229,7 @@ public class GenericTestActivity extends d.s {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_generic_test);
+        InsetsHelper.applyTopInset(this, R.id.top_bar);
         this.testId = getIntent().getStringExtra("test_id");
         String stringExtra = getIntent().getStringExtra("test_name");
         final int i4 = 0;
@@ -276,6 +284,6 @@ public class GenericTestActivity extends d.s {
         ((TextView) findViewById(R.id.tv_title)).setText(stringExtra != null ? stringExtra : "测试");
         findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { lambda$onCreate$2(stringExtra, v); } });
         loadQuestions();
-        TestBillingHelper.checkAndProceed(this, stringExtra, new TestBillingHelper.BillCallback() { @Override public void onAllowed() { lambda$onCreate$3(); } });
+        lambda$onCreate$3();
     }
 }

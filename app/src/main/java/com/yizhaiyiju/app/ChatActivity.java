@@ -240,6 +240,7 @@ public class ChatActivity extends d.s {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_chat);
+        InsetsHelper.applyTopInset(this, R.id.top_bar);
         final int i4 = 0;
         this.prefs = getSharedPreferences(PREFS_NAME, 0);
         this.rvMessages = (RecyclerView) findViewById(R.id.rv_messages);
